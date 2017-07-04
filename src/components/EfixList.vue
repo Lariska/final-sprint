@@ -1,17 +1,19 @@
 <<template>
     <section>
         <h2>Whats</h2>
-        <efix-section v-for="section in sectionCount"></efix-section>
+        <nav-bar-section v-for="section in sectionCount"></nav-bar-section>
         <div>
             <button @click="updateCount(1)">+</button>
         </div>
     </section>
 </template>
-<<script>
-import EfixSection from './template/EfixSection'
+<script>
+import NavBarSection from './template/NavBarSection'
+import FooterSection from './template/FooterSection'
+import MainSection from './template/MainSection'
 export default {
   name: 'efix-list',
-  components: {EfixSection},
+  components: {NavBarSection, FooterSection, MainSection},
   data(){
       return{
         sectionCount: 0
@@ -25,7 +27,7 @@ export default {
 }
 </script>
 
-<<style scoped>
+<style scoped>
     div{
         display:flex;
         justify-content: flex-end;

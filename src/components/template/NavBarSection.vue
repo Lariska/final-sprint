@@ -11,16 +11,17 @@
     </div>
   </section>
 </template>
-<<script>
+<script>
 export default {
     name: 'efix-section',
 
 }
 </script>
-<style>
+<style scoped>
   section {
     height: 60px;
-    background-color: #cccccc;
+    background-color: #ccc;
+    border: 1px solid #c1e2b3;
   }
 
   section .menu {
