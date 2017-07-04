@@ -1,6 +1,5 @@
 <<template>
     <section>
-        <h1>Hi</h1>
         <efix-list></efix-list>
     </section>
 </template>
