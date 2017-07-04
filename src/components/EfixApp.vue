@@ -3,7 +3,7 @@
         <efix-list></efix-list>
     </section>
 </template>
-<<script>
+<script>
 import EfixList from './EfixList';
 export default {
   name: 'efix-app',
@@ -11,6 +11,6 @@ export default {
 }
 </script>
 
-<<style>
+<style scoped>
 
 </style>

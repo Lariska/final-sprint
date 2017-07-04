@@ -16,4 +16,11 @@
     border: 1px solid #c1e2b3;
     height: 300px;
   }
+
+    section .menu {
+    display: flex;
+    line-height: 60px;
+    font-size: 26px;
+    color: cornflowerblue;
+  }
 </style>

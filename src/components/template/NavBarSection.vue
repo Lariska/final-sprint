@@ -9,12 +9,16 @@
         <li><a href="">Link1</a></li>
       </ul>
     </div>
+    <header-section></header-section>
   </section>
 </template>
 <script>
+import HeadrSection from './HeadrSection'
 export default {
     name: 'efix-section',
-
+    components: {
+      "header-section": HeadrSection
+    }
 }
 </script>
 <style scoped>
