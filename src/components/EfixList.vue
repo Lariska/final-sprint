@@ -1,10 +1,11 @@
-<<template>
+<template>
     <section>
         <h2>Whats</h2>
         <nav-bar-section v-for="section in sectionCount"></nav-bar-section>
         <div>
-            <button @click="updateCount(1)">+</button>
+            <button @click="updateCount">+</button>
         </div>
+        <div id="modal"></div>
     </section>
 </template>
 <script>
@@ -20,8 +21,9 @@ export default {
       }
   },
   methods: {
-      updateCount(num){
-        this.sectionCount += num;
+      updateCount(){
+
+        this.sectionCount += 1;
       }
   }
 }
@@ -31,6 +33,14 @@ export default {
     div{
         display:flex;
         justify-content: flex-end;
+    }
+    #modal{
+        background-color: red;
+        height: 150px;
+        width: 50%;
+        position: absolute;
+        left: 25%;
+        display:none;
     }
 </style>
 
