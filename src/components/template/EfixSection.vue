@@ -18,34 +18,34 @@ export default {
 }
 </script>
 <style>
-  header {
+  section {
     height: 60px;
     background-color: #cccccc;
   }
 
-  header .menu {
+  section .menu {
     display: flex;
     line-height: 60px;
     font-size: 26px;
     color: cornflowerblue;
   }
 
-  header .menu a {
+  section .menu a {
     margin: 0 30px;
   }
 
-  header .logo {
+  section .logo {
     color: red;
     font-size: 30px;
   }
 
-  header .nav {
+  section .nav {
     display: flex;
     list-style: none;
     margin: 0;
   }
 
-  header .nav a {
+  section .nav a {
     text-decoration: none;
   }
 </style>
