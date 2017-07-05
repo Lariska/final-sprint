@@ -1,7 +1,7 @@
 <template>
     <section>
         <h2>Whats</h2>
-        <nav-bar-section v-for="section in sectionCount"></nav-bar-section>
+        <nav-bar-section v-for="section in sectionCount" :key="section"></nav-bar-section>
         <div>
             <button @click="updateCount">+</button>
         </div>
