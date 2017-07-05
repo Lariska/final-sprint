@@ -25,7 +25,6 @@
     import MainSection from './template/MainSection'  
     import FooterSection from './template/FooterSection'
     import HeaderSection from './template/HeaderSection'
-    // import EfixWebsite from './EfixWebsite'
     import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
