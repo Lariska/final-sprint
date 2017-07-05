@@ -7,6 +7,8 @@
       </ul>
     </nav>
 
+    <editor-panel></editor-panel>
+
     <div class="box">
       <el-card class="box-card">
         <element-choice @selectedElement="selectElement"></element-choice>
@@ -25,6 +27,8 @@
   import FooterSection from './template/FooterSection'
   import HeaderSection from './template/HeaderSection'
   import ElementChoice from './ElementChoice'
+  import EditorPanel from './EditorPanel'
+
   export default {
     name: 'efix-list',
     components: {
@@ -33,6 +37,7 @@
       NavBarSection,
       MainSection,
       HeaderSection,
+      EditorPanel
     },
     data(){
       return {
