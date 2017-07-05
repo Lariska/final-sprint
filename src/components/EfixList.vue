@@ -23,6 +23,7 @@
     import FooterSection from './template/FooterSection'
     import HeaderSection from './template/HeaderSection'
     import ElementChoice from './ElementChoice'
+    import { EFIX_CHOSE_ELEMENT } from '../store/efix.store'
   export default {
     name: 'efix-list',
     components: {
@@ -39,9 +40,9 @@
       }
     },
     methods: {
-      selectElement(value){
-        this.elements.push(value);
-        console.log(value);
+      selectElement(componentName){
+        this.elements.push(componentName);
+        this.$store.commit(EFIX_CHOSE_ELEMENT, componentName);
       },
       updateCount(){
 
