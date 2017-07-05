@@ -4,7 +4,6 @@
     class="editor"
     :w="100"
     :h="300"
-    @dragging="onDrag"
     :resizable="false"
     :parent="false">
 
@@ -25,7 +24,8 @@
   .editor {
     width: 100px;
     height: 300px;
-    margin-left: 40px;
+    margin-left: 20px;
+    background-color: #fff;
     float: left;
     border: 1px solid #d1dbe5;
     border-radius: 5px;
