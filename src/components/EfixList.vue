@@ -7,6 +7,7 @@
       </ul>
     </nav>
 
+      <editor-panel></editor-panel>
       <div class="choice"> 
         <element-choice @selectedElement="selectElement" ></element-choice>
       </div>
@@ -14,6 +15,7 @@
         <el-card class="box-card">
             <component v-for="element in elements" :key="element" :is="element"></component>
         </el-card>
+
     </div>
 
     <div id="modal"></div>
@@ -25,7 +27,8 @@
   import FooterSection from './template/FooterSection'
   import HeaderSection from './template/HeaderSection'
   import ElementChoice from './ElementChoice'
-  import EditorCmp from './EditorCmp'
+  import EditorPanel from './EditorPanel'
+
   export default {
     name: 'efix-list',
     components: {
@@ -34,7 +37,7 @@
       NavBarSection,
       MainSection,
       HeaderSection,
-      EditorCmp
+      EditorPanel
     },
     data(){
       return {

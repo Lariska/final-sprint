@@ -7,12 +7,8 @@
 
 </template>
 <script>
-  import EditorCmp from '../EditorCmp.vue'
   export default {
     name: 'footer-section',
-    components: {
-      EditorCmp
-    }
   }
 </script>
 
