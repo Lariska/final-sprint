@@ -1,21 +1,18 @@
 <template>
   <section>
     <h2>Whats</h2>
-    <nav-bar-section v-for="section in sectionCount" :key="section"></nav-bar-section>
+    <efix-website v-for="section in sectionCount" :key="section"></efix-website>
     <div>
       <button @click="updateCount">+</button>
     </div>
-    <choice-btn></choice-btn>
     <div id="modal"></div>
   </section>
 </template>
 <script>
-  import NavBarSection from './template/NavBarSection'
-  import FooterSection from './template/FooterSection'
-  import MainSection from './template/MainSection'
+    import EfixWebsite from './EfixWebsite'
   export default {
     name: 'efix-list',
-    components: {NavBarSection, FooterSection, MainSection, ChoiceBtn},
+    components: {NavBarSection, FooterSection, MainSection, EfixWebsite},
     data(){
       return {
         sectionCount: 0
