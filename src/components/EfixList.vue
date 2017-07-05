@@ -1,9 +1,18 @@
 <template>
   <section>
-    <h2>Whats</h2>
-    <!--<efix-website v-for="section in sectionCount" :key="section"></efix-website>-->
-    <div>
-      <button @click="updateCount">+</button>
+
+    <nav class="main-nav flex align-center justify-center">
+      <ul class="clean-list flex align-center">
+        <img src="../assets/wixer-logo.png" alt="Company name">
+      </ul>
+    </nav>
+
+    <!--<div class="add">
+
+    <efix-website v-for="section in sectionCount" :key="section"></efix-website>
+    <div>-->
+
+      <!--<button @click="updateCount">+</button>-->
     </div>
     <element-choice @selectedElement="selectElement" ></element-choice>
         <component v-for="element in elements" :key="element" :is="element"></component>
@@ -47,6 +56,10 @@
 </script>
 
 <style scoped>
+.main-nav{
+  background-color: #41B883;
+  padding: 0;
+}
   div {
     display: flex;
     justify-content: flex-end;
@@ -59,6 +72,9 @@
     position: absolute;
     left: 25%;
     display: none;
+  }
+  .add{
+    margin-top: 10px;
   }
 </style>
 

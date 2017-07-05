@@ -59,5 +59,7 @@
   };
 </script>
 <style scoped>
-
+.block{
+  margin-top: 10px;
+}
 </style>

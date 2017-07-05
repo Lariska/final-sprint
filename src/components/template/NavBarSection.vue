@@ -13,12 +13,12 @@
   </section>
 </template>
 <script>
-import HeaderSection from './HeaderSection'
+// import HeaderSection from './HeaderSection'
 export default {
     name: 'nav-bar-section',
-    components: {
-      "header-section": HeaderSection
-    }
+    // components: {
+    //   "header-section": HeaderSection
+    // }
 }
 </script>
 <style scoped>
