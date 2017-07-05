@@ -7,34 +7,34 @@
       </ul>
     </nav>
 
-      <div class="box"> 
-        <el-card class="box-card">
-          <element-choice @selectedElement="selectElement" ></element-choice>
-              <component v-for="element in elements" :key="element" :is="element"></component>
-        </el-card>
-      </div>
+    <div class="box">
+      <el-card class="box-card">
+        <element-choice @selectedElement="selectElement"></element-choice>
+        <component v-for="element in elements" :key="element" :is="element"></component>
+      </el-card>
+    </div>
 
-        <div id="modal"></div>
+    <div id="modal"></div>
   </section>
 </template>
 <script>
-    import NavBarSection from './template/NavBarSection'
-    import MainSection from './template/MainSection'  
-    import FooterSection from './template/FooterSection'
-    import HeaderSection from './template/HeaderSection'
-    import ElementChoice from './ElementChoice'
+  import NavBarSection from './template/NavBarSection'
+  import MainSection from './template/MainSection'
+  import FooterSection from './template/FooterSection'
+  import HeaderSection from './template/HeaderSection'
+  import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
     components: {
-      ElementChoice, 
-      FooterSection, 
-      NavBarSection, 
-      MainSection, 
+      ElementChoice,
+      FooterSection,
+      NavBarSection,
+      MainSection,
       HeaderSection,
     },
     data(){
       return {
-        elements:[],
+        elements: [],
         sectionCount: 0
       }
     },
@@ -52,10 +52,11 @@
 </script>
 
 <style scoped>
-.main-nav{
-  background-color: #4E8098;
-  padding: 0;
-}
+  .main-nav {
+    background-color: #4E8098;
+    padding: 0;
+  }
+
   div {
     display: flex;
     justify-content: flex-end;
@@ -69,14 +70,17 @@
     left: 25%;
     display: none;
   }
-  .add{
+
+  .add {
     margin-top: 10px;
   }
-  .box{
+
+  .box {
     display: flex;
     align-content: center;
     justify-content: center;
   }
+
   .box-card {
     display: flex;
     align-content: center;
