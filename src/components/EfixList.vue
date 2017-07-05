@@ -7,17 +7,14 @@
       </ul>
     </nav>
 
-    <!--<div class="add">
+      <div class="box"> 
+        <el-card class="box-card">
+          <element-choice @selectedElement="selectElement" ></element-choice>
+              <component v-for="element in elements" :key="element" :is="element"></component>
+        </el-card>
+      </div>
 
-    <efix-website v-for="section in sectionCount" :key="section"></efix-website>
-    <div>-->
-
-      <!--<button @click="updateCount">+</button>-->
-    </div>
-    <element-choice @selectedElement="selectElement" ></element-choice>
-        <component v-for="element in elements" :key="element" :is="element"></component>
-
-    <div id="modal"></div>
+        <div id="modal"></div>
   </section>
 </template>
 <script>
@@ -51,7 +48,7 @@
 
 <style scoped>
 .main-nav{
-  background-color: #41B883;
+  background-color: #4E8098;
   padding: 0;
 }
   div {
@@ -69,6 +66,18 @@
   }
   .add{
     margin-top: 10px;
+  }
+  .box{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .box-card {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 60%;
   }
 </style>
 

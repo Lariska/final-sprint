@@ -39,7 +39,7 @@
         display: flex;
         align-content: center;
         justify-content: center;
-        background-color: lightblue;
+        background-color: #CED3DC;
     }
     .logo{
         margin-left: 10px;
