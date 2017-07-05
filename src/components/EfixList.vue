@@ -5,7 +5,7 @@
     <div>
       <button @click="updateCount">+</button>
     </div>
-    <choice-btn></choice-btn>
+    <element-choice></element-choice>
     <div id="modal"></div>
   </section>
 </template>
@@ -13,9 +13,10 @@
   import NavBarSection from './template/NavBarSection'
   import FooterSection from './template/FooterSection'
   import MainSection from './template/MainSection'
+  import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
-    components: {NavBarSection, FooterSection, MainSection, ChoiceBtn},
+    components: {NavBarSection, FooterSection, MainSection, ElementChoice},
     data(){
       return {
         sectionCount: 0
