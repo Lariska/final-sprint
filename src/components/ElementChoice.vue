@@ -52,6 +52,8 @@
     },
     methods: {
       handleChange(value) {
+        // console.log(value[value.length -1]);
+        this.$emit('selectedElement',value[value.length -1]);
       }
     }
   };
