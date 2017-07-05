@@ -8,7 +8,7 @@
     </nav>
 
       <editor-panel></editor-panel>
-      <div class="choice"> 
+      <div class="choice">
         <element-choice @selectedElement="selectElement" ></element-choice>
       </div>
       <div class="box">
@@ -91,7 +91,7 @@
   }
 
   .box-card {
-    margin-left: 10px; 
+    margin-left: 10px;
     display: flex;
     align-content: center;
     justify-content: center;
