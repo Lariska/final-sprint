@@ -5,14 +5,16 @@
     <div>
       <button @click="updateCount">+</button>
     </div>
+    <element-choice></element-choice>
     <div id="modal"></div>
   </section>
 </template>
 <script>
     import EfixWebsite from './EfixWebsite'
+    import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
-    components: {NavBarSection, FooterSection, MainSection, EfixWebsite},
+    components: {ElementChoice, EfixWebsite},
     data(){
       return {
         sectionCount: 0
