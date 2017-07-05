@@ -6,7 +6,8 @@
       expand-trigger="hover"
       :options="options"
       v-model="selectedOptions2"
-      @change="handleChange">
+      @change="handleChange"
+      >
     </el-cascader>
   </div>
 </template>

@@ -7,9 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
+import BootstrapVue from 'bootstrap-vue';
+ 
+Vue.use(BootstrapVue);
+
 locale.use(lang)
-
-
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
