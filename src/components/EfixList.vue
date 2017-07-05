@@ -20,7 +20,13 @@
     import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
-    components: {ElementChoice, FooterSection, NavBarSection, MainSection, HeaderSection},
+    components: {
+      ElementChoice, 
+      FooterSection, 
+      NavBarSection, 
+      MainSection, 
+      HeaderSection,
+    },
     data(){
       return {
         elements:[],
