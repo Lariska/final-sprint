@@ -23,7 +23,7 @@
               value: 'header-section',
               label: 'Header Section'
           }]
-      }, 
+      },
       {
             value: 'navigation',
             label: 'Navigation',

@@ -10,7 +10,9 @@
     <div class="box">
       <el-card class="box-card">
         <element-choice @selectedElement="selectElement"></element-choice>
-        <component v-for="element in elements" :key="element" :is="element"></component>
+        <component v-for="element in elements" :key="element" :is="element">
+
+        </component>
       </el-card>
     </div>
 
@@ -23,6 +25,7 @@
   import FooterSection from './template/FooterSection'
   import HeaderSection from './template/HeaderSection'
   import ElementChoice from './ElementChoice'
+  import EditorCmp from './EditorCmp'
   export default {
     name: 'efix-list',
     components: {
@@ -31,6 +34,7 @@
       NavBarSection,
       MainSection,
       HeaderSection,
+      EditorCmp
     },
     data(){
       return {
