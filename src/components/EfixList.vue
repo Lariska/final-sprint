@@ -6,15 +6,18 @@
       <button @click="updateCount">+</button>
     </div>
     <element-choice></element-choice>
+        <!--<component :is="FooterSection"></component>-->
+
     <div id="modal"></div>
   </section>
 </template>
 <script>
+    import FooterSection from'./template/FooterSection'
     import EfixWebsite from './EfixWebsite'
     import ElementChoice from './ElementChoice'
   export default {
     name: 'efix-list',
-    components: {ElementChoice, EfixWebsite},
+    components: {ElementChoice, EfixWebsite,FooterSection},
     data(){
       return {
         sectionCount: 0
@@ -25,7 +28,7 @@
 
         this.sectionCount += 1;
       }
-    }
+    },
   }
 </script>
 
