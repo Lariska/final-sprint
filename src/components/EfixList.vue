@@ -7,15 +7,15 @@
       </ul>
     </nav>
 
-    <editor-panel></editor-panel>
+      <editor-panel></editor-panel>
+      <div class="choice"> 
+        <element-choice @selectedElement="selectElement" ></element-choice>
+      </div>
+      <div class="box">
+        <el-card class="box-card">
+            <component v-for="element in elements" :key="element" :is="element"></component>
+        </el-card>
 
-    <div class="box">
-      <el-card class="box-card">
-        <element-choice @selectedElement="selectElement"></element-choice>
-        <component v-for="element in elements" :key="element" :is="element">
-
-        </component>
-      </el-card>
     </div>
 
     <div id="modal"></div>
@@ -68,7 +68,6 @@
     display: flex;
     justify-content: flex-end;
   }
-
   #modal {
     background-color: red;
     height: 150px;
@@ -89,11 +88,16 @@
   }
 
   .box-card {
+    margin-left: 10px; 
     display: flex;
     align-content: center;
     justify-content: center;
     max-width: 100%;
     width: 60%;
+  }
+  .choice{
+    display: flex;
+    justify-content: right;
   }
 </style>
 
