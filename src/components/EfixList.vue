@@ -24,10 +24,10 @@
 <script>
 
 
-  import NavBarSection from './template/NavBarSection'
-  import MainSection from './template/MainSection'
-  import FooterSection from './template/FooterSection'
-  import HeaderSection from './template/HeaderSection'
+  import NavBarSection from './components/NavBarSection'
+  import MainSection from './components/MainSection'
+  import FooterSection from './components/FooterSection'
+  import HeaderSection from './components/HeaderSection'
   import ElementChoice from './ElementChoice'
   import { EFIX_CHOSE_ELEMENT } from '../store/efix.store'
   import EditorPanel from './EditorPanel'
