@@ -1,4 +1,4 @@
-<<template>
+<template>
     <section>
         <efix-list></efix-list>
     </section>
@@ -7,7 +7,7 @@
 import EfixList from './EfixList';
 export default {
   name: 'efix-app',
-  components: {EfixList},
+  components: {EfixList}
 }
 </script>
 

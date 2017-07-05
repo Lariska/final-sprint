@@ -17,7 +17,7 @@
     height: 300px;
   }
 
-    section .menu {
+  section .menu {
     display: flex;
     line-height: 60px;
     font-size: 26px;
