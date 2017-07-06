@@ -7,12 +7,18 @@
       @changeFont="changeFont"
     >
     </toolbar>
-    <nav class="header">
+    <nav class="header"
+    :style="paramsForRender.data.style">
       <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
       <ul class="text">
 
-        <h2 @click="textClick">{{ paramsForRender.data.title.text }}</h2>
-        <p>{{ paramsForRender.data.contentText.text }}</p>
+        <h2 
+        :style="paramsForRender.data.title.style">
+          {{ paramsForRender.data.title.text }}
+        </h2>
+        <p :style="paramsForRender.data.contentText.style">
+          {{ paramsForRender.data.contentText.text }}
+        </p>
 
       </ul>
       <close-btn class="close-btn"></close-btn>

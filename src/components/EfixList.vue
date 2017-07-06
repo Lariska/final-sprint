@@ -1,6 +1,6 @@
 <template>
   <section>
-
+  
     <nav class="main-nav flex align-center justify-center">
       <ul class="clean-list flex align-center">
         <img src="../assets/wixer-logo.png" alt="Company name">
@@ -23,6 +23,7 @@
 </template>
 <script>
   import EfixCarusella from './EfixCarusella';
+  
   export default {
     name: 'efix-list',
     data(){
@@ -33,7 +34,7 @@
       }
     },
     components: {
-      'efix-carusella' : EfixCarusella
+      'efix-carusella' : EfixCarusella,
     },
     methods: {
       /*selectElement(componentName){
