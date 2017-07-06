@@ -1,8 +1,5 @@
 <template>
   <section>
-        {{cmpToRender}}
-  
-    <editor-panel></editor-panel>
     <div class="choice">
       <element-choice @selectedElement="selectElement"></element-choice>
     </div>

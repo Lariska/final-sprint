@@ -1,5 +1,4 @@
 <template>
-
   <section @click="makeVisible">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div class="container">
@@ -47,6 +46,10 @@
   }
 </script>
 <style scoped>
+
+  section:hover {
+
+  }
   .container {
     background-color: #ccc;
     border: 1px solid #c1e2b3;
