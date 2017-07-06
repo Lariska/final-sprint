@@ -11,7 +11,7 @@
       <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
       <ul class="text">
 
-        <h2 @click="textClick">{{ paramsForRender.data.title.text }}</h2>
+        <h2 contenteditable="true" >{{ paramsForRender.data.title.text }}</h2>
         <p>{{ paramsForRender.data.contentText.text }}</p>
 
       </ul>

@@ -1,5 +1,6 @@
 <template>
     <section>
+
         <efix-list></efix-list>
     </section>
 </template>

@@ -23,7 +23,7 @@
 </template>
 <script>
   import EfixCarusella from './EfixCarusella';
-  export default {
+    export default {
     name: 'efix-list',
     data(){
       return {
