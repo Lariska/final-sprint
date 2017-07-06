@@ -11,17 +11,14 @@ import locale from 'element-ui/lib/locale'
 import '../node_modules/font-awesome/css/font-awesome.css';
 
 import VueDraggableResizable from 'vue-draggable-resizable'
-
+Vue.component('vue-draggable-resizable', VueDraggableResizable)
 
 import Carousel3d from 'vue-carousel-3d';
+
+import VueImg from 'v-img';
+
+Vue.use(VueImg);
 Vue.use(Carousel3d);
-
-
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
-locale.use(lang)
-
-
-
 locale.use(lang)
 Vue.use(ElementUI)
 
