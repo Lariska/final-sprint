@@ -1,14 +1,10 @@
 <template>
   <section>
     <nav class="header">
-            <img class="logo" src="../../assets/wixer-logo.png" alt="Company name">
+            <img class="logo" :src="'../../../static/'+headerSection.img" alt="">
         <ul class="text">
-            <h2 v-on:click="textClick">Hello</h2>
-            <h4>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam eaque illo quibusdam, consectetur eos facere cum perspiciatis
-                aperiam voluptas inventore nesciunt, assumenda nemo, maiores, deserunt ratione voluptatum sint expedita
-                labore!
-            </h4>
+            <h2 @click="textClick">{{ headerSection.title.text }}</h2>
+            <p>{{ headerSection.contentText.text }}</p>
         </ul>
         <close-btn class = "close-btn"></close-btn>
     </nav>
@@ -23,11 +19,42 @@
     import CloseBtn from '../editor/CloseBtn';
     import $ from 'jquery';
     export default {
+<<<<<<< HEAD
     name: 'header-section',
     components: {
         Toolbar,
         CloseBtn
     },
+=======
+      name: 'header-section',
+      data: function () {
+        return {
+            headerSection : {
+              id: null,
+              type: this.name,
+              title: {
+                text: 'Hello!',
+                color: '#2C3E50'
+              },
+              contentText: {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+                color: '#2C3E50'
+              },
+              font: {
+                size: '16px'
+              },
+              img: 'wixer-logo.png',
+              backgroundColor: '#CED3DC',
+              color: '#2C3E50'
+            }
+        }
+      },
+      created: {
+         getHeader: function () {
+           return this.headerSection
+         }
+      },
+>>>>>>> c95a880d58f56292803335602eeb590c3e8661b3
       methods: {
         textClick: function (event) {
             var el = event.target;
@@ -67,4 +94,3 @@
         margin-top:auto;
     }*/
   </style>
-  
