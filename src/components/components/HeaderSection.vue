@@ -10,16 +10,24 @@
                 labore!
             </h4>
         </ul>
+        <close-btn class = "close-btn"></close-btn>
     </nav>
+    <toolbar class="toolbar"></toolbar>
   </section>
 </template>
 
 
 
 <script>
+    import Toolbar from '../editor/Toolbar';
+    import CloseBtn from '../editor/CloseBtn';
     import $ from 'jquery';
     export default {
-      name: 'header-section',
+    name: 'header-section',
+    components: {
+        Toolbar,
+        CloseBtn
+    },
       methods: {
         textClick: function (event) {
             var el = event.target;
@@ -49,5 +57,14 @@
         align-content: center;
         justify-content: center;
     }
+    .close-btn{
+        display: flex;
+        justify-content: flex-end;
+        /*position: absolute;*/
+    }
+    /*.toolbar{
+        display: flex;
+        margin-top:auto;
+    }*/
   </style>
   
