@@ -19,13 +19,11 @@
     import CloseBtn from '../editor/CloseBtn';
     import $ from 'jquery';
     export default {
-<<<<<<< HEAD
     name: 'header-section',
     components: {
         Toolbar,
         CloseBtn
     },
-=======
       name: 'header-section',
       data: function () {
         return {
@@ -54,7 +52,6 @@
            return this.headerSection
          }
       },
->>>>>>> c95a880d58f56292803335602eeb590c3e8661b3
       methods: {
         textClick: function (event) {
             var el = event.target;
