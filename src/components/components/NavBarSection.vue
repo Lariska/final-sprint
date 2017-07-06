@@ -9,7 +9,6 @@
         <li><a href="">Link1</a></li>
       </ul>
     </div>
-    <header-section></header-section>
   </section>
 </template>
 <script>

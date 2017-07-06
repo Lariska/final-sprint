@@ -29,7 +29,7 @@
             value: 'navigation',
             label: 'Navigation',
             children: [{
-              value: 'nav-bar',
+              value: 'nav-bar-section',
               label: 'Nav Bar Section'
             }]
         }, {
