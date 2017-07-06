@@ -7,6 +7,7 @@
 
 </template>
 <script>
+import { ADD_COMPONENT } from '../../store/Efix.store'
   export default {
     name: 'footer-section',
     data: function () {
@@ -25,6 +26,10 @@
         }
       }
     },
+    // mounted() {
+    //   this.$store.commit(ADD_COMPONENT, this.getFooter());
+    //   console.log("mounted");
+    // },
     methods: {
       getFooter: function () {
         return this.footerSection

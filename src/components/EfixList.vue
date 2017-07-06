@@ -58,10 +58,10 @@
       }
     },
     methods: {
-      selectElement(componentName){
+      /*selectElement(componentName){
         this.elements.push(componentName);
         this.$store.commit(EFIX_CHOSE_ELEMENT, componentName);
-      },
+      },*/
       updateCount(){
 
         this.sectionCount += 1;

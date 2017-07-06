@@ -13,6 +13,8 @@
 </template>
 
 <script>
+
+import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION } from '../constants/cmpName'
   export default {
     name: 'element-choice',
     data() {
@@ -21,7 +23,7 @@
           value: 'header',
           label: 'Header',
             children: [{
-              value: 'header-section',
+              value: HEADER_SECTION,
               label: 'Header Section'
           }]
       },
@@ -29,21 +31,21 @@
             value: 'navigation',
             label: 'Navigation',
             children: [{
-              value: 'nav-bar-section',
+              value: NAV_BAR_SECTION,
               label: 'Nav Bar Section'
             }]
         }, {
           value: 'main',
           label: 'Main',
           children: [{
-            value: 'main-section',
+            value: MAIN_SECTION,
             label: 'Main Section',
             }]
           }, {
             value: 'footer',
             label: 'Footer',
             children: [{
-              value: 'footer-section',
+              value: FOOTER_SECTION,
               label: 'Footer-Section'
             }]
         }],
@@ -53,7 +55,7 @@
     },
     methods: {
       handleChange(value) {
-        // console.log(value[value.length -1]);
+        console.log("HEADER:"+ HEADER_SECTION);
         this.$emit('selectedElement',value[value.length -1]);
       }
     }
