@@ -1,5 +1,6 @@
 <template>
   <section>
+    <status-buttons></status-buttons>
     <div class="choice">
       <element-choice @selectedElement="selectElement"></element-choice>
     </div>
@@ -24,6 +25,7 @@ import GallerySection from './components/GallerySection'
 import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT,ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
+import StatusButtons from './StatusButtons';
 export default {
   name: 'web-page',
   components: {
@@ -33,7 +35,8 @@ export default {
     MainSection,
     HeaderSection,
     EditorPanel,
-    GallerySection
+    GallerySection,
+    StatusButtons,
   },
   data() {
     return {

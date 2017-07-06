@@ -1,6 +1,11 @@
 <template>
-  <section @click="makeVisible">
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+  <section @click="toggleVisible">
+    <toolbar
+      class="toolbar"
+      v-if="isVisible"
+      @closePanel="toggleVisible"
+      @changeFont="toggleChangeFont"
+    ></toolbar>
     <div class="container">
       <h2>{{ bodySection.content.text }}</h2>
     </div>
@@ -39,8 +44,12 @@
       }
     },
     methods: {
-      makeVisible: function () {
-        this.isVisible = true
+      toggleVisible: function () {
+        this.isVisible = !this.isVisible;
+        console.log(this.isVisible)
+      },
+      toggleChangeFont: function () {
+
       }
     }
   }

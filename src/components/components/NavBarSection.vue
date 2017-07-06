@@ -3,11 +3,8 @@
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div class="menu">
       <ul class="nav">
-        <li v-for="link in navBar.links"><a href="">{{ link }}</a></li>
-        <!--<li><a href="">Link1</a></li>-->
-        <!--<li><a href="">Link2</a></li>-->
-        <!--<li><a href="">Link3</a></li>-->
-        <!--<li><a href="">Link4</a></li>-->
+        <li v-for="link in navBar.links"><a href="">{{ link.text }}</a></li>
+
       </ul>
     </div>
   </section>
@@ -29,10 +26,10 @@
           type: 'navBar1',
           logo: '',
           links: [
-            { text: 'link1', url: ''},
-            { text: 'link2', url: ''},
-            { text: 'link3', url: ''},
-            { text: 'link4', url: ''}
+            {text: 'link1', url: ''},
+            {text: 'link2', url: ''},
+            {text: 'link3', url: ''},
+            {text: 'link4', url: ''}
           ],
           font: {
             size: '16px',
