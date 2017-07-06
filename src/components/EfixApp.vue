@@ -6,9 +6,12 @@
 </template>
 <script>
 import EfixList from './EfixList';
+
 export default {
   name: 'efix-app',
-  components: {EfixList}
+  components: {
+      EfixList,
+    }
 }
 </script>
 

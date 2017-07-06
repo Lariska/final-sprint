@@ -4,6 +4,7 @@
     <div class="menu">
       <ul class="nav">
         <li v-for="link in navBar.links"><a href="">{{ link.text }}</a></li>
+
       </ul>
     </div>
   </section>
@@ -25,10 +26,10 @@
           type: 'navBar1',
           logo: '',
           links: [
-            { text: 'link1', url: ''},
-            { text: 'link2', url: ''},
-            { text: 'link3', url: ''},
-            { text: 'link4', url: ''}
+            {text: 'link1', url: ''},
+            {text: 'link2', url: ''},
+            {text: 'link3', url: ''},
+            {text: 'link4', url: ''}
           ],
           font: {
             size: '16px',

@@ -23,7 +23,10 @@
 </template>
 <script>
   import EfixCarusella from './EfixCarusella';
-    export default {
+
+
+  export default {
+
     name: 'efix-list',
     data(){
       return {
@@ -33,7 +36,7 @@
       }
     },
     components: {
-      'efix-carusella' : EfixCarusella
+      'efix-carusella' : EfixCarusella,
     },
     methods: {
       /*selectElement(componentName){
