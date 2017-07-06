@@ -12,12 +12,14 @@ import '../node_modules/font-awesome/css/font-awesome.css';
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+
+import Carousel3d from 'vue-carousel-3d';
+Vue.use(Carousel3d);
+
+
 Vue.component('vue-draggable-resizable', VueDraggableResizable)
 locale.use(lang)
 
-import BootstrapVue from 'bootstrap-vue';
- 
-Vue.use(BootstrapVue);
 
 
 locale.use(lang)

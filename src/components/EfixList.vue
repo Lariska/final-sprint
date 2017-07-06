@@ -15,47 +15,26 @@
       <el-button :plain="true" type="info">Info</el-button>
     </ul>
   </div>
-<!--
-      <editor-panel></editor-panel>
-      <div class="choice">
-        <element-choice @selectedElement="selectElement" ></element-choice>
-      </div>
-      <div class="box">
-        <el-card class="box-card">
-            <component v-for="element in elements" :key="element" :is="element"></component>
-        </el-card>
 
-    </div>-->
+  <efix-carusella></efix-carusella>
 
     <div id="modal"></div>
   </section>
 </template>
 <script>
-
-
-  // import NavBarSection from './components/NavBarSection'
-  // import MainSection from './components/MainSection'
-  // import FooterSection from './components/FooterSection'
-  // import HeaderSection from './components/HeaderSection'
-  // import ElementChoice from './ElementChoice'
-  // import { EFIX_CHOSE_ELEMENT } from '../store/Efix.store'
-  // import EditorPanel from './EditorPanel'
-
+  // import { item } from 'vue-carousel-3d';
+  import EfixcCarusella from './EfixcCarusella';
   export default {
     name: 'efix-list',
-    components: {
-      // ElementChoice,
-      // FooterSection,
-      // NavBarSection,
-      // MainSection,
-      // HeaderSection,
-      // EditorPanel
-    },
     data(){
       return {
         elements: [],
-        sectionCount: 0
+        sectionCount: 0,
+        items:['rrrrrr','111111','222222']
       }
+    },
+    components: {
+      'efix-carusella' : EfixcCarusella
     },
     methods: {
       /*selectElement(componentName){
@@ -75,7 +54,6 @@
     background-color: #4E8098;
     padding: 0;
   }
-
   div {
     display: flex;
     justify-content: flex-end;
@@ -93,31 +71,26 @@
     margin-top: 10px;
   }
 
-  .box {
+  .button {
     display: flex;
     align-content: center;
     justify-content: center;
   }
 
-  .box-card {
-    margin-left: 10px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    max-width: 100%;
-    width: 60%;
+    .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
   }
-  .choice{
-    display: flex;
-    justify-content: right;
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
   }
-    .add {
-    margin-top: 10px;
-  }
-  .button {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
   }
 </style>
 
