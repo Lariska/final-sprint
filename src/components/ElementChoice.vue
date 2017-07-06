@@ -20,42 +20,24 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_
     data() {
       return {
         options: [{
-          value: 'header',
-          label: 'Header',
-            children: [{
-              value: HEADER_SECTION,
-              label: 'Header Section'
-          }]
-      },
-      {
-            value: 'navigation',
-            label: 'Navigation',
-            children: [{
-              value: NAV_BAR_SECTION,
-              label: 'Nav Bar Section'
-            }]
-        }, {
-          value: 'main',
-          label: 'Main',
-          children: [{
-            value: MAIN_SECTION,
-            label: 'Main Section',
-            }]
-          }, {
-            value: 'footer',
-            label: 'Footer',
-            children: [{
-              value: FOOTER_SECTION,
-              label: 'Footer-Section'
-            }]
-          },
+          value: HEADER_SECTION,
+          label: 'Header Section'
+        },
+        {
+          value: NAV_BAR_SECTION,
+          label: 'Nav Bar Section'
+        }, 
+        {
+          value: MAIN_SECTION,
+          label: 'Main Section',
+        }, 
+        {
+          value: FOOTER_SECTION,
+          label: 'Footer-Section'
+        },
            {
-          value: 'gallery',
-          label: 'Gallery',
-          children: [{
-            value: GALLERY_SECTION,
-            label: 'Gallery Section',
-            }]
+          value: GALLERY_SECTION,
+          label: 'Gallery Section',
         }],
         selectedOptions: [],
         selectedOptions2: []

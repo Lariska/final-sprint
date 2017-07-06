@@ -11,15 +11,16 @@ function buildCmpObj(cmpName){
                 data :{
                     title: {
                         text: 'Hello!',
-                        color: '#2C3E50'
+                        style: {color: '#2C3E50'}
                     },
                     contentText: {
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-                        color: '#2C3E50',
-                        size: '16px'
+                        style: {
+                            color: '#2C3E50', 
+                            fontSize: '16px'}
                     },
                     img: 'wixer-logo.png',
-                    backgroundColor: '#CED3DC',
+                    style:{backgroundColor: '#CED3DC'},
                 },
             }
             break; 
