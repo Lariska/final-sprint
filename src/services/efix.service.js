@@ -1,5 +1,5 @@
 
-import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION } from '../constants/cmpName'
+import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_SECTION } from '../constants/cmpName'
 
 function buildCmpObj(cmpName){
     console.log(`building a ${cmpName} component object`);
