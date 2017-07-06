@@ -1,4 +1,7 @@
+import efixService from '../services/efix.service.js';
+
 export const EFIX_CHOSE_ELEMENT       = 'EFIX_CHOSE_ELEMENT'
+export const ADD_COMPONENT       = 'ADD_COMPONENT'
 // export const TODO_UPDATE      = 'TODO_UPDATE';
 // export const TODO_CREATE      = 'TODO_CREATE';
 
@@ -6,7 +9,7 @@ export const EFIX_CHOSE_ELEMENT       = 'EFIX_CHOSE_ELEMENT'
 
 const state = {
     chosenElement: null,
-    elements:  []
+    components:  []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
 };
@@ -39,6 +42,11 @@ const mutations = {
     state.chosenElement = payload.type;
     // console.log("Store value changed: " + payload);
   },
+  [ADD_COMPONENT](state, payload) {
+     efixService.buildCmpObj(payload);
+    state.components.push({'type':payload});
+    console.log("component in store: " , state.components);
+  }
 
 //   [TODO_UPDATE](state, { todo }) {
 //     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)

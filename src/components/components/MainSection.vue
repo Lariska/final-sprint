@@ -1,15 +1,24 @@
 <template>
-  <section>
+
+  <section @click="makeVisible">
+    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div class="container">
       <h2>{{ bodySection.content.text }}</h2>
     </div>
   </section>
 </template>
 <script>
+  import Toolbar from '../editor/Toolbar';
+  import CloseBtn from '../editor/CloseBtn';
   export default {
     name: 'main-section',
+    components: {
+      Toolbar,
+      CloseBtn
+    },
     data: function () {
       return {
+        isVisible: false,
         bodySection: {
           id: null,
           type: 'body1',
@@ -30,6 +39,11 @@
         },
       }
     },
+    methods: {
+      makeVisible: function () {
+        this.isVisible = true
+      }
+    }
   }
 </script>
 <style scoped>

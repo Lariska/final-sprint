@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section @click="makeVisible">
+    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <nav class="header">
       <img class="logo" :src="'../../../static/' + headerSection.img" alt="">
       <ul class="text">
@@ -8,7 +9,6 @@
       </ul>
       <close-btn class="close-btn"></close-btn>
     </nav>
-    <toolbar class="toolbar"></toolbar>
   </section>
 </template>
 
@@ -25,6 +25,7 @@
     },
     data: function () {
       return {
+        isVisible: false,
         headerSection: {
           id: null,
           type: this.name,
@@ -48,6 +49,9 @@
     methods: {
       getHeader: function () {
         return this.headerSection
+      },
+      makeVisible: function () {
+        this.isVisible = true
       },
       textClick: function (event) {
         var el = event.target;

@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section @click="makeVisible">
+    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div class="menu">
       <ul class="nav">
         <!--<li v-for="link in navBars.links"><a href="">{{ link }}</a></li>-->
@@ -12,11 +13,17 @@
   </section>
 </template>
 <script>
-
+  import Toolbar from '../editor/Toolbar';
+  import CloseBtn from '../editor/CloseBtn';
   export default {
     name: 'nav-bar-section',
+    components: {
+      Toolbar,
+      CloseBtn
+    },
     data: function () {
       return {
+        isVisible: false,
         navBar: {
           id: null,
           type: 'navBar1',
@@ -35,6 +42,11 @@
     created: {
       getNavBar: function () {
         return this.navBar
+      },
+    },
+    methods: {
+      makeVisible: function () {
+        this.isVisible = true
       }
     }
 

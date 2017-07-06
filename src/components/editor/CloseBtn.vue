@@ -1,7 +1,7 @@
-<<template>
-<div class= "el-icon-circle-cross" @click="close"></div>  
+<template>
+<div class= "el-icon-circle-cross" @click="close"></div>
 </template>
-<<script>
+<script>
 export default {
   name: 'close-btn',
   created() {
@@ -14,8 +14,8 @@ export default {
   }
 }
 </script>
-<<style scoped>
-    
+<style scoped>
+
     div{
         color:red;
         font-size:2em;
