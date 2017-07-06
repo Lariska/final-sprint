@@ -6,69 +6,7 @@ export const EFIX_CHOSE_ELEMENT       = 'EFIX_CHOSE_ELEMENT'
 
 const state = {
     chosenElement: null,
-    elements:  [
-      {
-        id: null,
-        type: 'header1',
-        title: {
-          text: 'Hello',
-          color: '#2C3E50'
-        },
-        text: {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          color: '#2C3E50'
-        },
-        font: {
-          size: '16px'
-        },
-        img: 'wixer-logo.png',
-        backgroundColor: '#CED3DC',
-        color: '#2C3E50'
-      },
-      {
-        id: null,
-        type: 'navBar1',
-        logo: '',
-        links: [
-          'link1','link2','link3','link4'
-        ],
-        font: {
-          size: '16px',
-          color: '#2C3E50'
-        },
-        backgroundColor: '#CED3DC'
-      },
-      {
-        id: null,
-        type: 'body1',
-        title: {
-          text: 'Hello',
-          color: '#2C3E50'
-        },
-        text: {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          color: '#2C3E50'
-        },
-        font: {
-          size: '16px'
-        },
-        img: 'wixer-logo.png',
-        backgroundColor: '#CED3DC',
-        color: '#2C3E50'
-      },
-      {
-        id: null,
-        type: 'footer1',
-        text: {
-          text: 'Copyrights 2017',
-          color: '#2C3E50'
-        },
-        font: {
-          size: '16px'
-        },
-        backgroundColor: '#CED3DC'
-      }
-    ]
+    elements:  []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
 };
