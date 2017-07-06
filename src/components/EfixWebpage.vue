@@ -1,7 +1,7 @@
 <template>
   <section>
 
-      <editor-panel></editor-panel>
+      <!--<editor-panel></editor-panel>-->
       <div class="choice">
         <element-choice @selectedElement="selectElement" ></element-choice>
       </div>
@@ -52,7 +52,7 @@
 
 <style scoped>
   .box-card {
-    margin-left: 100px; 
+    margin-left: 100px;
     display: flex;
     align-content: center;
     justify-content: center;
