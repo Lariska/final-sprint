@@ -14,7 +14,7 @@
       <el-button type="primary" size="small"><i class="fa fa-align-left" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-center" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-right" aria-hidden="true"></i></el-button>
-      <el-button type="primary" size="small"><i class="fa fa-font" aria-hidden="true"></i></el-button>
+      <el-button type="primary" size="small" @click="changeFont"><i class="fa fa-font" aria-hidden="true"></i></el-button>
       <el-color-picker v-model="color1" size="small"></el-color-picker>
       <el-button type="success" icon="circle-cross" @click="isVisible = !isVisible" size="mini"></el-button>
     </el-button-group>
@@ -38,6 +38,10 @@
     methods: {
       closePanel: function () {
 
+      },
+      changeFont(event) {
+          console.log(event),
+          this.$emit('changeFont')
       }
     }
   }

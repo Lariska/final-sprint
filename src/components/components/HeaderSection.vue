@@ -1,10 +1,16 @@
 <template>
   <section @click="makeVisible">
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+    <toolbar
+      class="toolbar"
+      v-if="isVisible"
+      :isVisible="isVisible"
+      @changeFont="changeFont"
+    >
+    </toolbar>
     <nav class="header">
       <img class="logo" :src="'../../../static/' + headerSection.img" alt="">
       <ul class="text">
-        <h2 @click="textClick">{{ headerSection.title.text }}</h2>
+        <h2>{{ headerSection.title.text }}</h2>
         <p>{{ headerSection.contentText.text }}</p>
       </ul>
       <close-btn class="close-btn"></close-btn>
@@ -16,7 +22,6 @@
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
-  import $ from 'jquery';
   export default {
     name: 'header-section',
     components: {
@@ -53,12 +58,8 @@
       makeVisible: function () {
         this.isVisible = true
       },
-      textClick: function (event) {
-        var el = event.target;
-        var text = event.target.textContent;
-        $(el).text("");
-        $(el).append("<input value='" + text + "'/>");
-        // $(el).clear();
+      changeFont: function () {
+
       }
     },
   }
