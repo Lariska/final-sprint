@@ -1,5 +1,6 @@
 <template>
-  <section class="footer">
+  <section class="footer" @click="makeVisible">
+    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div>
       <p>{{ footerSection.content.text }}</p>
     </div>
@@ -8,10 +9,18 @@
 </template>
 <script>
 import { ADD_COMPONENT } from '../../store/Efix.store'
+  import Toolbar from '../editor/Toolbar';
+  import CloseBtn from '../editor/CloseBtn';
+
   export default {
     name: 'footer-section',
+    components: {
+      Toolbar,
+      CloseBtn
+    },
     data: function () {
       return {
+        isVisible: false,
         footerSection: {
           id: null,
           type: 'footer1',
@@ -33,6 +42,9 @@ import { ADD_COMPONENT } from '../../store/Efix.store'
     methods: {
       getFooter: function () {
         return this.footerSection
+      },
+      makeVisible: function () {
+        this.isVisible = true
       }
     }
   }
