@@ -2,6 +2,7 @@
   <section>
     <div class="menu">
       <ul class="nav">
+        <!--<li v-for="link in navBars.links"><a href="">{{ link }}</a></li>-->
         <li><a href="">Link1</a></li>
         <li><a href="">Link2</a></li>
         <li><a href="">Link3</a></li>
@@ -11,13 +12,33 @@
   </section>
 </template>
 <script>
-// import HeaderSection from './HeaderSection'
-export default {
+
+  export default {
     name: 'nav-bar-section',
-    // components: {
-    //   "header-section": HeaderSection
-    // }
-}
+    data: function () {
+      return {
+        navBar: {
+          id: null,
+          type: 'navBar1',
+          logo: '',
+          links: [
+            'link1', 'link2', 'link3', 'link4'
+          ],
+          font: {
+            size: '16px',
+            color: '#2C3E50'
+          },
+          backgroundColor: '#CED3DC'
+        }
+      }
+    },
+    created: {
+      getNavBar: function () {
+        return this.navBar
+      }
+    }
+
+  }
 </script>
 <style scoped>
   section {
