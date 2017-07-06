@@ -74,11 +74,7 @@
     justify-content: flex-end;
     /*position: absolute;*/
   }
-
-  /*.toolbar{
-      display: flex;
-      margin-top:auto;
-  }*/
+  
 </style>
 
 
