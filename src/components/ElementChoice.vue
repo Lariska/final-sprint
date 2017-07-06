@@ -14,7 +14,7 @@
 
 <script>
 
-import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION } from '../constants/cmpName'
+import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_SECTION } from '../constants/cmpName'
   export default {
     name: 'element-choice',
     data() {
@@ -47,6 +47,14 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION } from '.
             children: [{
               value: FOOTER_SECTION,
               label: 'Footer-Section'
+            }]
+          },
+           {
+          value: 'gallery',
+          label: 'Gallery',
+          children: [{
+            value: GALLERY_SECTION,
+            label: 'Gallery Section',
             }]
         }],
         selectedOptions: [],

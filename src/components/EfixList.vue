@@ -22,8 +22,7 @@
   </section>
 </template>
 <script>
-  // import { item } from 'vue-carousel-3d';
-  import EfixcCarusella from './EfixcCarusella';
+  import EfixCarusella from './EfixCarusella';
   export default {
     name: 'efix-list',
     data(){
@@ -34,7 +33,7 @@
       }
     },
     components: {
-      'efix-carusella' : EfixcCarusella
+      'efix-carusella' : EfixCarusella
     },
     methods: {
       /*selectElement(componentName){
