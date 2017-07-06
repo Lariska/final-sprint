@@ -2,10 +2,10 @@
   <section @click="makeVisible">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <nav class="header">
-      <img class="logo" :src="'../../../static/' + headerSection.img" alt="">
+      <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
       <ul class="text">
-        <h2 @click="textClick">{{ headerSection.title.text }}</h2>
-        <p>{{ headerSection.contentText.text }}</p>
+        <h2 @click="textClick">{{ paramsForRender.data.title.text }}</h2>
+        <p>{{ paramsForRender.data.contentText.text }}</p>
       </ul>
       <close-btn class="close-btn"></close-btn>
     </nav>
@@ -19,37 +19,20 @@
   import $ from 'jquery';
   export default {
     name: 'header-section',
+    props: ['paramsForRender'],
     components: {
       Toolbar,
       CloseBtn
     },
     data: function () {
+
       return {
         isVisible: false,
-        headerSection: {
-          id: null,
-          type: this.name,
-          title: {
-            text: 'Hello!',
-            color: '#2C3E50'
-          },
-          contentText: {
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            color: '#2C3E50'
-          },
-          font: {
-            size: '16px'
-          },
-          img: 'wixer-logo.png',
-          backgroundColor: '#CED3DC',
-          color: '#2C3E50'
-        }
+     
       }
     },
     methods: {
-      getHeader: function () {
-        return this.headerSection
-      },
+
       makeVisible: function () {
         this.isVisible = true
       },

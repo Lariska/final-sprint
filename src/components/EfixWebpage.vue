@@ -11,6 +11,7 @@
         <component v-for="component in cmpToRender" 
         :key="component.type"
         :is="component.type"
+        :paramsForRender="component"
         ></component>
       </el-card>
     </div>
