@@ -3,7 +3,7 @@
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div class="menu">
       <ul class="nav">
-        <li v-for="link in navBar.links"><a href="">{{ link }}</a></li>
+        <li v-for="link in navBar.links"><a href=""> {{link.text}}</a></li>
         <!--<li><a href="">Link1</a></li>-->
         <!--<li><a href="">Link2</a></li>-->
         <!--<li><a href="">Link3</a></li>-->
