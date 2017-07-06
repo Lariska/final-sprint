@@ -43,9 +43,8 @@ const mutations = {
     // console.log("Store value changed: " + payload);
   },
   [ADD_COMPONENT](state, payload) {
-     efixService.buildCmpObj(payload);
-    state.components.push({'type':payload});
-    console.log("component in store: " , state.components);
+    efixService.buildCmpObj(payload);
+    state.components.push(efixService.buildCmpObj(payload));
   }
 
 //   [TODO_UPDATE](state, { todo }) {

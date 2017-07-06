@@ -8,7 +8,10 @@
     </div>
     <div class="box">
       <el-card class="box-card">
-        <component v-for="component in cmpToRender" :key="component.type" :is="component.type"></component>
+        <component v-for="component in cmpToRender" 
+        :key="component.type"
+        :is="component.type"
+        ></component>
       </el-card>
     </div>
   </section>
