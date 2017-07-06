@@ -16,25 +16,25 @@
     </ul>
   </div>
 
-
-  <el-carousel :interval="5000" arrow="always">
-    <el-carousel-item v-for="item in 4" :key="item">
-      <h3>{{ item }}</h3>
-    </el-carousel-item>
-  </el-carousel>
+  <efix-carusella></efix-carusella>
 
     <div id="modal"></div>
   </section>
 </template>
 <script>
-
+  // import { item } from 'vue-carousel-3d';
+  import EfixcCarusella from './EfixcCarusella';
   export default {
     name: 'efix-list',
     data(){
       return {
         elements: [],
-        sectionCount: 0
+        sectionCount: 0,
+        items:['rrrrrr','111111','222222']
       }
+    },
+    components: {
+      'efix-carusella' : EfixcCarusella
     },
     methods: {
       selectElement(componentName){
@@ -66,9 +66,11 @@
     left: 25%;
     display: none;
   }
+
   .add {
     margin-top: 10px;
   }
+
   .button {
     display: flex;
     align-content: center;
@@ -77,9 +79,9 @@
 
     .el-carousel__item h3 {
     color: #475669;
-    font-size: 18px;
+    font-size: 14px;
     opacity: 0.75;
-    line-height: 300px;
+    line-height: 200px;
     margin: 0;
   }
 
