@@ -25,7 +25,23 @@ function buildCmpObj(cmpName){
             }
             break; 
         case(NAV_BAR_SECTION):
-            var cmpObj={'type':cmpName};
+            var cmpObj={
+                id: null,
+                'type':cmpName,
+                data:{
+                    links: [
+                        { text: 'link1', url: ''},
+                        { text: 'link2', url: ''},
+                        { text: 'link3', url: ''},
+                        { text: 'link4', url: ''}
+                    ],
+                    style: {
+                        size: '16px',
+                        color: '#2C3E50',
+                        backgroundColor: '#CED3DC'
+                    },
+                }
+            };
             break;
         case(MAIN_SECTION):
             var cmpObj={'type':cmpName};
