@@ -1,7 +1,7 @@
 <template>
   <section class="footer">
     <div>
-      <h2>This is footer</h2>
+      <p>{{ footerSection.content.text }}</p>
     </div>
   </section>
 
@@ -9,6 +9,27 @@
 <script>
   export default {
     name: 'footer-section',
+    data: function () {
+      return {
+        footerSection: {
+          id: null,
+          type: 'footer1',
+          content: {
+            text: 'Copyrights 2017',
+            color: '#2C3E50'
+          },
+          font: {
+            size: '16px'
+          },
+          backgroundColor: '#CED3DC'
+        }
+      }
+    },
+    methods: {
+      getFooter: function () {
+        return this.footerSection
+      }
+    }
   }
 </script>
 
