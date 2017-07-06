@@ -7,7 +7,7 @@
     :resizable="false"
     :parent="false">
 
-    <a @click.prevent=""  href=""><i class="el-icon-delete"></i></a>
+    <!--<a @click.prevent=""  href=""><i class="el-icon-delete"></i></a>-->
 
   </vue-draggable-resizable>
 
