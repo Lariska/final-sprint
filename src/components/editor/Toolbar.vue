@@ -8,11 +8,13 @@
   <button>A-Right</button>
 </div>  
 </template>
+
 <<script>
 export default {
   name: 'tool-bar'
 }
 </script>
-<<style>
+
+<style>
 
 </style>

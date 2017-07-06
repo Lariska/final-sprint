@@ -7,6 +7,15 @@
       </ul>
     </nav>
 
+  <div class="button">
+    <ul class="button">
+    <router-link to ="/web-page"><el-button :plain="true" type="info">Create Your Webxite</el-button></router-link>
+    </ul>
+    <ul class="button">
+      <el-button :plain="true" type="info">Info</el-button>
+    </ul>
+  </div>
+<!--
       <editor-panel></editor-panel>
       <div class="choice">
         <element-choice @selectedElement="selectElement" ></element-choice>
@@ -16,7 +25,7 @@
             <component v-for="element in elements" :key="element" :is="element"></component>
         </el-card>
 
-    </div>
+    </div>-->
 
     <div id="modal"></div>
   </section>
@@ -24,23 +33,23 @@
 <script>
 
 
-  import NavBarSection from './components/NavBarSection'
-  import MainSection from './components/MainSection'
-  import FooterSection from './components/FooterSection'
-  import HeaderSection from './components/HeaderSection'
-  import ElementChoice from './ElementChoice'
-  import { EFIX_CHOSE_ELEMENT } from '../store/efix.store'
-  import EditorPanel from './EditorPanel'
+  // import NavBarSection from './components/NavBarSection'
+  // import MainSection from './components/MainSection'
+  // import FooterSection from './components/FooterSection'
+  // import HeaderSection from './components/HeaderSection'
+  // import ElementChoice from './ElementChoice'
+  // import { EFIX_CHOSE_ELEMENT } from '../store/Efix.store'
+  // import EditorPanel from './EditorPanel'
 
   export default {
     name: 'efix-list',
     components: {
-      ElementChoice,
-      FooterSection,
-      NavBarSection,
-      MainSection,
-      HeaderSection,
-      EditorPanel
+      // ElementChoice,
+      // FooterSection,
+      // NavBarSection,
+      // MainSection,
+      // HeaderSection,
+      // EditorPanel
     },
     data(){
       return {
@@ -101,6 +110,14 @@
   .choice{
     display: flex;
     justify-content: right;
+  }
+    .add {
+    margin-top: 10px;
+  }
+  .button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
 </style>
 
