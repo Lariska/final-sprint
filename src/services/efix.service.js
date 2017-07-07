@@ -50,7 +50,15 @@ function buildCmpObj(cmpName){
             var cmpObj={'type':cmpName};
             break;
         case(GALLERY_SECTION):
-            var cmpObj={'type':cmpName};
+            var cmpObj={
+                id:null,
+                'type':cmpName,
+                data:{
+                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
+                    "https://unsplash.it/800/1200?image=1065", "https://unsplash.it/800/1200?image=1067"],
+                    activeImage: -1
+                }
+            };
             break;
     }
     return cmpObj;
