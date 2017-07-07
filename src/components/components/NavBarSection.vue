@@ -4,9 +4,10 @@
     <div class="menu"
     :style="paramsForRender.data.style">
       <ul class="nav">
-        <li 
+        <li
         v-for="link in paramsForRender.data.links" :key="link"><a :href="link.url" :style="link.style"> {{link.text}}</a></li>
       </ul>
+      <close-btn class="close-btn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
 </template>
@@ -39,6 +40,7 @@
     height: 60px;
     background-color: #ccc;
     border: 1px solid #c1e2b3;
+    position: relative;
   }
 
   section .menu {
@@ -65,5 +67,11 @@
 
   section .nav a {
     text-decoration: none;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>

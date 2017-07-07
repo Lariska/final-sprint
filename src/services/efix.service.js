@@ -16,14 +16,14 @@ function buildCmpObj(cmpName){
                     contentText: {
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                         style: {
-                            color: '#2C3E50', 
+                            color: '#2C3E50',
                             fontSize: '16px'}
                     },
                     img: 'wixer-logo.png',
                     style:{backgroundColor: '#CED3DC'},
                 },
             }
-            break; 
+            break;
         case(NAV_BAR_SECTION):
             cmpObj={
                 id: generateId(),
@@ -61,7 +61,7 @@ function buildCmpObj(cmpName){
                     content: {
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                         img: 'wixer-logo.png',
-                        style: { color: '#2C3E50', fontSize: '16px' }
+                        style: { color: '#2C3E50', fontSize: '16px' , align: 'center'}
                     },
                     style:{
                         backgroundColor: '#CED3DC',
@@ -91,7 +91,7 @@ function buildCmpObj(cmpName){
                 id: generateId(),
                 type:cmpName,
                 data:{
-                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
+                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064",
                     "https://unsplash.it/800/1200?image=1065", "https://unsplash.it/800/1200?image=1067"],
                     activeImage: -1
                 }
