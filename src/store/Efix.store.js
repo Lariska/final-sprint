@@ -15,6 +15,9 @@ const state = {
 };
 
 const getters = {
+    components: state => {
+      return state.components
+    }
 //   filteredTodos({ filterBy, todos }) {
 //     var res = todos;
 //     if (filterBy.txt) {
@@ -45,7 +48,13 @@ const mutations = {
   [ADD_COMPONENT](state, payload) {
     efixService.buildCmpObj(payload);
     state.components.push(efixService.buildCmpObj(payload));
-  }
+  },
+  setActiveImage (state, active_image) {
+    state.components[0].data.activeImage = active_image;
+  },
+  deleteActiveImage (state) {
+    state.components[0].data.images.splice(state.components[0].data.activeImage ,1);
+  },
 
 //   [TODO_UPDATE](state, { todo }) {
 //     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)
@@ -60,7 +69,12 @@ const mutations = {
 }
 
 const actions = {
-
+    setActiveImage({ commit }, active_image) {
+        commit("setActiveImage", active_image);
+    },
+    deleteActiveImage({ commit }) {
+        commit("deleteActiveImage");
+    },
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()
 //       .then(todos => {

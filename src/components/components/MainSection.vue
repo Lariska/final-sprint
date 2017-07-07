@@ -1,6 +1,11 @@
 <template>
-  <section @click="makeVisible">
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+  <section @click="toggleVisible">
+    <toolbar
+      class="toolbar"
+      v-if="isVisible"
+      @closePanel="toggleVisible"
+      @changeFont="toggleChangeFont"
+    ></toolbar>
     <div class="container" :style="paramsForRender.data.style">
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
@@ -24,8 +29,12 @@
       }
     },
     methods: {
-      makeVisible: function () {
-        this.isVisible = true
+      toggleVisible: function () {
+        this.isVisible = !this.isVisible;
+        console.log(this.isVisible)
+      },
+      toggleChangeFont: function () {
+
       }
     }
   }

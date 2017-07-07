@@ -12,7 +12,8 @@
       <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
       <ul class="text">
 
-        <h2 
+
+        <h2
         :style="paramsForRender.data.title.style">
           {{ paramsForRender.data.title.text }}
         </h2>
@@ -81,11 +82,7 @@
     justify-content: flex-end;
     /*position: absolute;*/
   }
-
-  /*.toolbar{
-      display: flex;
-      margin-top:auto;
-  }*/
+  
 </style>
 
 

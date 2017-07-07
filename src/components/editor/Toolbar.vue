@@ -7,6 +7,9 @@
     :resizable="false"
     :parent="false">
 
+    <el-input-number class="changeFont" v-if="isVisible" v-model="num1" @change="handleChange" :min="1" :max="60"></el-input-number>
+
+
     <el-button-group>
       <el-button type="primary" icon="delete" size="small"></el-button>
       <el-button type="primary" icon="edit" size="small"></el-button>
@@ -14,9 +17,11 @@
       <el-button type="primary" size="small"><i class="fa fa-align-left" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-center" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-right" aria-hidden="true"></i></el-button>
-      <el-button type="primary" size="small" @click="changeFont"><i class="fa fa-font" aria-hidden="true"></i></el-button>
+      <el-button type="primary" size="small" @click.stop="isVisible = !isVisible"><i class="fa fa-font" aria-hidden="true"></i></el-button>
       <el-color-picker v-model="color1" size="small"></el-color-picker>
-      <el-button type="success" icon="circle-cross" @click="isVisible = !isVisible" size="mini"></el-button>
+      <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
+      <el-button type="gray" icon="more" size="small" @click.stop=""></el-button>
+
     </el-button-group>
 
   </vue-draggable-resizable>
@@ -28,20 +33,27 @@
 
   export default {
     name: 'tool-bar',
-    props: ['isVisible'],
     data() {
       return {
         color1: '#20a0ff',
-        color2: null
+        color2: null,
+        num1: 1,
+        isVisible: false
       }
     },
     methods: {
       closePanel: function () {
-
+        this.$emit('closePanel')
       },
       changeFont(event) {
           console.log(event),
-          this.$emit('changeFont')
+          this.$emit('toggleChangeFont')
+      },
+      handleChange(value) {
+        console.log(value)
+      },
+      toggleChangeFont() {
+
       }
     }
   }
@@ -58,4 +70,6 @@
   button.block {
     /*border: 1px solid #20a0ff;*/
   }
+
+
 </style>

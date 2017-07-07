@@ -87,16 +87,13 @@ function buildCmpObj(cmpName){
             };
             break;
         case(GALLERY_SECTION):
-            cmpObj={
+            var cmpObj={
                 id:null,
                 'type':cmpName,
-                data: { 
-                    imgs:[
-                        {url:'https://unsplash.it/800/1200?image=1063'},
-                        {url:'https://unsplash.it/800/1200?image=1064'},
-                        {url:'https://unsplash.it/800/1200?image=1065'},
-                        {url:'https://unsplash.it/800/1200?image=1067'}
-                    ],
+                data:{
+                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
+                    "https://unsplash.it/800/1200?image=1065", "https://unsplash.it/800/1200?image=1067"],
+                    activeImage: -1
                 }
             };
             break;
