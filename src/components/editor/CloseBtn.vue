@@ -1,5 +1,5 @@
 <template>
-<div class= "el-icon-circle-cross" @click="close"></div>
+<div @click.stop="closeElem"><i class="el-icon-circle-cross"></i></div>
 </template>
 <script>
 export default {
@@ -7,7 +7,8 @@ export default {
   created() {
   },
   methods: {
-      close(){
+    closeElem(){
+
       }
   }
 }
@@ -15,9 +16,7 @@ export default {
 <style scoped>
 
     div{
-        color:red;
-        font-size:2em;
-        /*background-color: gray;*/
+        font-size:1.5em;
         opacity:0.5;
         height:10%;
         -webkit-transition: 0.2s;
@@ -28,5 +27,6 @@ export default {
         cursor:pointer;
         opacity:1;
     }
+
 </style>
 
