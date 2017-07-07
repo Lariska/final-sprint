@@ -1,20 +1,21 @@
 <template>
-  <section class="footer" @click="makeVisible"
-  :style="paramsForRender.data.style">
-    <toolbar class="toolbar" 
-    v-if="isVisible" 
-    :cmpId="paramsForRender.id">
-<!--REMOVED IS VISIBLE-->
-    </toolbar>
+  <section class="footer"
+           @click="makeVisible"
+           :style="paramsForRender.data.style"
+  >
+    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+    <div>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+      <close-btn class="close-btn" :cmp="paramsForRender"></close-btn>
+    </div>
   </section>
 
 </template>
 <script>
-import { ADD_COMPONENT } from '../../store/Efix.store'
-import { FOOTER_SECTION } from '../../constants/cmpName'
-import Toolbar from '../editor/Toolbar';
-import CloseBtn from '../editor/CloseBtn';
+  import {ADD_COMPONENT} from '../../store/Efix.store'
+  import {FOOTER_SECTION} from '../../constants/cmpName'
+  import Toolbar from '../editor/Toolbar';
+  import CloseBtn from '../editor/CloseBtn';
 
   export default {
     name: FOOTER_SECTION,
@@ -57,8 +58,15 @@ import CloseBtn from '../editor/CloseBtn';
 
 <style scoped>
   .footer {
+    position: relative;
     background-color: #ccc;
     border: 1px solid #c1e2b3;
     height: 60px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>

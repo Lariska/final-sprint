@@ -1,13 +1,24 @@
 <template>
-  <section>
+  <section v-if="myPanelVisible">
   <vue-draggable-resizable
     class="editor"
-    :w="300"
+    :w="400"
     :h="50"
     :resizable="false"
     :parent="false">
 
-    <el-input-number class="changeFont" v-if="isVisible" v-model="num1" @change="handleChange" :min="1" :max="60"></el-input-number>
+    <div class="fontPanel" @click.stop="">
+
+      <el-input-number
+        v-if="fontPanelVisible"
+        v-model="num1"
+        @change="handleChange"
+        :min="1" :max="60"
+        size="small"
+      >
+
+      </el-input-number>
+    </div>
 
 
     <el-button-group>
@@ -17,8 +28,8 @@
       <el-button type="primary" size="small"><i class="fa fa-align-left" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-center" aria-hidden="true"></i></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-right" aria-hidden="true"></i></el-button>
-      <el-button type="primary" size="small" @click.stop="isVisible = !isVisible"><i class="fa fa-font" aria-hidden="true"></i></el-button>
-      <el-color-picker v-model="color1" size="small"></el-color-picker>
+      <el-button type="primary" size="small" @click.stop="toggleFontPanel"><i class="fa fa-font" aria-hidden="true"></i></el-button>
+      <el-color-picker v-model="color1"></el-color-picker>
       <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
       <el-button type="gray" icon="more" size="small" ></el-button>
 
@@ -33,27 +44,37 @@
 
   export default {
     name: 'tool-bar',
-   props: ['cmpId'],
+
+    props: ['panelVisible','paramsForRender','cmpId'],
+
     data() {
       return {
         color1: '#20a0ff',
-        color2: null,
-        num1: 1,
-        isVisible: false
+        num1: +(this.paramsForRender.data.content.style.fontSize).slice(0,-2),
+        myPanelVisible: this.panelVisible,
+        fontPanelVisible : false
       }
     },
     methods: {
+      cmpToRender() {
+        return this.$store.state.efix.components
+      },
       closePanel: function () {
+        this.myPanelVisible = false;
         this.$emit('closePanel')
       },
-      changeFont(event) {
-          console.log(event),
-          this.$emit('toggleChangeFont')
+      changeFontSize(event) {
+          console.log(event);
+          this.$emit('changeFontSize', value)
       },
       handleChange(value) {
-        console.log(value)
+        this.paramsForRender.data.content.style.fontSize = value + 'px';
+        console.log(this.paramsForRender.data.content.style.fontSize)
       },
-      toggleChangeFont() {
+      toggleFontPanel() {
+        this.fontPanelVisible = !this.fontPanelVisible;
+        console.log((this.paramsForRender.data.content.style.fontSize).slice(0,-2));
+        console.log(this.$store.state.efix.components);
 
       },
       deleteCmp() {
@@ -66,14 +87,23 @@
 <style scoped>
   section {
     position: absolute;
-    /*top: 40px;*/
   }
   .el-button-group {
     display: flex;
   }
-  button.block {
-    /*border: 1px solid #20a0ff;*/
+
+  .el-button {
+    min-width: 15px;
   }
 
+  /*.vue-draggable-resizable {*/
+    /*top: 0px;*/
+    /*left: 700px;*/
+  /*}*/
+
+  .fontPanel {
+    position: absolute;
+    top: -60px;
+  }
 
 </style>
