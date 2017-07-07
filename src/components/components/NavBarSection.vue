@@ -1,10 +1,11 @@
 <template>
   <section @click="makeVisible">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
-    <div class="menu">
+    <div class="menu"
+    :style="paramsForRender.data.style">
       <ul class="nav">
-        <li v-for="link in navBar.links"><a href="">{{ link.text }}</a></li>
-
+        <li 
+        v-for="link in paramsForRender.data.links" :key="link"><a :href="link.url" :style="link.style"> {{link.text}}</a></li>
       </ul>
     </div>
   </section>
@@ -12,8 +13,10 @@
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
+  import { NAV_BAR_SECTION } from '../../constants/cmpName'
   export default {
-    name: 'nav-bar-section',
+    name: NAV_BAR_SECTION,
+    props: ['paramsForRender'],
     components: {
       Toolbar,
       CloseBtn
@@ -21,28 +24,7 @@
     data: function () {
       return {
         isVisible: false,
-        navBar: {
-          id: null,
-          type: 'navBar1',
-          logo: '',
-          links: [
-            {text: 'link1', url: ''},
-            {text: 'link2', url: ''},
-            {text: 'link3', url: ''},
-            {text: 'link4', url: ''}
-          ],
-          font: {
-            size: '16px',
-            color: '#2C3E50'
-          },
-          backgroundColor: '#CED3DC'
-        }
       }
-    },
-    created: {
-      getNavBar: function () {
-        return this.navBar
-      },
     },
     methods: {
       makeVisible: function () {

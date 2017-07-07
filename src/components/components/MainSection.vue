@@ -6,16 +6,19 @@
       @closePanel="toggleVisible"
       @changeFont="toggleChangeFont"
     ></toolbar>
-    <div class="container">
-      <h2>{{ bodySection.content.text }}</h2>
+    <div class="container" :style="paramsForRender.data.style">
+      <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
+      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
     </div>
   </section>
 </template>
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
+  import { MAIN_SECTION } from '../../constants/cmpName'
   export default {
-    name: 'main-section',
+    name: MAIN_SECTION,
+    props: ['paramsForRender'],
     components: {
       Toolbar,
       CloseBtn
@@ -23,24 +26,6 @@
     data: function () {
       return {
         isVisible: false,
-        bodySection: {
-          id: null,
-          type: 'body1',
-          title: {
-            text: 'Hello',
-            color: '#2C3E50'
-          },
-          content: {
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            color: '#2C3E50'
-          },
-          font: {
-            size: '16px'
-          },
-          img: 'wixer-logo.png',
-          backgroundColor: '#CED3DC',
-          color: '#2C3E50'
-        },
       }
     },
     methods: {
@@ -55,12 +40,8 @@
   }
 </script>
 <style scoped>
-
-  section:hover {
-
-  }
   .container {
-    background-color: #ccc;
+    /*background-color: #ccc;*/
     border: 1px solid #c1e2b3;
     height: 300px;
   }

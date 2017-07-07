@@ -9,9 +9,9 @@
     </section>
 </template>
 <script>
-
+import { GALLERY_SECTION } from '../../constants/cmpName'
 export default {
-    name: 'gallery-section',
+    name: GALLERY_SECTION,
     methods: {
         showDelete: function () {
             this.$store.dispatch("setActiveImage", event.target.parentElement.id);

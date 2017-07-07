@@ -31,8 +31,9 @@
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
+  import { HEADER_SECTION } from '../../constants/cmpName'
   export default {
-    name: 'header-section',
+    name: HEADER_SECTION,
     props: ['paramsForRender'],
     components: {
       Toolbar,
