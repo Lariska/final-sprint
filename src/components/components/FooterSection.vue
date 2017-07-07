@@ -1,7 +1,11 @@
 <template>
   <section class="footer" @click="makeVisible"
   :style="paramsForRender.data.style">
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+    <toolbar class="toolbar" 
+    v-if="isVisible" 
+    :cmpId="paramsForRender.id">
+<!--REMOVED IS VISIBLE-->
+    </toolbar>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
   </section>
 

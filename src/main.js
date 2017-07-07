@@ -6,12 +6,20 @@ import store from './store'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import lang from 'element-ui/lib/locale/lang/en'
-import locale from 'element-ui/lib/locale'
+
 import '../node_modules/font-awesome/css/font-awesome.css';
 
+import 'vue-event-calendar/dist/style.css' 
+import vueEventCalendar from 'vue-event-calendar'
+
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+
+
 import VueDraggableResizable from 'vue-draggable-resizable'
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
+Vue.component('vue-draggable-resizable', VueDraggableResizable);
+Vue.use(vueEventCalendar, {locale: 'en'})
+
 
 import Carousel3d from 'vue-carousel-3d';
 
