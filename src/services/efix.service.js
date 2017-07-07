@@ -89,7 +89,7 @@ function buildCmpObj(cmpName){
         case(GALLERY_SECTION):
             var cmpObj={
                 id:null,
-                'type':cmpName,
+                type:cmpName,
                 data:{
                     images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
                     "https://unsplash.it/800/1200?image=1065", "https://unsplash.it/800/1200?image=1067"],
