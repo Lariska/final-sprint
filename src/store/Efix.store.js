@@ -46,8 +46,9 @@ const mutations = {
     // console.log("Store value changed: " + payload);
   },
   [ADD_COMPONENT](state, payload) {
-    efixService.buildCmpObj(payload);
-    state.components.push(efixService.buildCmpObj(payload));
+    const cmpObj = efixService.buildCmpObj(payload);
+    console.log("Id of new cmp: " + cmpObj.id);
+    state.components.push(cmpObj);
   },
   setActiveImage (state, active_image) {
     state.components[0].data.activeImage = active_image;

@@ -9,8 +9,8 @@
 <script>
 import { ADD_COMPONENT } from '../../store/Efix.store'
 import { FOOTER_SECTION } from '../../constants/cmpName'
-  import Toolbar from '../editor/Toolbar';
-  import CloseBtn from '../editor/CloseBtn';
+import Toolbar from '../editor/Toolbar';
+import CloseBtn from '../editor/CloseBtn';
 
   export default {
     name: FOOTER_SECTION,

@@ -1,12 +1,12 @@
 
-import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_SECTION } from '../constants/cmpName'
+import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION } from '../constants/cmpName'
 
 function buildCmpObj(cmpName){
     var cmpObj=null;
     switch(cmpName){
         case(HEADER_SECTION):
             cmpObj =  {
-                id: null,
+                id: generateId(),
                 type:cmpName,
                 data :{
                     title: {
@@ -26,7 +26,7 @@ function buildCmpObj(cmpName){
             break; 
         case(NAV_BAR_SECTION):
             cmpObj={
-                id: null,
+                id: generateId(),
                 type:cmpName,
                 data:{
                     links: [
@@ -51,7 +51,7 @@ function buildCmpObj(cmpName){
             break;
         case(MAIN_SECTION):
             cmpObj={
-                id: null,
+                id: generateId(),
                 type:cmpName,
                 data: {
                     title: {
@@ -72,7 +72,7 @@ function buildCmpObj(cmpName){
             break;
         case(FOOTER_SECTION):
             cmpObj={
-                id: null,
+                id: generateId(),
                 type:cmpName,
                 data: {
                     content: {
@@ -88,7 +88,7 @@ function buildCmpObj(cmpName){
             break;
         case(GALLERY_SECTION):
             var cmpObj={
-                id:null,
+                id: generateId(),
                 type:cmpName,
                 data:{
                     images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
@@ -97,10 +97,18 @@ function buildCmpObj(cmpName){
                 }
             };
             break;
+        case(DATE_SECTION):
+            var cmpObj={
+                id: generateId(),
+                type:cmpName
+            }
+            break;
     }
     return cmpObj;
 }
-
+const generateId = function () {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 export default {
     buildCmpObj
 }
