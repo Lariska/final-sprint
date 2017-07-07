@@ -44,7 +44,9 @@
 
   export default {
     name: 'tool-bar',
+
     props: ['panelVisible','paramsForRender','cmpId'],
+
     data() {
       return {
         color1: '#20a0ff',
