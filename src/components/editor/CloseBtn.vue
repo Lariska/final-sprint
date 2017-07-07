@@ -5,11 +5,9 @@
 export default {
   name: 'close-btn',
   created() {
-      console.log("created");
   },
   methods: {
       close(){
-          console.log("click");
       }
   }
 }

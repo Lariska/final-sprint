@@ -47,7 +47,6 @@ export default {
   },
   computed: {
     cmpToRender() {
-      console.log('ff')
       return this.$store.state.efix.components
     }
   },

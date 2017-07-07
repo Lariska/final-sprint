@@ -45,7 +45,6 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_
     },
     methods: {
       handleChange(value) {
-        console.log("HEADER:"+ HEADER_SECTION);
         this.$emit('selectedElement',value[value.length -1]);
       }
     }
