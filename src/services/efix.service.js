@@ -61,7 +61,7 @@ function buildCmpObj(cmpName){
                     content: {
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                         img: 'wixer-logo.png',
-                        style: { color: '#2C3E50', fontSize: '16px' }
+                        style: { color: '#2C3E50', fontSize: '16px' , align: 'center'}
                     },
                     style:{
                         backgroundColor: '#CED3DC',

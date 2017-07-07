@@ -17,7 +17,7 @@ export default {
 
     div{
         font-size:1.5em;
-        opacity:0.5;
+        opacity: 0.2;
         height:10%;
         -webkit-transition: 0.2s;
         -moz-transition: 0.2s;
