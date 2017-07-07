@@ -1,17 +1,18 @@
 <template>
     <section>
         <div class="gallery">
-            <img v-img:group src="https://unsplash.it/800/1200?image=1063">
-            <img v-img:group src="https://unsplash.it/800/1200?image=1064">
-            <img v-img:group src="https://unsplash.it/800/1200?image=1065">
-            <img v-img:group src="https://unsplash.it/800/1200?image=1067">
+            <img 
+                v-for="img in paramsForRender.data.imgs" 
+                :key="img" 
+                v-img:group :src="img.url">
         </div>
     </section>
 </template>
 <script>
-
+import { GALLERY_SECTION } from '../../constants/cmpName'
 export default {
-    name: 'gallery-section',
+    props: ['paramsForRender'],
+    name: GALLERY_SECTION,
 }
 </script>
 

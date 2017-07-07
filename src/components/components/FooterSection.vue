@@ -1,19 +1,22 @@
 <template>
-  <section class="footer" @click="makeVisible">
+  <section class="footer" @click="makeVisible"
+  :style="paramsForRender.data.style">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
     <div>
-      <p>{{ footerSection.content.text }}</p>
+      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
     </div>
   </section>
 
 </template>
 <script>
 import { ADD_COMPONENT } from '../../store/Efix.store'
+import { FOOTER_SECTION } from '../../constants/cmpName'
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
 
   export default {
-    name: 'footer-section',
+    name: FOOTER_SECTION,
+    props: ['paramsForRender'],
     components: {
       Toolbar,
       CloseBtn
