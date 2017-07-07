@@ -2,7 +2,7 @@
   <section v-if="myPanelVisible">
   <vue-draggable-resizable
     class="editor"
-    :w="300"
+    :w="400"
     :h="50"
     :resizable="false"
     :parent="false">
@@ -92,7 +92,7 @@
   }
 
   .el-button {
-    min-width: 10px;
+    min-width: 15px;
   }
 
   /*.vue-draggable-resizable {*/
