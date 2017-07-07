@@ -11,7 +11,7 @@
     <div class="container" :style="paramsForRender.data.style">
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
-      <close-btn class="closeBtn"></close-btn>
+      <close-btn class="closeBtn" :cmp="cmp"></close-btn>
     </div>
   </section>
 </template>
@@ -29,6 +29,7 @@
     data: function () {
       return {
         panelVisible: false,
+        cmp: this.paramsForRender
       }
     },
     methods: {
@@ -36,7 +37,7 @@
         if (!this.panelVisible) this.panelVisible = true;
       },
       closePanel() {
-        this.panelVisible = false
+        this.panelVisible = false;
       }
     }
   }
