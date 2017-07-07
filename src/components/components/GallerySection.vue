@@ -3,21 +3,48 @@
         <div class="gallery" id="gallery">
             <div v-for="(i, index) in getImages" v-on:mouseover="showDelete" :id="index">
                 <img v-img:group :src="i">
+                <i @click="dialogVisible = true" v-if="getActiveImage==index" class="el-icon-edit"></i>
                 <i v-on:click="deleteActiveImage" v-if="getActiveImage==index" class="el-icon-delete"></i>
             </div>
         </div>
+        <el-dialog
+            title="Upload new picture"
+            :visible.sync="dialogVisible"
+            size="tiny">
+            <span>
+                <dropzone id="myVueDropzone" url="https://httpbin.org/post" v-on:vdropzone-success="saveImage">
+                    <!-- Optional parameters if any! -->
+                    <input type="hidden" name="token" value="xxx">
+                </dropzone>
+            </span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">Cancel</el-button>
+                <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
+            </span>
+        </el-dialog>
     </section>
 </template>
 <script>
-
+import Dropzone from 'vue2-dropzone'
 export default {
     name: 'gallery-section',
+    components: {
+      Dropzone
+    },
+    data() {
+      return {
+        dialogVisible: false
+      };
+    },
     methods: {
         showDelete: function () {
             this.$store.dispatch("setActiveImage", event.target.parentElement.id);
         },
         deleteActiveImage: function() {
             this.$store.dispatch("deleteActiveImage");
+        },
+        saveImage: function(file) {
+            this.$store.dispatch("setImage", file.dataURL);
         }
     },
     computed: {
@@ -44,6 +71,14 @@ export default {
         width: 200px;
         height: 300px;
         padding: 5px;
+    }
+    .el-icon-edit {
+        position: absolute;
+        color: white;
+        font-size: 35px;
+        top: 12px;
+        right: 50px;
+        cursor: pointer;
     }
     .el-icon-delete {
         position: absolute;

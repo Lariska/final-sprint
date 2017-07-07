@@ -52,6 +52,9 @@ const mutations = {
   setActiveImage (state, active_image) {
     state.components[0].data.activeImage = active_image;
   },
+  setImage (state, image) {
+    state.components[0].data.images[state.components[0].data.activeImage] = image;
+  },
   deleteActiveImage (state) {
     state.components[0].data.images.splice(state.components[0].data.activeImage ,1);
   },
@@ -71,6 +74,9 @@ const mutations = {
 const actions = {
     setActiveImage({ commit }, active_image) {
         commit("setActiveImage", active_image);
+    },
+    setImage({ commit }, image) {
+        commit("setImage", image);
     },
     deleteActiveImage({ commit }) {
         commit("deleteActiveImage");
