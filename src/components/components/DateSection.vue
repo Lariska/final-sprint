@@ -5,11 +5,11 @@
   @day-changed="dayChanged">
       <div 
       v-for="event in events"
-      v-if="event.title !== '$NULL$'"
+      v-if="event.title !== ''"
       :key="event" 
       class="event-item"
-      @click="eventClick">
-      <div >
+      @click="eventClick(event)">
+      <div v-if="event.title !== ''">
         {{event.title}}
         {{event.date.split('/').reverse().join('/')}}
       </div>
@@ -45,7 +45,8 @@ export default {
       newEventData:{
         date:null,
         title:''
-      }
+      },
+      isFirstClick:false
     }
   },
   methods: {
@@ -57,16 +58,32 @@ export default {
       var index=null
       var foundEmptyEvent = this.events.find((event,idx) =>{ 
         index = idx;
-        return event.title === '$NULL$';
+        return event.title === '';
       });
       if(foundEmptyEvent){
         this.events.splice(index,1);
       }
-      this.events.push({title:'$NULL$', date:date});
+      this.events.push({title:'', date:date});
       
     },
-    eventClick(value){
-      console.log("event picked: "+ value);
+    removeEvent(eventToRemove){
+      var index=null;
+      var foundEmptyEvent = this.events.find((event,idx) =>{ 
+        index = idx;
+        return event === eventToRemove;
+      });
+      if(foundEmptyEvent){
+        this.events.splice(index,1);
+      }
+    },
+    eventClick(event){
+      if(this.isFirstClick){
+        console.log("event picked: "+ event);
+        this.removeEvent(event);
+      } else{
+          this.isFirstClick = true;
+          setTimeout( _=> this.isFirstClick = false, 200);
+      }
     },
     addEvent(){
       if(this.newEventData.title && this.newEventData.date){
