@@ -1,10 +1,10 @@
 <<template>
 <section>
   <vue-event-calendar 
-  :events="events"
+  :events="$store.state.calendar.events"
   @day-changed="dayChanged">
       <div 
-      v-for="event in events"
+      v-for="event in this.$store.state.calendar.events"
       v-if="event.title !== ''"
       :key="event" 
       class="event-item"
@@ -29,6 +29,7 @@
 </template>
 <<script>
 import { DATE_SECTION } from '../../constants/cmpName'
+import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store'
 
 export default {
   name: DATE_SECTION,
@@ -52,27 +53,30 @@ export default {
   methods: {
     dayChanged(value){
       this.newEventData.date = value.date;
-      this.markThisDate(value.date);
+      this.markThisDate(value);
     },
-    markThisDate(date){
-      var index=null
-      var foundEmptyEvent = this.events.find((event,idx) =>{ 
-        index = idx;
-        return event.title === '';
-      });
-      if(foundEmptyEvent){
-        this.events.splice(index,1);
-      }
-      this.events.push({title:'', date:date});
+    markThisDate(event){
+      this.removeEvent(event,true);
+      this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
+      this.events.push({title:'', date:event.date});
       
     },
-    removeEvent(eventToRemove){
+    removeEvent(eventToRemove, isEmpty = false){
       var index=null;
-      var foundEmptyEvent = this.events.find((event,idx) =>{ 
-        index = idx;
-        return event === eventToRemove;
-      });
+      var foundEmptyEvent;
+      if(isEmpty){
+        foundEmptyEvent = this.$store.state.calendar.events.find((event,idx) =>{ 
+          index = idx;
+          return event.title === '';
+        })
+      } else {
+          foundEmptyEvent = this.$store.state.calendar.events.find((event,idx) =>{ 
+            index = idx;
+            return event === eventToRemove;
+          });
+        }
       if(foundEmptyEvent){
+         this.$store.commit(CALENDAR_REMOVE_EVENT, index );
         this.events.splice(index,1);
       }
     },
@@ -87,6 +91,7 @@ export default {
     },
     addEvent(){
       if(this.newEventData.title && this.newEventData.date){
+        this.$store.commit(CALENDAR_ADD_EVENT, {title:this.newEventData.title, date:this.newEventData.date});
         this.events.push({title:this.newEventData.title, date:this.newEventData.date});
         title:this.newEventData.title = '';
       }
