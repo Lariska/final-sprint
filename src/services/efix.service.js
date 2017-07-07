@@ -16,14 +16,14 @@ function buildCmpObj(cmpName){
                     contentText: {
                         text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
                         style: {
-                            color: '#2C3E50', 
+                            color: '#2C3E50',
                             fontSize: '16px'}
                     },
                     img: 'wixer-logo.png',
                     style:{backgroundColor: '#CED3DC'},
                 },
             }
-            break; 
+            break;
         case(NAV_BAR_SECTION):
             cmpObj={
                 id: null,
@@ -91,7 +91,7 @@ function buildCmpObj(cmpName){
                 id:null,
                 type:cmpName,
                 data:{
-                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064", 
+                    images: ["https://unsplash.it/800/1200?image=1063", "https://unsplash.it/800/1200?image=1064",
                     "https://unsplash.it/800/1200?image=1065", "https://unsplash.it/800/1200?image=1067"],
                     activeImage: -1
                 }

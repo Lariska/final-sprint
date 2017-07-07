@@ -1,5 +1,5 @@
 <template>
-  <section @click="makeVisible">
+  <section class="header" @click="makeVisible">
     <toolbar
       class="toolbar"
       v-if="isVisible"
@@ -82,7 +82,7 @@
     justify-content: flex-end;
     /*position: absolute;*/
   }
-  
+
 </style>
 
 
