@@ -1,24 +1,24 @@
 import efixService from '../services/efix.service.js';
 
-export const EFIX_CHOSE_ELEMENT       = 'EFIX_CHOSE_ELEMENT'
-export const ADD_COMPONENT       = 'ADD_COMPONENT'
-export const DELETE_COMPONENT       = 'ADD_COMPONENT'
+export const EFIX_CHOSE_ELEMENT = 'EFIX_CHOSE_ELEMENT'
+export const ADD_COMPONENT = 'ADD_COMPONENT'
+export const DELETE_COMPONENT = 'ADD_COMPONENT'
 // export const TODO_UPDATE      = 'TODO_UPDATE';
 // export const TODO_CREATE      = 'TODO_CREATE';
 
 // import todoService from '../services/todo.service'
 
 const state = {
-    chosenElement: null,
-    components:  []
+  chosenElement: null,
+  components: []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
 };
 
 const getters = {
-    components: state => {
-      return state.components
-    }
+  components: state => {
+    return state.components
+  }
 //   filteredTodos({ filterBy, todos }) {
 //     var res = todos;
 //     if (filterBy.txt) {
@@ -51,18 +51,17 @@ const mutations = {
     console.log("Id of new cmp: " + cmpObj.id);
     state.components.push(cmpObj);
   },
-  [DELETE_COMPONENT](state, { cmp }) {
+  deleteCmp(state, cmp) {
     const idx = state.components.findIndex(function (currCmp) {
-       return currCmp.id === cmp.id;
+      return currCmp.id === cmp.id;
     });
-    state.components.splice(idx, 1, cmp);
-    console.log(state.components);
+    state.components.splice(idx, 1);
   },
   setActiveImage (state, active_image) {
     state.components[0].data.activeImage = active_image;
   },
   deleteActiveImage (state) {
-    state.components[0].data.images.splice(state.components[0].data.activeImage ,1);
+    state.components[0].data.images.splice(state.components[0].data.activeImage, 1);
   },
 
 //   [TODO_UPDATE](state, { todo }) {
@@ -78,15 +77,18 @@ const mutations = {
 }
 
 const actions = {
-    setActiveImage({ commit }, active_image) {
-        commit("setActiveImage", active_image);
-    },
-    deleteActiveImage({ commit }) {
-        commit("deleteActiveImage");
-    },
-    [DELETE_COMPONENT]({commit}, cmp) {
-      commit('[DELETE_COMPONENT]',cmp)
-    }
+  setActiveImage({commit}, active_image) {
+    commit("setActiveImage", active_image);
+  },
+  deleteActiveImage({commit}) {
+    commit("deleteActiveImage");
+  },
+  deleteCmp({commit}, cmp) {
+    commit("deleteCmp", cmp);
+  },
+  // [DELETE_COMPONENT](context, cmp) {
+  //   context.commit('DELETE_COMPONENT',cmp)
+  // }
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()
 //       .then(todos => {

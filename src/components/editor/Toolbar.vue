@@ -87,7 +87,6 @@
 <style scoped>
   section {
     position: absolute;
-
   }
   .el-button-group {
     display: flex;

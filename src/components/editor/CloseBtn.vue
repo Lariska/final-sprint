@@ -9,10 +9,7 @@
     },
     methods: {
       deleteElem(){
-        console.log(this.cmp);
-
-        this.$store.dispatch('[DELETE_COMPONENT]',this.cmp );
-
+        this.$store.commit('deleteCmp', this.cmp)
       }
     }
   }

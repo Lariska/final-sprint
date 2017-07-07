@@ -6,7 +6,6 @@
       :cmpId="paramsForRender.id"
       @changeFont="changeFont"
     >
-          <!--:isVisible="isVisible",-->
     </toolbar>
     <nav class="header"
     :style="paramsForRender.data.style">
@@ -23,7 +22,7 @@
         </p>
 
       </ul>
-      <close-btn class="close-btn"></close-btn>
+      <close-btn class="close-btn" :cmp="paramsForRender"></close-btn>
     </nav>
   </section>
 </template>
@@ -77,10 +76,10 @@
     justify-content: center;
   }
 
-  .close-btn {
-    display: flex;
-    justify-content: flex-end;
-    /*position: absolute;*/
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
 </style>

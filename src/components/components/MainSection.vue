@@ -11,7 +11,7 @@
     <div class="container" :style="paramsForRender.data.style">
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
-      <close-btn class="closeBtn" :cmp="cmp"></close-btn>
+      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
 </template>
@@ -29,7 +29,7 @@
     data: function () {
       return {
         panelVisible: false,
-        cmp: this.paramsForRender
+        cmp: this.paramsForRender.id
       }
     },
     methods: {
@@ -45,7 +45,6 @@
 <style scoped>
   .container {
     position: relative;
-    /*background-color: #ccc;*/
     border: 1px solid #c1e2b3;
     height: 300px;
   }
