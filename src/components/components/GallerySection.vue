@@ -25,9 +25,10 @@
     </section>
 </template>
 <script>
+import { GALLERY_SECTION } from '../../constants/cmpName'
 import Dropzone from 'vue2-dropzone'
 export default {
-    name: 'gallery-section',
+    name: GALLERY_SECTION,
     components: {
       Dropzone
     },
@@ -52,6 +53,7 @@ export default {
             return this.$store.getters.components[0].data.activeImage;
         },
         getImages: function () {
+            debugger;
             return this.$store.getters.components[0].data.images;
         }
     }

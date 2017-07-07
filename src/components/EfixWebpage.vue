@@ -5,7 +5,8 @@
       <element-choice @selectedElement="selectElement"></element-choice>
     </div>
     <div class="box">
-      <el-card class="box-card">
+      <el-card class="box-card"
+      body-style="width:100%">
         <component v-for="component in cmpToRender" 
         :key="component.type"
         :is="component.type"
@@ -25,7 +26,7 @@ import GallerySection from './components/GallerySection'
 import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT,ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
-// import StatusButtons from './StatusButtons';
+import StatusButtons from './StatusButtons';
 export default {
   name: 'web-page',
   components: {
@@ -36,7 +37,7 @@ export default {
     HeaderSection,
     EditorPanel,
     GallerySection,
-    // StatusButtons,
+    StatusButtons,
   },
   data() {
     return {
@@ -46,7 +47,6 @@ export default {
   },
   computed: {
     cmpToRender() {
-      console.log('ff')
       return this.$store.state.efix.components
     }
   },

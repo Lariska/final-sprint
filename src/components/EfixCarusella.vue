@@ -28,7 +28,7 @@ export default {
 
 <style>
     .carousel-3d-slide {
-        padding: 10px;
+        padding: 20px;
     }
     
     .title { font-size: 22px; }
