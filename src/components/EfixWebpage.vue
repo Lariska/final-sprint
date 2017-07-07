@@ -5,7 +5,8 @@
       <element-choice @selectedElement="selectElement"></element-choice>
     </div>
     <div class="box">
-      <el-card class="box-card">
+      <el-card class="box-card"
+      body-style="width:100%">
         <component v-for="component in cmpToRender" 
         :key="component.type"
         :is="component.type"

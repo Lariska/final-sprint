@@ -1,10 +1,11 @@
 <template>
   <section @click="makeVisible">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
-    <div class="menu">
+    <div class="menu"
+    :style="paramsForRender.data.style">
       <ul class="nav">
         <li 
-        v-for="link in paramsForRender.data.links" :key="link" :style="paramsForRender.data.style"><a :href="link.url" :style="link.style"> {{link.text}}</a></li>
+        v-for="link in paramsForRender.data.links" :key="link"><a :href="link.url" :style="link.style"> {{link.text}}</a></li>
       </ul>
     </div>
   </section>

@@ -2,9 +2,7 @@
   <section class="footer" @click="makeVisible"
   :style="paramsForRender.data.style">
     <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
-    <div>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
-    </div>
   </section>
 
 </template>

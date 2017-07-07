@@ -7,7 +7,7 @@ function buildCmpObj(cmpName){
         case(HEADER_SECTION):
             cmpObj =  {
                 id: null,
-                'type':cmpName,
+                type:cmpName,
                 data :{
                     title: {
                         text: 'Hello!',
@@ -27,7 +27,7 @@ function buildCmpObj(cmpName){
         case(NAV_BAR_SECTION):
             cmpObj={
                 id: null,
-                'type':cmpName,
+                type:cmpName,
                 data:{
                     links: [
                         { text: 'link1', url: '', style: {
@@ -52,7 +52,7 @@ function buildCmpObj(cmpName){
         case(MAIN_SECTION):
             cmpObj={
                 id: null,
-                'type':cmpName,
+                type:cmpName,
                 data: {
                     title: {
                         text: 'Hello',
@@ -73,7 +73,7 @@ function buildCmpObj(cmpName){
         case(FOOTER_SECTION):
             cmpObj={
                 id: null,
-                'type':cmpName,
+                type:cmpName,
                 data: {
                     content: {
                         text: 'Copyrights 2017',
