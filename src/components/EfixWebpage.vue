@@ -68,6 +68,7 @@ export default {
 </script>
 
 <style scoped>
+
 .box-card {
   margin-left: 100px;
   display: flex;

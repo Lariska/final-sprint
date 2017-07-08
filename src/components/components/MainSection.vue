@@ -1,21 +1,24 @@
 <template>
-  <section @click="toggleVisible">
+  <section @click="togglePanel">
     <toolbar
       class="toolbar"
-      v-if="isVisible"
-      @closePanel="toggleVisible"
-      @changeFont="toggleChangeFont"
-    ></toolbar>
+      v-if="panelVisible"
+      :panelVisible="panelVisible"
+      @closePanel="closePanel"
+      :paramsForRender="paramsForRender"
+    >
+    </toolbar>
     <div class="container" :style="paramsForRender.data.style">
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
 </template>
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
-  import { MAIN_SECTION } from '../../constants/cmpName'
+  import {MAIN_SECTION} from '../../constants/cmpName'
   export default {
     name: MAIN_SECTION,
     props: ['paramsForRender'],
@@ -25,32 +28,30 @@
     },
     data: function () {
       return {
-        isVisible: false,
+        panelVisible: false
       }
     },
     methods: {
-      toggleVisible: function () {
-        this.isVisible = !this.isVisible;
-        console.log(this.isVisible)
+      togglePanel: function () {
+        if (!this.panelVisible) this.panelVisible = true;
       },
-      toggleChangeFont: function () {
-
+      closePanel() {
+        this.panelVisible = false;
       }
     }
   }
 </script>
 <style scoped>
   .container {
-    /*background-color: #ccc;*/
+    position: relative;
     border: 1px solid #c1e2b3;
     height: 300px;
   }
 
-  section .menu {
-    display: flex;
-    line-height: 60px;
-    font-size: 26px;
-    color: cornflowerblue;
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>
 

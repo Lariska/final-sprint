@@ -1,20 +1,28 @@
 <template>
-  <section class="footer" @click="makeVisible"
-  :style="paramsForRender.data.style">
-    <toolbar class="toolbar" 
-    v-if="isVisible" 
-    :cmpId="paramsForRender.id">
-<!--REMOVED IS VISIBLE-->
+  <section class="footer"
+           @click="togglePanel"
+           :style="paramsForRender.data.style"
+  >
+    <toolbar
+      class="toolbar"
+      v-if="panelVisible"
+      :panelVisible="panelVisible"
+      @closePanel="closePanel"
+      :paramsForRender="paramsForRender"
+    >
     </toolbar>
-      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+    <div class="container">
+    <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+    </div>
   </section>
 
 </template>
 <script>
-import { ADD_COMPONENT } from '../../store/Efix.store'
-import { FOOTER_SECTION } from '../../constants/cmpName'
-import Toolbar from '../editor/Toolbar';
-import CloseBtn from '../editor/CloseBtn';
+//  import {ADD_COMPONENT} from '../../store/Efix.store'
+  import {FOOTER_SECTION} from '../../constants/cmpName'
+  import Toolbar from '../editor/Toolbar';
+  import CloseBtn from '../editor/CloseBtn';
 
   export default {
     name: FOOTER_SECTION,
@@ -25,19 +33,7 @@ import CloseBtn from '../editor/CloseBtn';
     },
     data: function () {
       return {
-        isVisible: false,
-        footerSection: {
-          id: null,
-          type: 'footer1',
-          content: {
-            text: 'Copyrights 2017',
-            color: '#2C3E50'
-          },
-          font: {
-            size: '16px'
-          },
-          backgroundColor: '#CED3DC'
-        }
+        panelVisible: false
       }
     },
     // mounted() {
@@ -45,20 +41,37 @@ import CloseBtn from '../editor/CloseBtn';
     //   console.log("mounted");
     // },
     methods: {
-      getFooter: function () {
-        return this.footerSection
+//      getFooter: function () {
+//        return this.footerSection
+//      },
+//      makeVisible: function () {
+//        this.isVisible = true
+//      }
+      togglePanel: function () {
+        if (!this.panelVisible) this.panelVisible = true;
       },
-      makeVisible: function () {
-        this.isVisible = true
+      closePanel() {
+        this.panelVisible = false;
       }
     }
   }
 </script>
 
 <style scoped>
+  .container {
+    position: relative;
+  }
+
   .footer {
     background-color: #ccc;
     border: 1px solid #c1e2b3;
     height: 60px;
+
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 </style>
