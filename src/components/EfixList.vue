@@ -9,9 +9,9 @@
     <ul class="button">
     <router-link to ="/web-page"><el-button :plain="true" type="info">Create Your Webxite</el-button></router-link>
     </ul>
-    <!--<ul class="button">
-      <el-button :plain="true" type="info">Info</el-button>
-    </ul>-->
+    <!--<ul class="button">-->
+      <!--<el-button :plain="true" type="info">Info</el-button>-->
+    <!--</ul>-->
   </div>
 
   <efix-carusella></efix-carusella>

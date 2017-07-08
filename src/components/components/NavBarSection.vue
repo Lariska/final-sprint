@@ -11,15 +11,16 @@
          :style="paramsForRender.data.style">
       <ul class="nav">
         <li
-          v-for="link in paramsForRender.data.links" :key="link">
+          v-for="link in paramsForRender.data.content.links" :key="link">
           <a :href="link.url"
              :style="link.style">
             {{link.text}}
           </a>
         </li>
       </ul>
+      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
-    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+
   </section>
 </template>
 <script>

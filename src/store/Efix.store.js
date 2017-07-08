@@ -2,7 +2,7 @@ import efixService from '../services/efix.service.js';
 
 export const EFIX_CHOSE_ELEMENT = 'EFIX_CHOSE_ELEMENT'
 export const ADD_COMPONENT = 'ADD_COMPONENT'
-export const DELETE_COMPONENT = 'ADD_COMPONENT'
+// export const DELETE_COMPONENT = 'ADD_COMPONENT'
 // export const TODO_UPDATE      = 'TODO_UPDATE';
 // export const TODO_CREATE      = 'TODO_CREATE';
 
@@ -88,6 +88,7 @@ const mutations = {
 }
 
 const actions = {
+
     // Gallery actions
     setActiveImage({ commit }, params) {
         commit("setActiveImage", params);
@@ -98,6 +99,7 @@ const actions = {
     deleteActiveImage({ commit }, id) {
         commit("deleteActiveImage", id);
     },
+
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()
 //       .then(todos => {

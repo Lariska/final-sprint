@@ -12,7 +12,7 @@
         <el-input-number
           v-if="fontPanelVisible"
           v-model="defaultFontSize"
-          @change="handleChange"
+          @change="fontSizeChange"
           :min="1" :max="60"
           size="small"
         >
@@ -70,10 +70,9 @@
     data() {
       return {
         color: '#ddd',
-        defaultFontSize: +(this.paramsForRender.data.content.style.fontSize).slice(0, -2),
+        defaultFontSize: +(this.paramsForRender.data.style.fontSize).slice(0, -2),
         myPanelVisible: this.panelVisible,
-        fontPanelVisible: false,
-        currCmp : this.paramsForRender
+        fontPanelVisible: false
       }
     },
     methods: {
@@ -81,21 +80,35 @@
         this.myPanelVisible = false;
         this.$emit('closePanel')
       },
-      handleChange(value) {
-        this.currCmp.data.content.style.fontSize = value + 'px';
-        this.$store.commit('editCmp', { cmp: this.currCmp})
-
-      },
       toggleFontPanel() {
         this.fontPanelVisible = !this.fontPanelVisible;
       },
+      fontSizeChange(value) {
+        const cmpEdited = Object.assign({}, this.paramsForRender);
+        cmpEdited.data.style.fontSize = value + 'px';
+
+        this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        })
+
+      },
       colorChange(value) {
-        this.currCmp.data.style.color = value;
-        this.$store.commit('editCmp', { cmp: this.currCmp})
+        const cmpEdited = Object.assign({}, this.paramsForRender);
+        cmpEdited.data.style.color = value;
+
+        this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        })
       },
       alignChange(value) {
-        this.currCmp.data.style['text-align'] = value;
-        this.$store.commit('editCmp', { cmp: this.currCmp})
+        const cmpEdited = Object.assign({}, this.paramsForRender);
+        cmpEdited.data.style['text-align'] = value;
+        this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        });
       }
     }
   }
