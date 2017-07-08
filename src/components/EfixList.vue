@@ -2,9 +2,7 @@
   <section>
 
     <nav class="main-nav flex align-center justify-center">
-      <ul class="clean-list flex align-center">
-        <img src="../assets/wixer-logo.png" alt="Company name">
-      </ul>
+    <img src="../assets/efix.png" alt="Company name">
     </nav>
 
   <div class="button">
@@ -52,9 +50,17 @@
 </script>
 
 <style scoped>
-  .main-nav {
-    background-color: #4E8098;
+  img{
+    display: flex;
+    justify-content: right;
+    margin: 0;
     padding: 0;
+  }
+  .main-nav {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid gray;
   }
   div {
     display: flex;
@@ -62,7 +68,7 @@
   }
   #modal {
     background-color: red;
-    height: 150px;
+    height: 50px;
     width: 50%;
     position: absolute;
     left: 25%;
