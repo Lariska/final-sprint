@@ -11,8 +11,10 @@
       :paramsForRender="paramsForRender"
     >
     </toolbar>
+    <div class="container">
     <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
     <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+    </div>
   </section>
 
 </template>
@@ -56,7 +58,7 @@
 </script>
 
 <style scoped>
-  section {
+  .container {
     position: relative;
   }
 
@@ -64,6 +66,7 @@
     background-color: #ccc;
     border: 1px solid #c1e2b3;
     height: 60px;
+
   }
 
   .closeBtn {
