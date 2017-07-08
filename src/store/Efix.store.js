@@ -52,7 +52,7 @@ const mutations = {
     state.components.push(cmpObj);
   },
   deleteCmp(state, cmp) {
-    const idx = state.components.findIndex(function (currCmp) {
+    const idx = state.components.findIndex(currCmp => {
       return currCmp.id === cmp.id;
     });
     state.components.splice(idx, 1);
@@ -63,6 +63,12 @@ const mutations = {
   deleteActiveImage (state) {
     state.components[0].data.images.splice(state.components[0].data.activeImage, 1);
   },
+  editCmp(state, payload) {
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.cmp.id;
+    });
+    state.components.splice(idx, 1, payload.cmp);
+  }
 
 //   [TODO_UPDATE](state, { todo }) {
 //     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)
@@ -86,9 +92,7 @@ const actions = {
   deleteCmp({commit}, cmp) {
     commit("deleteCmp", cmp);
   },
-  // [DELETE_COMPONENT](context, cmp) {
-  //   context.commit('DELETE_COMPONENT',cmp)
-  // }
+
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()
 //       .then(todos => {

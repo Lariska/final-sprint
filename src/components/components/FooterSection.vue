@@ -1,13 +1,18 @@
 <template>
   <section class="footer"
-           @click="makeVisible"
+           @click="togglePanel"
            :style="paramsForRender.data.style"
   >
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
-    <div>
-      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
-      <close-btn class="close-btn" :cmp="paramsForRender"></close-btn>
-    </div>
+    <toolbar
+      class="toolbar"
+      v-if="panelVisible"
+      :panelVisible="panelVisible"
+      @closePanel="closePanel"
+      :paramsForRender="paramsForRender"
+    >
+    </toolbar>
+    <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
   </section>
 
 </template>
@@ -26,19 +31,7 @@
     },
     data: function () {
       return {
-        isVisible: false,
-        footerSection: {
-          id: null,
-          type: 'footer1',
-          content: {
-            text: 'Copyrights 2017',
-            color: '#2C3E50'
-          },
-          font: {
-            size: '16px'
-          },
-          backgroundColor: '#CED3DC'
-        }
+        panelVisible: false
       }
     },
     // mounted() {
@@ -46,19 +39,28 @@
     //   console.log("mounted");
     // },
     methods: {
-      getFooter: function () {
-        return this.footerSection
+//      getFooter: function () {
+//        return this.footerSection
+//      },
+//      makeVisible: function () {
+//        this.isVisible = true
+//      }
+      togglePanel: function () {
+        if (!this.panelVisible) this.panelVisible = true;
       },
-      makeVisible: function () {
-        this.isVisible = true
+      closePanel() {
+        this.panelVisible = false;
       }
     }
   }
 </script>
 
 <style scoped>
-  .footer {
+  section {
     position: relative;
+  }
+
+  .footer {
     background-color: #ccc;
     border: 1px solid #c1e2b3;
     height: 60px;

@@ -5,9 +5,9 @@
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
-
       :paramsForRender="paramsForRender"
-    ></toolbar>
+    >
+    </toolbar>
     <div class="container" :style="paramsForRender.data.style">
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
@@ -28,8 +28,7 @@
     },
     data: function () {
       return {
-        panelVisible: false,
-        cmp: this.paramsForRender.id
+        panelVisible: false
       }
     },
     methods: {
@@ -47,13 +46,6 @@
     position: relative;
     border: 1px solid #c1e2b3;
     height: 300px;
-  }
-
-  section .menu {
-    display: flex;
-    line-height: 60px;
-    font-size: 26px;
-    color: cornflowerblue;
   }
 
   .closeBtn {
