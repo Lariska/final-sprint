@@ -11,7 +11,7 @@
 
 
     <el-button-group>
-      <el-button type="primary" icon="delete" size="small"></el-button>
+      <el-button type="primary" icon="delete" size="small" @click="deleteCmp"></el-button>
       <el-button type="primary" icon="edit" size="small"></el-button>
       <el-button type="primary" icon="picture" size="small"></el-button>
       <el-button type="primary" size="small"><i class="fa fa-align-left" aria-hidden="true"></i></el-button>
@@ -20,7 +20,7 @@
       <el-button type="primary" size="small" @click.stop="isVisible = !isVisible"><i class="fa fa-font" aria-hidden="true"></i></el-button>
       <el-color-picker v-model="color1" size="small"></el-color-picker>
       <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
-      <el-button type="gray" icon="more" size="small" @click.stop=""></el-button>
+      <el-button type="gray" icon="more" size="small" ></el-button>
 
     </el-button-group>
 
@@ -33,6 +33,7 @@
 
   export default {
     name: 'tool-bar',
+   props: ['cmpId'],
     data() {
       return {
         color1: '#20a0ff',
@@ -54,6 +55,9 @@
       },
       toggleChangeFont() {
 
+      },
+      deleteCmp() {
+        console.log('deleting the ' + this.cmpId + " component");
       }
     }
   }

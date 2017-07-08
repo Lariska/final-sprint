@@ -46,17 +46,20 @@ const mutations = {
     // console.log("Store value changed: " + payload);
   },
   [ADD_COMPONENT](state, payload) {
-    efixService.buildCmpObj(payload);
-    state.components.push(efixService.buildCmpObj(payload));
+    const cmpObj = efixService.buildCmpObj(payload);
+    console.log("Id of new cmp: " + cmpObj.id);
+    state.components.push(cmpObj);
   },
-  setActiveImage (state, active_image) {
-    state.components[0].data.activeImage = active_image;
+  setActiveImage (state, params) {
+    state.components.filter(function(data){return data.id==params[1]})[0].data.activeImage = params[0];
   },
-  setImage (state, image) {
-    state.components[0].data.images[state.components[0].data.activeImage] = image;
+  setImage (state, params) {
+    var data = state.components.filter(function(data){return data.id==params[1]})[0].data;
+    data.images[data.activeImage] = params[0];
   },
-  deleteActiveImage (state) {
-    state.components[0].data.images.splice(state.components[0].data.activeImage ,1);
+  deleteActiveImage (state, id) {
+    var data = state.components.filter(function(data){return data.id==id})[0].data;
+    data.images.splice(data.activeImage ,1);
   },
 
 //   [TODO_UPDATE](state, { todo }) {
@@ -72,14 +75,14 @@ const mutations = {
 }
 
 const actions = {
-    setActiveImage({ commit }, active_image) {
-        commit("setActiveImage", active_image);
+    setActiveImage({ commit }, params) {
+        commit("setActiveImage", params);
     },
-    setImage({ commit }, image) {
-        commit("setImage", image);
+    setImage({ commit }, params) {
+        commit("setImage", params);
     },
-    deleteActiveImage({ commit }) {
-        commit("deleteActiveImage");
+    deleteActiveImage({ commit }, id) {
+        commit("deleteActiveImage", id);
     },
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()

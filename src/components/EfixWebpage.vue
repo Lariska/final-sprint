@@ -8,6 +8,7 @@
       <el-card class="box-card"
       body-style="width:100%">
         <component v-for="component in cmpToRender" 
+        :id="component.id"
         :key="component.type"
         :is="component.type"
         :paramsForRender="component"
@@ -23,8 +24,9 @@ import MainSection from './components/MainSection'
 import FooterSection from './components/FooterSection'
 import HeaderSection from './components/HeaderSection'
 import GallerySection from './components/GallerySection'
+import DateSection from './components/DateSection'
 import ElementChoice from './ElementChoice'
-import { EFIX_CHOSE_ELEMENT,ADD_COMPONENT } from '../store/Efix.store'
+import { EFIX_CHOSE_ELEMENT, ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
 import StatusButtons from './StatusButtons';
 export default {
@@ -38,6 +40,7 @@ export default {
     EditorPanel,
     GallerySection,
     StatusButtons,
+    DateSection
   },
   data() {
     return {

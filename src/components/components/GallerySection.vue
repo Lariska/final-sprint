@@ -12,7 +12,8 @@
             :visible.sync="dialogVisible"
             size="tiny">
             <span>
-                <dropzone id="myVueDropzone" url="https://httpbin.org/post" v-on:vdropzone-success="saveImage">
+                <dropzone id="myVueDropzone" url="https://httpbin.org/post" :max-number-of-files='1' 
+                v-on:vdropzone-success="saveImage">
                     <!-- Optional parameters if any! -->
                     <input type="hidden" name="token" value="xxx">
                 </dropzone>
@@ -39,22 +40,23 @@ export default {
     },
     methods: {
         showDelete: function () {
-            this.$store.dispatch("setActiveImage", event.target.parentElement.id);
+            this.$store.dispatch("setActiveImage", [event.target.parentElement.id, this.$vnode.data.attrs.id]);
         },
         deleteActiveImage: function() {
-            this.$store.dispatch("deleteActiveImage");
+            this.$store.dispatch("deleteActiveImage", this.$vnode.data.attrs.id);
         },
         saveImage: function(file) {
-            this.$store.dispatch("setImage", file.dataURL);
+            this.$store.dispatch("setImage", [file.dataURL, this.$vnode.data.attrs.id]);
         }
     },
     computed: {
         getActiveImage: function () {
-            return this.$store.getters.components[0].data.activeImage;
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.activeImage;
         },
         getImages: function () {
-            debugger;
-            return this.$store.getters.components[0].data.images;
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.images;
         }
     }
 }

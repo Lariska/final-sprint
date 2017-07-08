@@ -3,9 +3,10 @@
     <toolbar
       class="toolbar"
       v-if="isVisible"
-      :isVisible="isVisible"
+      :cmpId="paramsForRender.id"
       @changeFont="changeFont"
     >
+          <!--:isVisible="isVisible",-->
     </toolbar>
     <nav class="header"
     :style="paramsForRender.data.style">
@@ -40,7 +41,6 @@
       CloseBtn
     },
     data: function () {
-
       return {
         isVisible: false,
 
