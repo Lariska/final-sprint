@@ -64,12 +64,10 @@ const mutations = {
     state.components[0].data.images.splice(state.components[0].data.activeImage, 1);
   },
   editCmp(state, payload) {
-    // const idx = state.components.findIndex(currCmp => {
-    //   return currCmp.id === payload.cmp.id
-    // });
-    // state.components.splice(idx, 1, payload.cmp);
-    // console.log(payload.cmpIdx);
-    state.components[payload.cmpIdx][payload.prop] = payload.value
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.cmp.id;
+    });
+    state.components.splice(idx, 1, payload.cmp);
   }
 
 //   [TODO_UPDATE](state, { todo }) {
@@ -95,13 +93,13 @@ const actions = {
     commit("deleteCmp", cmp);
   },
 
-  editCmp( {commit}, data ) {
-    const idx = state.components.findIndex(currCmp => {
-      return currCmp.id === data.cmpId
-    });
-    console.log(idx);
-    commit('editCmp', { cmpIdx: idx, prop: prop, value: value });
-  }
+  // editCmp( {commit}, data ) {
+  //   const idx = state.components.findIndex(currCmp => {
+  //     return currCmp.id === data.cmpId
+  //   });
+  //   console.log(idx);
+  //   commit('editCmp', { cmpIdx: idx, prop: prop, value: value });
+  // }
 
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()
