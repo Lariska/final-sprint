@@ -26,11 +26,11 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_
         {
           value: NAV_BAR_SECTION,
           label: 'Nav Bar Section'
-        }, 
+        },
         {
           value: MAIN_SECTION,
           label: 'Main Section',
-        }, 
+        },
         {
           value: FOOTER_SECTION,
           label: 'Footer-Section'
@@ -58,5 +58,6 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_
 <style scoped>
 .block{
   margin-top: 10px;
+  width: 20%;
 }
 </style>
