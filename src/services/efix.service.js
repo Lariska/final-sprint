@@ -4,7 +4,8 @@ import {
   MAIN_SECTION,
   FOOTER_SECTION,
   GALLERY_SECTION,
-  DATE_SECTION
+  DATE_SECTION,
+  PLACE_SECTION
 } from '../constants/cmpName'
 
 function buildCmpObj(cmpName) {
@@ -106,6 +107,13 @@ function buildCmpObj(cmpName) {
         type: cmpName
       }
       break;
+    case(PLACE_SECTION):
+      var cmpObj = {
+        id: generateId(),
+        type: cmpName,
+        data: {
+        }
+      };
   }
   return cmpObj;
 }

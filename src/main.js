@@ -25,6 +25,16 @@ import Carousel3d from 'vue-carousel-3d';
 
 import VueImg from 'v-img';
 
+import * as VueGoogleMaps from 'vue2-google-maps';
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyCc_X_TBp3vs4y4oWiEcRrHpwilGYJWNEY',
+    // v: 'OPTIONAL VERSION NUMBER',
+    // libraries: 'places', //// If you need to use place input 
+  }
+});
+
 Vue.use(VueImg);
 Vue.use(Carousel3d);
 locale.use(lang)

@@ -19,7 +19,7 @@ export default {
         justify-content: center;
         align-content: center;
         clear: both;
-        padding: 25px;
+        padding: 10px;
         border-top: 1px solid lightgray;
         /*border-bottom: 1px solid lightgray;*/
     }

@@ -81,6 +81,39 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
+
+
+//Places API
+var markers = [];
+app.get('/get_markers/', function (req, res) {
+  res.json(markers);
+});
+app.post('/add_marker/', function (req, res) {
+  markers.push(req.body)
+  res.send("OK");
+});
+app.put('/edit_marker/', function (req, res) {
+  var marker = req.body.marker;
+  for (var i = 0; i < markers.length; i++) {
+    if (markers[i].position.lat == marker.position.lat && markers[i].position.lng == marker.position.lng) {
+      markers[i].infoText = req.body.new_text;
+      break;
+    }
+  }
+  res.send("OK");
+});
+app.delete('/delete_marker/', function (req, res) {
+  var marker = req.body;
+  markers = markers.filter(function(el) {return !(el.position.lat == marker.position.lat && el.position.lng == marker.position.lng);});
+  res.send("OK");
+});
+
+
+
+
+
+
+
 var server = app.listen(port)
 
 module.exports = {
