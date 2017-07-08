@@ -5,21 +5,20 @@
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
-      :paramsForRender="paramsForRender"
-    >
+      :paramsForRender="paramsForRender">
     </toolbar>
     <div class="header">
-      <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
+      <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
         <h2 :style="paramsForRender.data.title.style">
           {{ paramsForRender.data.title.text }}
         </h2>
-        <p :style="paramsForRender.data.contentText.style">
-          {{ paramsForRender.data.contentText.text }}
+        <p :style="paramsForRender.data.style">
+          {{ paramsForRender.data.content.text }}
         </p>
       </div>
-      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
+    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
   </section>
 </template>
 
@@ -53,12 +52,16 @@
 
 
 <style scoped>
+  section {
+    position: relative;
+  }
+
   .header {
     display: flex;
     align-content: center;
     justify-content: center;
     background-color: #CED3DC;
-    position: relative;
+
   }
 
   .logo {

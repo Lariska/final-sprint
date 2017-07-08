@@ -19,32 +19,32 @@ function buildCmpObj(cmpName) {
             text: 'Hello!',
             style: {color: '#2C3E50'}
           },
-          contentText: {
+          content: {
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            style: {
-              color: '#2C3E50',
-              fontSize: '16px'
-            }
+            img: 'wixer-logo.png'
           },
-          img: 'wixer-logo.png',
-          style: {backgroundColor: '#CED3DC'},
+          style: {backgroundColor: '#CED3DC',
+            color: '#2C3E50',
+            fontSize: '16px'},
         },
-      }
+      };
       break;
     case(NAV_BAR_SECTION):
       cmpObj = {
         id: generateId(),
         type: cmpName,
         data: {
-          links: [
-            { text: 'Home', url: '' },
-            { text: 'Services', url: '' },
-            { text: 'About us', url: '' },
-            { text: 'Contacts', url: '' }
-          ],
+          content: {
+            links: [
+              { text: 'Home', url: '' },
+              { text: 'Services', url: '' },
+              { text: 'About us', url: '' },
+              { text: 'Contacts', url: '' }
+            ],
+          },
           style: {
             backgroundColor: '#CED3DC',
-            size: '16px',
+            fontSize: '16px',
             color: '#2C3E50'
           },
         }
@@ -60,12 +60,12 @@ function buildCmpObj(cmpName) {
           },
           content: {
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            img: 'wixer-logo.png',
-            style: {fontSize: '16px'}
+            img: 'wixer-logo.png'
           },
           style: {
             backgroundColor: '#CED3DC',
             color: '#2C3E50',
+            fontSize: '16px',
             'text-align': 'center'
           }
         }
@@ -77,12 +77,15 @@ function buildCmpObj(cmpName) {
         type: cmpName,
         data: {
           content: {
-            text: 'Copyrights 2017',
-            style: {
-              fontSize: '16px', contenteditable : true
-            }
+            text: 'Copyrights 2017'
           },
-          style: {backgroundColor: '#CED3DC', color: '#2C3E50', 'text-align': 'center'}
+          style: {
+            backgroundColor: '#CED3DC',
+            color: '#2C3E50',
+            'text-align': 'center',
+            fontSize: '16px',
+            contenteditable : true
+          }
         }
       };
       break;

@@ -70,7 +70,7 @@
     data() {
       return {
         color: '#ddd',
-        defaultFontSize: +(this.paramsForRender.data.content.style.fontSize).slice(0, -2),
+        defaultFontSize: +(this.paramsForRender.data.style.fontSize).slice(0, -2),
         myPanelVisible: this.panelVisible,
         fontPanelVisible: false
       }
@@ -85,7 +85,7 @@
       },
       fontSizeChange(value) {
         const cmpEdited = Object.assign({}, this.paramsForRender);
-        cmpEdited.data.content.style.fontSize = value + 'px';
+        cmpEdited.data.style.fontSize = value + 'px';
 
         this.$store.commit({
           type: 'editCmp',

@@ -12,7 +12,7 @@
     >
     </toolbar>
     <div class="container">
-    <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+    <p :style="paramsForRender.data.style">{{ paramsForRender.data.content.text }}</p>
     <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
