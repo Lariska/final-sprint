@@ -35,7 +35,7 @@
     },
     data: function () {
       return {
-        panelVisible: false,
+        panelVisible: false
       }
     },
     methods: {
@@ -59,12 +59,12 @@
   section .menu {
     display: flex;
     line-height: 60px;
-    font-size: 26px;
+    font-size: 20px;
     color: cornflowerblue;
   }
 
   section .menu a {
-    margin: 0 30px;
+    margin: 0 20px;
   }
 
   section .logo {

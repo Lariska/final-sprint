@@ -17,7 +17,7 @@
 
 </template>
 <script>
-  import {ADD_COMPONENT} from '../../store/Efix.store'
+//  import {ADD_COMPONENT} from '../../store/Efix.store'
   import {FOOTER_SECTION} from '../../constants/cmpName'
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';

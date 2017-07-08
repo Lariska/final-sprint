@@ -79,10 +79,10 @@ function buildCmpObj(cmpName) {
           content: {
             text: 'Copyrights 2017',
             style: {
-              fontSize: '16px'
+              fontSize: '16px', contenteditable : true
             }
           },
-          style: {backgroundColor: '#CED3DC', color: '#2C3E50'}
+          style: {backgroundColor: '#CED3DC', color: '#2C3E50', 'text-align': 'center'}
         }
       };
       break;

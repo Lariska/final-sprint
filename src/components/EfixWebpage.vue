@@ -7,7 +7,7 @@
     <div class="box">
       <el-card class="box-card"
       body-style="width:100%">
-        <component v-for="component in cmpToRender" 
+        <component v-for="component in cmpToRender"
         :key="component.type"
         :is="component.type"
         :paramsForRender="component"
@@ -67,6 +67,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .box-card {
   margin-left: 100px;
   display: flex;

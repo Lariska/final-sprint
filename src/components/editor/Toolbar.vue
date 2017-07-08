@@ -20,17 +20,39 @@
       </div>
 
       <el-button-group>
-        <el-button type="primary" icon="delete" size="small"></el-button>
-        <el-button type="primary" icon="edit" size="small"></el-button>
-        <el-button type="primary" icon="picture" size="small"></el-button>
-        <el-button type="primary" size="small" @click.stop="alignChange('left')"><i class="fa fa-align-left" aria-hidden="true"></i></el-button>
-        <el-button type="primary" size="small" @click.stop="alignChange('center')"><i class="fa fa-align-center" aria-hidden="true"></i></el-button>
-        <el-button type="primary" size="small" @click.stop="alignChange('right')"><i class="fa fa-align-right" aria-hidden="true"></i></el-button>
-        <el-button type="primary" size="small" @click.stop="toggleFontPanel">
-          <i class="fa fa-font" aria-hidden="true"></i>
-        </el-button>
-        <el-color-picker v-model="color" @change="colorChange"></el-color-picker>
-        <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
+        <!--<el-button type="primary" icon="delete" size="small"></el-button>-->
+        <el-tooltip class="item" effect="dark" content="Edit" placement="top">
+          <el-button type="primary" icon="edit" size="small"></el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Change image" placement="top">
+          <el-button type="primary" icon="picture" size="small"></el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Align left" placement="top">
+          <el-button type="primary" size="small" @click.stop="alignChange('left')">
+            <i class="fa fa-align-left" aria-hidden="true"></i>
+          </el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Align center" placement="top">
+          <el-button type="primary" size="small" @click.stop="alignChange('center')">
+            <i class="fa fa-align-center" aria-hidden="true"></i>
+          </el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Align right" placement="top">
+          <el-button type="primary" size="small" @click.stop="alignChange('right')">
+            <i class="fa fa-align-right" aria-hidden="true"></i>
+          </el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Font size" placement="top">
+          <el-button type="primary" size="small" @click.stop="toggleFontPanel">
+            <i class="fa fa-font" aria-hidden="true"></i>
+          </el-button>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Color" placement="top">
+          <el-color-picker v-model="color" @change="colorChange" class="clrPic"></el-color-picker>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Close panel" placement="top">
+          <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
+        </el-tooltip>
         <el-button type="gray" icon="more" size="small"></el-button>
 
       </el-button-group>
@@ -92,14 +114,13 @@
     min-width: 15px;
   }
 
-  /*.vue-draggable-resizable {*/
-  /*top: 0px;*/
-  /*left: 700px;*/
-  /*}*/
+  .el-color-picker {
+    cursor: pointer;
+  }
 
   .fontPanel {
     position: absolute;
-    top: -60px;
+    top: -50px;
   }
 
 </style>

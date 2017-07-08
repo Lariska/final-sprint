@@ -1,5 +1,5 @@
 <template>
-  <section class="header" @click="togglePanel">
+  <section class="header" @click="togglePanel" :style="paramsForRender.data.style">
     <toolbar
       class="toolbar"
       v-if="panelVisible"
@@ -8,7 +8,7 @@
       :paramsForRender="paramsForRender"
     >
     </toolbar>
-    <div class="header" :style="paramsForRender.data.style">
+    <div class="header">
       <img class="logo" :src="'../../../static/' + paramsForRender.data.img" alt="">
       <div class="text">
         <h2 :style="paramsForRender.data.title.style">
