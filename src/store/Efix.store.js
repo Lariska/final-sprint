@@ -63,6 +63,7 @@ const mutations = {
     });
     state.components.splice(idx, 1, payload.cmp);
   },
+  // Gallery mutations
   setActiveImage (state, params) {
     state.components.filter(function(data){return data.id==params[1]})[0].data.activeImage = params[0];
   },
@@ -87,6 +88,7 @@ const mutations = {
 }
 
 const actions = {
+    // Gallery actions
     setActiveImage({ commit }, params) {
         commit("setActiveImage", params);
     },
