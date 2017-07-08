@@ -29,20 +29,13 @@
 </template>
 <<script>
 import { DATE_SECTION } from '../../constants/cmpName'
-import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store'
+import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store' //remove it later
+import calendarService from '../../services/Calendar.service.js'
 
 export default {
   name: DATE_SECTION,
   data () {
     return {
-      events: [{
-        date: '2017/7/8',
-        title: 'Foo',
-        desc: 'longlonglong description'
-      },{
-        date: '2016/11/12',
-        title: 'Bar'
-      }],
       newEventData:{
         date:null,
         title:''
@@ -56,43 +49,16 @@ export default {
       this.markThisDate(value);
     },
     markThisDate(event){
-      this.removeEvent(event,true);
+      calendarService.removeEvent(event,true);
       this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
-      this.events.push({title:'', date:event.date});
       
     },
-    removeEvent(eventToRemove, isEmpty = false){
-      var index=null;
-      var foundEmptyEvent;
-      if(isEmpty){
-        foundEmptyEvent = this.$store.state.calendar.events.find((event,idx) =>{ 
-          index = idx;
-          return event.title === '';
-        })
-      } else {
-          foundEmptyEvent = this.$store.state.calendar.events.find((event,idx) =>{ 
-            index = idx;
-            return event === eventToRemove;
-          });
-        }
-      if(foundEmptyEvent){
-         this.$store.commit(CALENDAR_REMOVE_EVENT, index );
-        this.events.splice(index,1);
-      }
-    },
     eventClick(event){
-      if(this.isFirstClick){
-        console.log("event picked: "+ event);
-        this.removeEvent(event);
-      } else{
-          this.isFirstClick = true;
-          setTimeout( _=> this.isFirstClick = false, 200);
-      }
+      calendarService.handleEventClick(event);
     },
     addEvent(){
       if(this.newEventData.title && this.newEventData.date){
         this.$store.commit(CALENDAR_ADD_EVENT, {title:this.newEventData.title, date:this.newEventData.date});
-        this.events.push({title:this.newEventData.title, date:this.newEventData.date});
         title:this.newEventData.title = '';
       }
     }
