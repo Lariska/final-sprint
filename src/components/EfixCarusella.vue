@@ -2,8 +2,6 @@
   <carousel-3d :autoplay="true" :autoplay-timeout="5000" :display="3">
     <slide v-for="(img, i) in imgs" :key="i" :index="i">
          <img :src="img">
-      <!--<span class="title">You know</span>
-      <p>You know, being a test pilot isn't always the healthiest business in the world.</p>-->
     </slide>
   </carousel-3d>
 </template>

@@ -1,8 +1,9 @@
 <template>
   <section>
 
-    <nav class="main-nav flex align-center justify-center">
-    <img src="../assets/efix.png" alt="Company name">
+    <nav class="main-nav">
+      <img src="../assets/efix.png" alt="Company name">
+      <h3>Welcome</h3>
     </nav>
 
   <div class="button">
@@ -15,13 +16,16 @@
   </div>
 
   <efix-carusella></efix-carusella>
+  <efix-about></efix-about>
+  <efix-footer></efix-footer>
 
     <div id="modal"></div>
   </section>
 </template>
 <script>
-  import EfixCarusella from './EfixCarusella';
-
+import EfixCarusella from './EfixCarusella';
+import EfixFooter from './EfixFooter';
+import EfixAbout from './EfixAbout';
 
   export default {
 
@@ -35,6 +39,8 @@
     },
     components: {
       'efix-carusella' : EfixCarusella,
+      'efix-footer': EfixFooter,
+      'efix-about': EfixAbout,
     },
     methods: {
       /*selectElement(componentName){
@@ -50,17 +56,28 @@
 </script>
 
 <style scoped>
+html{
+  margin: 0;
+}
   img{
     display: flex;
     justify-content: right;
-    margin: 0;
-    padding: 0;
+    margin-right: 10px;
+    padding: 10px;
+    border-right: 1px solid lightgray;
+  }
+  h3{
+    margin-top: 30px;
   }
   .main-nav {
+    display: flex;
+    justify-content: right;
+    align-content: right;
     background-color: white;
     padding: 0;
     margin: 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
   }
   div {
     display: flex;

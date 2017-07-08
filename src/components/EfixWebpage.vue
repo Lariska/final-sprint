@@ -1,10 +1,10 @@
 <template>
   <section>
-    <status-buttons></status-buttons>
+      <div class="buttons">
+        <status-buttons></status-buttons>
+      </div>
     <div class="choice">
       <element-choice @selectedElement="selectElement"></element-choice>
-    </div>
-    <div class="box">
       <el-card class="box-card"
       body-style="width:100%">
         <component v-for="component in cmpToRender" 
@@ -68,18 +68,20 @@ export default {
 </script>
 
 <style scoped>
-
-.box-card {
-  margin-left: 100px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  max-width: 100%;
-  width: 60%;
-}
-
-.choice {
-  display: flex;
-  justify-content: right;
-}
+  .box-card {
+    margin-left: 100px; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 60%;
+  }
+  .choice{
+      margin: 10px;
+    display: flex;
+    justify-content: right;
+  }
+  buttons{
+      margin: 10px;
+  }
 </style>

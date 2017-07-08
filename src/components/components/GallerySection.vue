@@ -12,7 +12,7 @@
             :visible.sync="dialogVisible"
             size="tiny">
             <span>
-                <dropzone id="myVueDropzone" url="https://httpbin.org/post" :max-number-of-files='1' 
+                <dropzone id="myDropzone" url="https://httpbin.org/post" :max-number-of-files='1' 
                 v-on:vdropzone-success="saveImage">
                     <!-- Optional parameters if any! -->
                     <input type="hidden" name="token" value="xxx">
@@ -71,9 +71,11 @@ export default {
         position: relative;
     }
     img{
-        flex-shrink: 0;
-        width: 200px;
-        height: 300px;
+        display: flex;
+        justify-content: center;
+        /*flex-shrink: 0;*/
+        width: 100%;
+        height: 100%;
         padding: 5px;
     }
     .el-icon-edit {
