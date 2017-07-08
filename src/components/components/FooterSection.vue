@@ -19,8 +19,7 @@
 
 </template>
 <script>
-//  import {ADD_COMPONENT} from '../../store/Efix.store'
-  import {FOOTER_SECTION} from '../../constants/cmpName'
+  import {FOOTER_SECTION} from '../../constants/cmpName';
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
 
@@ -71,7 +70,7 @@
 
   .closeBtn {
     position: absolute;
-    top: 0;
+    top: -16px;
     right: 0;
   }
 </style>

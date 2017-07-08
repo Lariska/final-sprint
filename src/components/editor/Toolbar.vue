@@ -73,7 +73,7 @@
         defaultFontSize: +(this.paramsForRender.data.content.style.fontSize).slice(0, -2),
         myPanelVisible: this.panelVisible,
         fontPanelVisible: false,
-        currCmp : this.paramsForRender
+//        currCmp : Object.assign(this.paramsForRender)
       }
     },
     methods: {
@@ -90,8 +90,11 @@
         this.fontPanelVisible = !this.fontPanelVisible;
       },
       colorChange(value) {
-        this.currCmp.data.style.color = value;
-        this.$store.commit('editCmp', { cmp: this.currCmp})
+        const cmpEdited = Object.assign({}, this.paramsForRender);
+//        cmpEdited.data.style.color = value;
+//        this.$store.commit('editCmp', { cmp: cmpEdited})
+        console.log(cmpEdited.id);
+        this.$store.commit('editCmp', { cmpId: cmpEdited.id , prop: 'data.style.color', color: value})
       },
       alignChange(value) {
         this.currCmp.data.style['text-align'] = value;
