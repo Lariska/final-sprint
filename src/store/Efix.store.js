@@ -12,7 +12,7 @@ const url = 'http://localhost:3003/';
 
 const state = {
   chosenElement: null,
-  _id:'',
+  _id: '',
   components: []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
@@ -59,7 +59,7 @@ const mutations = {
         console.log('added')
       })
       .catch(e => {
-        console.log('err',e)
+        console.log('err',e);
         this.errors.push(e)
       })
   },
@@ -130,7 +130,7 @@ const actions = {
     return axios.get(url + 'data/website')
       .then(response => {
         console.log('response: ',response)
-        state._id = response.data[0]._id
+        state._id = response.data[0]._id;
         state.components = response.data[0].components
       })
       .catch(e => {
