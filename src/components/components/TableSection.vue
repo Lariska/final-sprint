@@ -6,63 +6,93 @@
     style="width: 100%">
     <el-table-column
       prop="date"
-      label="Date"
-      width="150">
+      label="Date">
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+              <p>Please enter the new value:</p>
+              <input type="text" placeholder="Please input"  v-model="editTableInput" @keyup.enter="inputChange(scope.$index, 'date')"></input>
+              <div slot="reference" class="name-wrapper">
+              <el-tag class="pointer">{{ scope.row.date }}</el-tag>
+              </div>
+            </el-popover>
+        <div v-else>{{ scope.row.date }}</div>
+        </template>
     </el-table-column>
     <el-table-column
       prop="name"
       label="Name"
       width="120">
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+          <p>Please enter the new value:</p>
+          <input v-model="editTableInput" type="text" @keyup.enter="inputChange(scope.$index, 'name')"></input>
+          <div slot="reference" class="name-wrapper">
+            <el-tag class="pointer">{{ scope.row.name }}</el-tag>
+          </div>
+        </el-popover>
+          <div v-else>{{ scope.row.name }}</div>
+        </template>
     </el-table-column>
     <el-table-column
       prop="state"
       label="State"
       width="120">
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+          <p>Please enter the new value:</p>
+          <input v-model="editTableInput" type="text" @keyup.enter="inputChange(scope.$index, 'state')"></input>
+          <div slot="reference" class="name-wrapper">
+            <el-tag class="pointer">{{ scope.row.state }}</el-tag>
+          </div>
+        </el-popover>
+          <div v-else>{{ scope.row.state }}</div>
+        </template>
     </el-table-column>
     <el-table-column
       prop="city"
       label="City"
       width="120">
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+          <p>Please enter the new value:</p>
+          <input v-model="editTableInput" type="text" @keyup.enter="inputChange(scope.$index, 'city')"></input>
+          <div slot="reference" class="name-wrapper">
+            <el-tag class="pointer">{{ scope.row.city }}</el-tag>
+          </div>
+        </el-popover>
+          <div v-else>{{ scope.row.city }}</div>
+        </template>
     </el-table-column>
     <el-table-column
       prop="address"
       label="Address"
       width="300">
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+          <p>Please enter the new value:</p>
+          <input v-model="editTableInput" type="text" @keyup.enter="inputChange(scope.$index, 'address')"></input>
+          <div slot="reference" class="name-wrapper">
+            <el-tag class="pointer">{{ scope.row.address }}</el-tag>
+          </div>
+        </el-popover>
+          <div v-else>{{ scope.row.address }}</div>
+        </template>
     </el-table-column>
     <el-table-column
       prop="zip"
       label="Zip"
       width="120">
-      
-    </el-table-column>
-    <div v-if="isEditMode">
-      <el-table-column
-        fixed="right"
-        label="Operations"
-        width="120">
-        <template scope="scope">
-            <el-popover trigger="hover" placement="top">
-              <p>Name: {{ scope.row.name }}</p>
-              <p>Addr: {{ scope.row.address }}</p>
-              <div slot="reference" class="name-wrapper">
-              <el-tag>{{ scope.row.name }}</el-tag>
-              </div>
-            </el-popover>
-        </template>
-        <!--<template scope="scope">
-          <div>
-            <el-button
-            size="small"
-            @click.stop="handleEdit(scope.$index, scope.row)">Edit</el-button>
-            <el-button
-            size="small"
-            type="danger"
-            @click.stop="handleDelete(scope.$index, scope.row)">Delete</el-button>
-            <el-button @click.stop="handleClick" type="text" size="small">Edit</el-button>
+      <template  scope="scope">
+        <el-popover v-if="isEditMode" placement="top">
+          <p>Please enter the new value:</p>
+          <input v-model="editTableInput" type="text" @keyup.enter="inputChange(scope.$index, 'zip')"></input>
+          <div slot="reference" class="name-wrapper">
+            <el-tag class="pointer">{{ scope.row.zip }}</el-tag>
           </div>
-        </template>-->
+        </el-popover>
+          <div v-else>{{ scope.row.zip }}</div>
+        </template>
     </el-table-column>
-    </div>
   </el-table>
 </template>
 <<script>
@@ -74,8 +104,16 @@ export default {
     return {
       isEditMode: false,
       isClickedInInterval: false,
+      editTableInput:''
     }
   },
+  // watch: {
+  //   // whenever question changes, this function will run
+  //   question: function (newQuestion) {
+  //     this.answer = 'Waiting for you to stop typing...'
+  //     this.getAnswer()
+  //   }
+  // },
   methods: {
     handleEdit(index, row) {
       console.log(`index:${index}, row:${row}`);
@@ -85,18 +123,31 @@ export default {
       console.log('row:',row)
     },
     toggleEditMode(){
-      console.log('toggling edit mode!');
       if( this.isClickedInInterval ){
         this.isEditMode = !this.isEditMode;
+        console.log('toggling edit mode!');
       } else{
           this.isClickedInInterval = true;
           setTimeout( _=> this.isClickedInInterval = false , 200);
       }
+    },
+    inputChange(index, key){
+      //let cmp = this.$store.getters.componentById(this.paramsForRender.id)
+      const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+      cmpEdited.data[index][key] = this.editTableInput;
+      this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        })
+     // console.log(`editinf the table cell with value =${this.editTableInput} at index:${index} of cmp`, cmpEdited.data[index]);
+     this.editTableInput = '';
     }
   },
   
 }
 </script>
 <<style>
-
+ .pointer:hover{
+    cursor:pointer;
+ }
 </style>

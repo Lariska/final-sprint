@@ -5,12 +5,20 @@
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
-      :paramsForRender="paramsForRender">
+      :paramsForRender="paramsForRender"
+      @editContent = "makeContentEditable">
     </toolbar>
     <div class="header">
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
-        <h2 :style="paramsForRender.data.title.style">
+        <h2 
+        :style="paramsForRender.data.title.style"
+        :contenteditable="isEditable"
+        :class="{ editableTxt: isEditable }"
+        :value="hContent"
+        @keyup="updateContent"
+        ref="elHeader"
+        >
           {{ paramsForRender.data.title.text }}
         </h2>
         <p :style="paramsForRender.data.style">
@@ -37,6 +45,8 @@
     data: function () {
       return {
         panelVisible: false,
+        isEditable:false,
+        hContent:''
       }
     },
     methods: {
@@ -45,6 +55,12 @@
       },
       closePanel() {
         this.panelVisible = false;
+      },
+      makeContentEditable(){
+        this.isEditable = !this.isEditable;
+      },
+      updateContent(eleme){
+        console.log('updating content!' , this.$refs.elHeader.innerText);
       }
     }
   }
@@ -79,6 +95,9 @@
     font-size: 24px;
     top: 0;
     right: 0;
+  }
+  .editableTxt{
+    border: 1px solid blue;
   }
 
 </style>
