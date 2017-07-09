@@ -4,3 +4,4 @@ export const MAIN_SECTION =  'main-section';
 export const FOOTER_SECTION = 'footer-section';
 export const GALLERY_SECTION = 'gallery-section';
 export const DATE_SECTION = 'date-section';
+export const PLACE_SECTION = 'place-section';

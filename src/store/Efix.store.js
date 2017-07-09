@@ -2,7 +2,7 @@ import efixService from '../services/efix.service.js';
 
 export const EFIX_CHOSE_ELEMENT = 'EFIX_CHOSE_ELEMENT'
 export const ADD_COMPONENT = 'ADD_COMPONENT'
-export const DELETE_COMPONENT = 'ADD_COMPONENT'
+// export const DELETE_COMPONENT = 'ADD_COMPONENT'
 // export const TODO_UPDATE      = 'TODO_UPDATE';
 // export const TODO_CREATE      = 'TODO_CREATE';
 
@@ -57,19 +57,24 @@ const mutations = {
     });
     state.components.splice(idx, 1);
   },
-  setActiveImage (state, active_image) {
-    state.components[0].data.activeImage = active_image;
-  },
-  deleteActiveImage (state) {
-    state.components[0].data.images.splice(state.components[0].data.activeImage, 1);
-  },
   editCmp(state, payload) {
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === payload.cmp.id;
     });
     state.components.splice(idx, 1, payload.cmp);
+  },
+  // Gallery mutations
+  setActiveImage (state, params) {
+    state.components.filter(function(data){return data.id==params[1]})[0].data.activeImage = params[0];
+  },
+  setImage (state, params) {
+    var data = state.components.filter(function(data){return data.id==params[1]})[0].data;
+    data.images[data.activeImage] = params[0];
+  },
+  deleteActiveImage (state, id) {
+    var data = state.components.filter(function(data){return data.id==id})[0].data;
+    data.images.splice(data.activeImage ,1);
   }
-
 //   [TODO_UPDATE](state, { todo }) {
 //     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)
 //     state.todos.splice(idx, 1, todo);
@@ -83,15 +88,17 @@ const mutations = {
 }
 
 const actions = {
-  setActiveImage({commit}, active_image) {
-    commit("setActiveImage", active_image);
-  },
-  deleteActiveImage({commit}) {
-    commit("deleteActiveImage");
-  },
-  deleteCmp({commit}, cmp) {
-    commit("deleteCmp", cmp);
-  },
+
+    // Gallery actions
+    setActiveImage({ commit }, params) {
+        commit("setActiveImage", params);
+    },
+    setImage({ commit }, params) {
+        commit("setImage", params);
+    },
+    deleteActiveImage({ commit }, id) {
+        commit("deleteActiveImage", id);
+    },
 
 //   [TODO_LOAD](context, payload) {
 //     todoService.query()

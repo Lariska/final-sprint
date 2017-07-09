@@ -3,29 +3,60 @@
         <div class="gallery" id="gallery">
             <div v-for="(i, index) in getImages" v-on:mouseover="showDelete" :id="index">
                 <img v-img:group :src="i">
+                <i @click="dialogVisible = true" v-if="getActiveImage==index" class="el-icon-edit"></i>
                 <i v-on:click="deleteActiveImage" v-if="getActiveImage==index" class="el-icon-delete"></i>
             </div>
         </div>
+        <el-dialog
+            title="Upload new picture"
+            :visible.sync="dialogVisible"
+            size="tiny">
+            <span>
+                <dropzone id="myDropzone" url="https://httpbin.org/post" :max-number-of-files='1' 
+                v-on:vdropzone-success="saveImage">
+                    <!-- Optional parameters if any! -->
+                    <input type="hidden" name="token" value="xxx">
+                </dropzone>
+            </span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">Cancel</el-button>
+                <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
+            </span>
+        </el-dialog>
     </section>
 </template>
 <script>
 import { GALLERY_SECTION } from '../../constants/cmpName'
+import Dropzone from 'vue2-dropzone'
 export default {
     name: GALLERY_SECTION,
+    components: {
+      Dropzone
+    },
+    data() {
+      return {
+        dialogVisible: false
+      };
+    },
     methods: {
         showDelete: function () {
-            this.$store.dispatch("setActiveImage", event.target.parentElement.id);
+            this.$store.dispatch("setActiveImage", [event.target.parentElement.id, this.$vnode.data.attrs.id]);
         },
         deleteActiveImage: function() {
-            this.$store.dispatch("deleteActiveImage");
+            this.$store.dispatch("deleteActiveImage", this.$vnode.data.attrs.id);
+        },
+        saveImage: function(file) {
+            this.$store.dispatch("setImage", [file.dataURL, this.$vnode.data.attrs.id]);
         }
     },
     computed: {
         getActiveImage: function () {
-            return this.$store.getters.components[0].data.activeImage;
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.activeImage;
         },
         getImages: function () {
-            return this.$store.getters.components[0].data.images;
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.images;
         }
     }
 }
@@ -40,10 +71,20 @@ export default {
         position: relative;
     }
     img{
-        flex-shrink: 0;
-        width: 200px;
-        height: 300px;
+        display: flex;
+        justify-content: center;
+        /*flex-shrink: 0;*/
+        width: 100%;
+        height: 100%;
         padding: 5px;
+    }
+    .el-icon-edit {
+        position: absolute;
+        color: white;
+        font-size: 35px;
+        top: 12px;
+        right: 50px;
+        cursor: pointer;
     }
     .el-icon-delete {
         position: absolute;
