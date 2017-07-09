@@ -14,7 +14,10 @@
 
 <script>
 
-import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, PLACE_SECTION } from '../constants/cmpName'
+
+import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, 
+  FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, TABLE_SECTION, PLACE_SECTION } from '../constants/cmpName'
+
   export default {
     name: 'element-choice',
     data() {
@@ -42,6 +45,10 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, FOOTER_SECTION, GALLERY_
         {
           value: DATE_SECTION,
           label: 'Date Section',
+        },
+        {
+          value: TABLE_SECTION,
+          label: 'Table Section',
         },
         {
           value: PLACE_SECTION,

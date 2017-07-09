@@ -25,7 +25,9 @@ import FooterSection from './components/FooterSection'
 import HeaderSection from './components/HeaderSection'
 import GallerySection from './components/GallerySection'
 import DateSection from './components/DateSection'
+import TableSection from './components/TableSection'
 import PlaceSection from './components/PlaceSection'
+
 import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT, ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
@@ -42,7 +44,9 @@ export default {
     GallerySection,
     StatusButtons,
     DateSection,
+    TableSection,
     PlaceSection
+
   },
   data() {
     return {

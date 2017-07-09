@@ -1,15 +1,15 @@
 <<template>
 <section>
   <vue-event-calendar 
-  :events="events"
+  :events="$store.state.calendar.events"
   @day-changed="dayChanged">
       <div 
-      v-for="event in events"
-      v-if="event.title !== '$NULL$'"
+      v-for="event in this.$store.state.calendar.events"
+      v-if="event.title !== ''"
       :key="event" 
       class="event-item"
-      @click="eventClick">
-      <div >
+      @click="eventClick(event)">
+      <div v-if="event.title !== ''">
         {{event.title}}
         {{event.date.split('/').reverse().join('/')}}
       </div>
@@ -29,48 +29,36 @@
 </template>
 <<script>
 import { DATE_SECTION } from '../../constants/cmpName'
+import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store' //remove it later
+import calendarService from '../../services/Calendar.service.js'
 
 export default {
   name: DATE_SECTION,
   data () {
     return {
-      events: [{
-        date: '2017/7/8',
-        title: 'Foo',
-        desc: 'longlonglong description'
-      },{
-        date: '2016/11/12',
-        title: 'Bar'
-      }],
       newEventData:{
         date:null,
         title:''
-      }
+      },
+      isFirstClick:false
     }
   },
   methods: {
     dayChanged(value){
       this.newEventData.date = value.date;
-      this.markThisDate(value.date);
+      this.markThisDate(value);
     },
-    markThisDate(date){
-      var index=null
-      var foundEmptyEvent = this.events.find((event,idx) =>{ 
-        index = idx;
-        return event.title === '$NULL$';
-      });
-      if(foundEmptyEvent){
-        this.events.splice(index,1);
-      }
-      this.events.push({title:'$NULL$', date:date});
+    markThisDate(event){
+      calendarService.removeEvent(event,true);
+      this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
       
     },
-    eventClick(value){
-      console.log("event picked: "+ value);
+    eventClick(event){
+      calendarService.handleEventClick(event);
     },
     addEvent(){
       if(this.newEventData.title && this.newEventData.date){
-        this.events.push({title:this.newEventData.title, date:this.newEventData.date});
+        this.$store.commit(CALENDAR_ADD_EVENT, {title:this.newEventData.title, date:this.newEventData.date});
         title:this.newEventData.title = '';
       }
     }
