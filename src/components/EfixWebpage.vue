@@ -7,7 +7,7 @@
       <element-choice @selectedElement="selectElement"></element-choice>
       <el-card class="box-card"
       body-style="width:100%">
-        <component v-for="component in cmpToRender" 
+        <component v-for="component in cmpToRender"
         :id="component.id"
         :key="component.type"
         :is="component.type"
@@ -59,6 +59,9 @@ export default {
       return this.$store.state.efix.components
     }
   },
+  created () {
+       this.$store.dispatch('getData')
+  },
   methods: {
     selectElement(value) {
       this.$store.commit('ADD_COMPONENT', value)
@@ -75,7 +78,7 @@ export default {
 
 <style scoped>
   .box-card {
-    margin-left: 100px; 
+    margin-left: 100px;
     display: flex;
     align-content: center;
     justify-content: center;

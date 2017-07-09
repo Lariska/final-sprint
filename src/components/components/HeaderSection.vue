@@ -76,6 +76,7 @@
 
   .closeBtn {
     position: absolute;
+    font-size: 24px;
     top: 0;
     right: 0;
   }

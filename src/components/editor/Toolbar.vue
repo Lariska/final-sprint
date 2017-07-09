@@ -107,26 +107,6 @@
           type: 'editCmp',
           cmp: cmpEdited
         });
-      },
-      propChange(prop, value) {
-        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-
-        switch (prop) {
-          case 'color':
-            cmpEdited.data.style.color = value;
-            break;
-          case 'fontSize':
-            cmpEdited.data.style.fontSize = value + 'px';
-            break;
-          case 'align':
-            cmpEdited.data.style['text-align'] = value;
-            break;
-        }
-
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        });
       }
     }
   }
