@@ -1,20 +1,32 @@
 <template>
-  <section @click="makeVisible">
-    <toolbar class="toolbar" v-if="isVisible" :isVisible="isVisible"></toolbar>
+  <section @click="togglePanel">
+    <toolbar
+      class="toolbar"
+      v-if="panelVisible"
+      :panelVisible="panelVisible"
+      @closePanel="closePanel"
+      :paramsForRender="paramsForRender">
+    </toolbar>
     <div class="menu"
-    :style="paramsForRender.data.style">
+         :style="paramsForRender.data.style">
       <ul class="nav">
         <li
-        v-for="link in paramsForRender.data.links" :key="link"><a :href="link.url" :style="link.style"> {{link.text}}</a></li>
+          v-for="link in paramsForRender.data.content.links" :key="link">
+          <a :href="link.url"
+             :style="link.style">
+            {{link.text}}
+          </a>
+        </li>
       </ul>
-      <close-btn class="close-btn" :cmp="paramsForRender"></close-btn>
+      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
+
   </section>
 </template>
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
-  import { NAV_BAR_SECTION } from '../../constants/cmpName'
+  import {NAV_BAR_SECTION} from '../../constants/cmpName'
   export default {
     name: NAV_BAR_SECTION,
     props: ['paramsForRender'],
@@ -24,15 +36,17 @@
     },
     data: function () {
       return {
-        isVisible: false,
+        panelVisible: false
       }
     },
     methods: {
-      makeVisible: function () {
-        this.isVisible = true
+      togglePanel: function () {
+        if (!this.panelVisible) this.panelVisible = true;
+      },
+      closePanel() {
+        this.panelVisible = false;
       }
     }
-
   }
 </script>
 <style scoped>
@@ -46,12 +60,12 @@
   section .menu {
     display: flex;
     line-height: 60px;
-    font-size: 26px;
+    font-size: 20px;
     color: cornflowerblue;
   }
 
   section .menu a {
-    margin: 0 30px;
+    margin: 0 20px;
   }
 
   section .logo {

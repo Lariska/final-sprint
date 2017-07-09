@@ -1,13 +1,14 @@
 <template>
   <section>
-    <status-buttons></status-buttons>
+      <div class="buttons">
+        <status-buttons></status-buttons>
+      </div>
     <div class="choice">
       <element-choice @selectedElement="selectElement"></element-choice>
-    </div>
-    <div class="box">
       <el-card class="box-card"
       body-style="width:100%">
         <component v-for="component in cmpToRender" 
+        :id="component.id"
         :key="component.type"
         :is="component.type"
         :paramsForRender="component"
@@ -25,6 +26,8 @@ import HeaderSection from './components/HeaderSection'
 import GallerySection from './components/GallerySection'
 import DateSection from './components/DateSection'
 import TableSection from './components/TableSection'
+import PlaceSection from './components/PlaceSection'
+
 import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT, ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
@@ -41,7 +44,9 @@ export default {
     GallerySection,
     StatusButtons,
     DateSection,
-    TableSection
+    TableSection,
+    PlaceSection
+
   },
   data() {
     return {
@@ -69,17 +74,20 @@ export default {
 </script>
 
 <style scoped>
-.box-card {
-  margin-left: 100px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  max-width: 100%;
-  width: 60%;
-}
-
-.choice {
-  display: flex;
-  justify-content: right;
-}
+  .box-card {
+    margin-left: 100px; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 60%;
+  }
+  .choice{
+      margin: 10px;
+    display: flex;
+    justify-content: right;
+  }
+  buttons{
+      margin: 10px;
+  }
 </style>

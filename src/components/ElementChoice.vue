@@ -14,8 +14,10 @@
 
 <script>
 
+
 import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, 
-  FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, TABLE_SECTION } from '../constants/cmpName'
+  FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, TABLE_SECTION, PLACE_SECTION } from '../constants/cmpName'
+
   export default {
     name: 'element-choice',
     data() {
@@ -27,11 +29,11 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION,
         {
           value: NAV_BAR_SECTION,
           label: 'Nav Bar Section'
-        }, 
+        },
         {
           value: MAIN_SECTION,
           label: 'Main Section',
-        }, 
+        },
         {
           value: FOOTER_SECTION,
           label: 'Footer-Section'
@@ -47,6 +49,10 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION,
         {
           value: TABLE_SECTION,
           label: 'Table Section',
+        },
+        {
+          value: PLACE_SECTION,
+          label: 'Place Section',
         }
         ],
         selectedOptions: [],
@@ -63,5 +69,6 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION,
 <style scoped>
 .block{
   margin-top: 10px;
+  width: 20%;
 }
 </style>
