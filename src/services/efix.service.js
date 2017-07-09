@@ -163,6 +163,9 @@ function buildCmpObj(cmpName) {
   }
   return cmpObj;
 }
+const getCmpById = (components, id) => 
+    components.find( component => component.id === id );
+    
 const generateId = function () {
   return '_' + Math.random().toString(36).substr(2, 9);
 };

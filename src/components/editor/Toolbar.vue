@@ -20,7 +20,7 @@
       <el-button-group>
         <!--<el-button type="primary" icon="delete" size="small"></el-button>-->
         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
-          <el-button type="primary" icon="edit" size="small"></el-button>
+          <el-button type="primary" icon="edit" size="small" @click.stop="toggleContentEditable"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Change image" placement="top">
           <el-button type="primary" icon="picture" size="small"></el-button>
@@ -127,6 +127,10 @@
           type: 'editCmp',
           cmp: cmpEdited
         });
+      },
+      toggleContentEditable(){
+        console.log('toggling content editable for the component.');
+        this.$emit('editContent');
       }
     }
   }

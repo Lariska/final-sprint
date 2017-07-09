@@ -18,26 +18,9 @@ const state = {
 const getters = {
   components: state => {
     return state.components
-  }
-//   filteredTodos({ filterBy, todos }) {
-//     var res = todos;
-//     if (filterBy.txt) {
-//       // TODO: use regex
-//       res = res.filter(todo => todo.txt.includes(filterBy.txt))
-//     }
-//     if (filterBy.status === 'completed') {
-//       res = res.filter(todo => todo.completed)
-//     }
-//     return res;
-//   },
-
-//   completedTodos(state) {
-//     return state.todos.filter(todo => todo.completed)
-//   },
-//   progress({ todos }, getters) {
-//     if (todos.length === 0) return 100;
-//     return parseInt((getters.completedTodos.length / todos.length) * 100);
-//   }
+  },
+  componentById: state => 
+    id => state.components.find( component => component.id === id )
 }
 
 

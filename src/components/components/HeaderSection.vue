@@ -5,12 +5,16 @@
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
-      :paramsForRender="paramsForRender">
+      :paramsForRender="paramsForRender"
+      @editContent = "makeContentEditable">
     </toolbar>
     <div class="header">
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
-        <h2 :style="paramsForRender.data.title.style">
+        <h2 
+        :style="paramsForRender.data.title.style"
+        :contenteditable="isEditable"
+        >
           {{ paramsForRender.data.title.text }}
         </h2>
         <p :style="paramsForRender.data.style">
@@ -37,6 +41,7 @@
     data: function () {
       return {
         panelVisible: false,
+        isEditable:false
       }
     },
     methods: {
@@ -45,6 +50,9 @@
       },
       closePanel() {
         this.panelVisible = false;
+      },
+      makeContentEditable(){
+        isEditable = !isEditable;
       }
     }
   }
