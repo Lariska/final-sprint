@@ -14,6 +14,10 @@
         <h2 
         :style="paramsForRender.data.title.style"
         :contenteditable="isEditable"
+        :class="{ editableTxt: isEditable }"
+        :value="hContent"
+        @keyup="updateContent"
+        ref="elHeader"
         >
           {{ paramsForRender.data.title.text }}
         </h2>
@@ -41,7 +45,8 @@
     data: function () {
       return {
         panelVisible: false,
-        isEditable:false
+        isEditable:false,
+        hContent:''
       }
     },
     methods: {
@@ -52,7 +57,10 @@
         this.panelVisible = false;
       },
       makeContentEditable(){
-        isEditable = !isEditable;
+        this.isEditable = !this.isEditable;
+      },
+      updateContent(eleme){
+        console.log('updating content!' , this.$refs.elHeader.innerText);
       }
     }
   }
@@ -86,6 +94,9 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+  .editableTxt{
+    border: 1px solid blue;
   }
 
 </style>
