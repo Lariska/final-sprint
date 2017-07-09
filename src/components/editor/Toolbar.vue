@@ -8,14 +8,12 @@
       :parent="false">
 
       <div class="fontPanel" @click.stop="">
-
         <el-input-number
           v-if="fontPanelVisible"
           v-model="defaultFontSize"
           @change="fontSizeChange"
           :min="1" :max="60"
-          size="small"
-        >
+          size="small">
         </el-input-number>
       </div>
 
@@ -84,7 +82,7 @@
         this.fontPanelVisible = !this.fontPanelVisible;
       },
       fontSizeChange(value) {
-        const cmpEdited = Object.assign({}, this.paramsForRender);
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style.fontSize = value + 'px';
 
         this.$store.commit({
@@ -94,7 +92,7 @@
 
       },
       colorChange(value) {
-        const cmpEdited = Object.assign({}, this.paramsForRender);
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style.color = value;
 
         this.$store.commit({
@@ -103,8 +101,28 @@
         })
       },
       alignChange(value) {
-        const cmpEdited = Object.assign({}, this.paramsForRender);
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style['text-align'] = value;
+        this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        });
+      },
+      propChange(prop, value) {
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+
+        switch (prop) {
+          case 'color':
+            cmpEdited.data.style.color = value;
+            break;
+          case 'fontSize':
+            cmpEdited.data.style.fontSize = value + 'px';
+            break;
+          case 'align':
+            cmpEdited.data.style['text-align'] = value;
+            break;
+        }
+
         this.$store.commit({
           type: 'editCmp',
           cmp: cmpEdited
