@@ -1,10 +1,11 @@
 <template>
   <section>
-
+<!--
     <nav class="main-nav">
       <img src="../assets/efix.png" alt="Company name">
       <h3>Welcome</h3>
-    </nav>
+    </nav>-->
+  <efix-header></efix-header>
 
   <div class="button">
     <ul class="button">
@@ -26,6 +27,7 @@
 import EfixCarusella from './EfixCarusella';
 import EfixFooter from './EfixFooter';
 import EfixAbout from './EfixAbout';
+import EfixHeader from './EfixHeader';
 
   export default {
 
@@ -41,6 +43,7 @@ import EfixAbout from './EfixAbout';
       'efix-carusella' : EfixCarusella,
       'efix-footer': EfixFooter,
       'efix-about': EfixAbout,
+      'efix-header': EfixHeader,
     },
     methods: {
       /*selectElement(componentName){
@@ -56,7 +59,7 @@ import EfixAbout from './EfixAbout';
 </script>
 
 <style scoped>
-html{
+/*html{
   margin: 0;
 }
   img{
@@ -78,7 +81,7 @@ html{
     margin: 0;
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
-  }
+  }*/
   div {
     display: flex;
     justify-content: flex-end;
