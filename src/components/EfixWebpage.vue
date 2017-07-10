@@ -45,7 +45,7 @@ export default {
     StatusButtons,
     DateSection,
     TableSection,
-    PlaceSection
+    PlaceSection,
 
   },
   data() {
@@ -90,7 +90,7 @@ export default {
     display: flex;
     justify-content: right;
   }
-  buttons{
+  .buttons{
       margin: 10px;
   }
 </style>

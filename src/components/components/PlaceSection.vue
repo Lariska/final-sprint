@@ -33,18 +33,18 @@
     <div class="instruction">
       <el-collapse>
         <el-collapse-item title="Instruction" name="1">
-          <h3>
-            1) Rightclick on map to marker some place.
-          </h3>
-          <h3>
-            2) Click on input write something.
-          </h3>
-          <h3>
-            3) Click Enter to save text in input.
-          </h3>
-          <h3>
-            4) Delete marker on map need to click on marker and after click on button botom - delete.
-          </h3>
+            <h3>
+               1) Right click on the map to mark some place. 
+            </h3>
+            <h3>
+               2) Click on the tooltip to add your name. 
+            </h3>
+            <h3>
+               3) Click Enter to save the name.
+            </h3>
+            <h3>
+              4) In order to delete a marker, click on it and then on delete button.
+            </h3>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -75,14 +75,14 @@
         var marker = {
           position: {lat: event.latLng.lat(), lng: event.latLng.lng()},
           infoText: 'Add your place name here'
-        }
-        this.markers.push(marker);
-        this.$http.post('/add_marker/', marker).then(response => {
-        });
-      },
-      hello(){
-        this.$router.push({name: 'hello'});
-      },
+
+      }
+      this.markers.push(marker);
+      // this.$http.post('/add_marker/', marker).then(response => {});
+    },
+    hello(){
+      this.$router.push({name: 'hello'});
+    },
 
       toggleInfoWindow (marker, index) {
         this.center = marker.position;
@@ -142,26 +142,22 @@
       deleteMarker (event) {
         for (var i = 0; i < this.markers.length; i++) {
           if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-            this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {
-              this.infoWinOpen = false;
-              this.markers.splice(i, 1);
-            });
+
+            // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {});
+            this.markers[i].infoText = text;
             break;
           }
         }
       }
     },
-    computed: {
-      getMarkers(){
-        return this.markers;
-      },
-      getCenter() {
-        var that = this;
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(function (position) {
-            that.center = {lat: position.coords.latitude, lng: position.coords.longitude};
-            return that.center;
-          });
+
+    deleteMarker (event) {
+      for (var i = 0; i < this.markers.length; i++) {
+        if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
+          // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {});
+          this.infoWinOpen = false;
+          this.markers.splice(i, 1);
+          break;
         }
         return this.center;
       }
@@ -171,6 +167,11 @@
         this.markers = response.body;
       });
     }
+  },
+  created () {
+    // this.$http.get('/get_markers/').then(response => {
+    //   this.markers = response.body;
+    // });
   }
 </script>
 

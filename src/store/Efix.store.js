@@ -65,6 +65,7 @@ const mutations = {
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === payload.cmp.id;
     });
+    console.log(payload.cmp);
     state.components.splice(idx, 1, payload.cmp);
 
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))

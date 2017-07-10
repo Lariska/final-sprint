@@ -54,18 +54,15 @@
       }
     },
     computed: {
-      getActiveImage: function () {
-        var id = this.$vnode.data.attrs.id;
-        return this.$store.getters.components.filter(function (data) {
-          return data.id == id
-        })[0].data.activeImage;
-      },
-      getImages: function () {
-        var id = this.$vnode.data.attrs.id;
-        return this.$store.getters.components.filter(function (data) {
-          return data.id == id
-        })[0].data.images;
-      }
+        getActiveImage: function () {
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.activeImage;
+        },
+        getImages: function () {
+            debugger;
+            var id = this.$vnode.data.attrs.id;
+            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.images;
+        }
     }
   }
 </script>

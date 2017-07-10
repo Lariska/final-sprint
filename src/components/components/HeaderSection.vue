@@ -12,17 +12,29 @@
       <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
-        <h2
+        <h2 
+        v-if="isEditable"
         :style="paramsForRender.data.title.style"
-        :contenteditable="isEditable"
-        :class="{ editableTxt: isEditable }"
-        :value="hContent"
-        @keyup="updateContent"
+        contenteditable ="true"
+        @keyup="updateContent('title', 'elHeader')"
         ref="elHeader"
-        >
+        class="editableTxt">{{title}}</h2>
+        <h2 v-else
+        :style="paramsForRender.data.title.style">
           {{ paramsForRender.data.title.text }}
         </h2>
-        <p :style="paramsForRender.data.style">
+        <p 
+        v-if="isEditable"
+        contenteditable ="true"
+        @keyup="updateContent('content', 'elContent')"
+        ref="elContent"
+        class="editableTxt" >{{content}}</p>
+        <p
+        v-else 
+        :style="paramsForRender.data.style">
+        <!-- :contenteditable="isEditable"
+        :class="{ editableTxt }"
+        @keyup="updateContent('content', 'elContent')"-->
           {{ paramsForRender.data.content.text }}
         </p>
       </div>
@@ -50,8 +62,16 @@
       return {
         panelVisible: false,
         isEditable:false,
-        hContent:''
+        editablesTimer:null,
+        content:null,
+        title:null
       }
+    },
+    created(){
+      //this.editablesTimer=setInterval(this.saveEditables, 1000);
+    },
+    beforedestroyed(){
+      //clearInterva(this.editablesTimer);
     },
     methods: {
       togglePanel: function () {
@@ -62,11 +82,31 @@
       },
       makeContentEditable(){
         this.isEditable = !this.isEditable;
-      },
-      updateContent(eleme){
+        this.content = this.paramsForRender.data.content.text;
+        this.title = this.paramsForRender.data.title.text;
+      },//
+      updateContent(context,ref){
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data[context].text = this.$refs[ref].innerText;
+        this.$store.commit({
+          type: 'editCmp',
+          cmp: cmpEdited
+        });
         console.log('updating content!' , this.$refs.elHeader.innerText);
-      }
-    }
+      },
+      // saveEditables(){
+      //   console.log('save editables');
+      //   let editables = [{context:'title',ref:'elHeader'},{context:'content', ref:'elContent'}]
+      //   let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+      //   editables.forEach(editable=> cmpEdited.data[editable.context].text = this.$refs[editable.ref].innerText);
+      //   this.$store.commit({
+      //     type: 'editCmp',
+      //     cmp: cmpEdited
+      //   });
+        
+      // },
+    },
+   
   }
 </script>
 
