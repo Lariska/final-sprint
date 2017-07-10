@@ -34,10 +34,10 @@
       <el-collapse>
         <el-collapse-item title="Instruction" name="1">
             <h3>
-               1) Right click on the map to mark some place. 
+               1) Right click on the map to mark some place.
             </h3>
             <h3>
-               2) Click on the tooltip to add your name. 
+               2) Click on the tooltip to add your name.
             </h3>
             <h3>
                3) Click Enter to save the name.
@@ -167,11 +167,6 @@
         this.markers = response.body;
       });
     }
-  },
-  created () {
-    // this.$http.get('/get_markers/').then(response => {
-    //   this.markers = response.body;
-    // });
   }
 </script>
 
