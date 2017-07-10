@@ -131,33 +131,44 @@
           var text = info.firstChild.textContent;
           for (var i = 0; i < this.markers.length; i++) {
             if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-              this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
+              // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
                 this.markers[i].infoText = text;
-              });
+            // });
               break;
             }
           }
         }
       },
+  
+
       deleteMarker (event) {
         for (var i = 0; i < this.markers.length; i++) {
           if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-
-            // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {});
-            this.markers[i].infoText = text;
+            // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {
+              this.infoWinOpen = false;
+              this.markers.splice(i, 1);
+            // });
             break;
           }
         }
       }
     },
 
-    deleteMarker (event) {
-      for (var i = 0; i < this.markers.length; i++) {
-        if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-          // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {});
-          this.infoWinOpen = false;
-          this.markers.splice(i, 1);
-          break;
+
+
+
+
+    computed: {
+      getMarkers(){
+        return this.markers;
+      },
+      getCenter() {
+        var that = this;
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            that.center = {lat: position.coords.latitude, lng: position.coords.longitude};
+            return that.center;
+          });
         }
         return this.center;
       }
@@ -168,6 +179,7 @@
       });
     }
   }
+
 </script>
 
 
@@ -185,4 +197,3 @@
   }
 </style>
 
-//server write in file dev-server.js (build/dev-server.js)
