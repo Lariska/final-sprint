@@ -45,7 +45,7 @@ function dbConnect() {
 
 	return new Promise((resolve, reject) => {
 		// Connection URL
-		var url = 'mongodb://localhost:27017/seed';
+		var url = 'mongodb://localhost:27017/website';
 		// Use connect method to connect to the Server
 		mongodb.MongoClient.connect(url, function (err, db) {
 			if (err) {
@@ -63,6 +63,7 @@ function dbConnect() {
 // GETs a list
 app.get('/data/:objType', function (req, res) {
 	const objType = req.params.objType;
+	console.log("obj type:",objType);
 	dbConnect().then(db => {
 		const collection = db.collection(objType);
 
@@ -228,7 +229,7 @@ app.get('/protected', requireLogin, function (req, res) {
 // Kickup our server
 // Note: app.listen will not work with cors and the socket
 // app.listen(3003, function () {
-http.listen(3003, function () {
+app.listen(3003, function () {
 	console.log(`misterREST server is ready at ${baseUrl}`);
 	console.log(`GET (list): \t\t ${baseUrl}/{entity}`);
 	console.log(`GET (single): \t\t ${baseUrl}/{entity}/{id}`);
