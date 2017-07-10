@@ -2,7 +2,9 @@
   <section>
     <nav class="main-nav">
     <router-link to ="/"><img src="../assets/efix.png" class="image"></router-link>
-      <h3>Welcome</h3>
+      <slot>
+        <h3>Welcome</h3>
+      </slot>
     </nav>
   </section>
 </template>

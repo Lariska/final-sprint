@@ -1,6 +1,6 @@
 <template>
   <section>
-    <el-button type="info"> Edit Mode</el-button>
+    <!--<el-button type="info"> Edit Mode</el-button>-->
     <el-button type="success">Publish Mode</el-button>
     <!--<el-button type="success" @click="getData">Get data</el-button>-->
   </section>

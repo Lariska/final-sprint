@@ -79,7 +79,7 @@
   img {
     display: flex;
     justify-content: center;
-    /*flex-shrink: 0;*/
+    flex-shrink: 0;
     width: 100%;
     height: 100%;
     padding: 5px;
