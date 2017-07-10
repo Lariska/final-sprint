@@ -1,6 +1,5 @@
 <template>
   <section class="footer"
-           @click="togglePanel"
            :style="paramsForRender.data.style"
   >
     <toolbar

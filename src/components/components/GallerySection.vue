@@ -47,7 +47,7 @@
         this.$store.dispatch("setActiveImage", [event.target.parentElement.id, this.$vnode.data.attrs.id]);
       },
       deleteActiveImage: function () {
-        this.$store.dispatch("deleteActiveImage", this.$vnode.data.attrs.id);
+        this.$store.dispatch("deleteActiveImage", {id: this.$vnode.data.attrs.id});
       },
       saveImage: function (file) {
         this.$store.dispatch("setImage", [file.dataURL, this.$vnode.data.attrs.id]);

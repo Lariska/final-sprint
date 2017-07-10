@@ -33,8 +33,6 @@ const mutations = {
     // console.log("Store value changed: " + payload);
   },
   editCmp(state, res) {
-    // state._id = response.data[0]._id;
-    // state.components = response.data[0].components;
     state._id = res._id;
     state.components = res.components;
   },
@@ -49,20 +47,18 @@ const mutations = {
   // Gallery mutations
   setActiveImage (state, params) {
     state.components.filter(function (data) {
-      return data.id == params[1]
+      return data.id === params[1]
     })[0].data.activeImage = params[0];
   },
   setImage (state, params) {
-    var data = state.components.filter(function (data) {
-      return data.id == params[1]
+    let data = state.components.filter(function (data) {
+      return data.id === params[1]
     })[0].data;
     data.images[data.activeImage] = params[0];
   },
-  deleteActiveImage (state, id) {
-    var data = state.components.filter(function (data) {
-      return data.id == id
-    })[0].data;
-    data.images.splice(data.activeImage, 1);
+  deleteActiveImage(state, res) {
+    state._id = res._id;
+    state.components = res.components
   }
 };
 
@@ -126,8 +122,19 @@ const actions = {
   setImage({commit}, params) {
     commit("setImage", params);
   },
-  deleteActiveImage({commit}, id) {
-    commit("deleteActiveImage", id);
+  deleteActiveImage(context , payload) {
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.id;
+    });
+    let activeImage = state.components[idx].data.activeImage;
+    state.components[idx].data.images.splice(activeImage, 1);
+    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
+      .then(response => {
+        context.commit('deleteActiveImage',response.data);
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   }
 };
 

@@ -2,8 +2,8 @@
   <section v-if="myPanelVisible">
     <vue-draggable-resizable
       class="editor"
-      :w="400"
-      :h="50"
+      minw="300"
+      h="50"
       :resizable="false"
       :parent="false">
 
@@ -95,29 +95,6 @@
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style['text-align'] = value;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
-//      },
-//      propChange(prop, value) {
-//        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-//
-//        switch (prop) {
-//          case 'color':
-//            cmpEdited.data.style.color = value;
-//            break;
-//          case 'fontSize':
-//            cmpEdited.data.style.fontSize = value + 'px';
-//            break;
-//          case 'align':
-//            cmpEdited.data.style['text-align'] = value;
-//            break;
-//        }
-
-//        this.$store.commit({
-//          type: 'editCmp',
-//          cmp: cmpEdited
-//        });
-
-//        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
-
       },
       toggleContentEditable(){
         console.log('toggling content editable for the component.');

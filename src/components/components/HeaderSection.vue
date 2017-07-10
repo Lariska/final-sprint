@@ -1,5 +1,6 @@
 <template>
-  <section class="header" @click="togglePanel" :style="paramsForRender.data.style">
+  <section class="header" :style="paramsForRender.data.style">
+    <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
     <toolbar
       class="toolbar"
       v-if="panelVisible"
@@ -9,10 +10,9 @@
       @editContent = "makeContentEditable">
     </toolbar>
     <div class="header">
-      <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
-        <h2 
+        <h2
         v-if="isEditable"
         :style="paramsForRender.data.title.style"
         contenteditable ="true"
@@ -23,14 +23,14 @@
         :style="paramsForRender.data.title.style">
           {{ paramsForRender.data.title.text }}
         </h2>
-        <p 
+        <p
         v-if="isEditable"
         contenteditable ="true"
         @keyup="updateContent('content', 'elContent')"
         ref="elContent"
         class="editableTxt" >{{content}}</p>
         <p
-        v-else 
+        v-else
         :style="paramsForRender.data.style">
         <!-- :contenteditable="isEditable"
         :class="{ editableTxt }"
@@ -103,10 +103,10 @@
       //     type: 'editCmp',
       //     cmp: cmpEdited
       //   });
-        
+
       // },
     },
-   
+
   }
 </script>
 
@@ -119,13 +119,23 @@
   .header {
     display: flex;
     align-content: center;
-    justify-content: center;
+    /*justify-content: center;*/
     background-color: #CED3DC;
+    padding: 15px 0;
+  }
 
+  .header img {
+    vertical-align: middle;
+  }
+
+  .header h2, p {
+    padding: 0;
+    margin: 0;
   }
 
   .logo {
-    margin-left: 10px;
+    width: 80px;
+    height: 60px;
   }
 
   .text {
@@ -153,7 +163,7 @@
   .toolbar {
     position: absolute;
     bottom: 0;
-    left: 60px;
+    /*left: 60px;*/
   }
 
 

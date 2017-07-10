@@ -1,5 +1,5 @@
 <template>
-  <section @click="togglePanel">
+  <section>
     <toolbar
       class="toolbar"
       v-if="panelVisible"
