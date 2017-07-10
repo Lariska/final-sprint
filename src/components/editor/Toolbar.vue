@@ -84,49 +84,40 @@
       fontSizeChange(value) {
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style.fontSize = value + 'px';
-
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        })
-
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       },
       colorChange(value) {
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style.color = value;
-
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        })
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       },
       alignChange(value) {
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style['text-align'] = value;
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        });
-      },
-      propChange(prop, value) {
-        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
+//      },
+//      propChange(prop, value) {
+//        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+//
+//        switch (prop) {
+//          case 'color':
+//            cmpEdited.data.style.color = value;
+//            break;
+//          case 'fontSize':
+//            cmpEdited.data.style.fontSize = value + 'px';
+//            break;
+//          case 'align':
+//            cmpEdited.data.style['text-align'] = value;
+//            break;
+//        }
 
-        switch (prop) {
-          case 'color':
-            cmpEdited.data.style.color = value;
-            break;
-          case 'fontSize':
-            cmpEdited.data.style.fontSize = value + 'px';
-            break;
-          case 'align':
-            cmpEdited.data.style['text-align'] = value;
-            break;
-        }
+//        this.$store.commit({
+//          type: 'editCmp',
+//          cmp: cmpEdited
+//        });
 
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        });
+//        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
+
       },
       toggleContentEditable(){
         console.log('toggling content editable for the component.');
