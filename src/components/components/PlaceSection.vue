@@ -131,9 +131,9 @@
           var text = info.firstChild.textContent;
           for (var i = 0; i < this.markers.length; i++) {
             if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-              this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
-                this.markers[i].infoText = text;
-              });
+              // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
+              //   this.markers[i].infoText = text;
+              // });
               break;
             }
           }
@@ -163,9 +163,9 @@
       }
     },
     created () {
-      this.$http.get('/get_markers/').then(response => {
-        this.markers = response.body;
-      });
+      // this.$http.get('/get_markers/').then(response => {
+        // this.markers = response.body;
+      // });
     }
   }
 </script>

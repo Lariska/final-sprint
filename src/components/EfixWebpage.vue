@@ -93,4 +93,5 @@ export default {
   .buttons{
       margin: 10px;
   }
+  
 </style>

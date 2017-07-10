@@ -62,7 +62,6 @@
       return {
         panelVisible: false,
         isEditable:false,
-        editablesTimer:null,
         content:null,
         title:null
       }
@@ -94,17 +93,6 @@
         });
         console.log('updating content!' , this.$refs.elHeader.innerText);
       },
-      // saveEditables(){
-      //   console.log('save editables');
-      //   let editables = [{context:'title',ref:'elHeader'},{context:'content', ref:'elContent'}]
-      //   let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-      //   editables.forEach(editable=> cmpEdited.data[editable.context].text = this.$refs[editable.ref].innerText);
-      //   this.$store.commit({
-      //     type: 'editCmp',
-      //     cmp: cmpEdited
-      //   });
-        
-      // },
     },
    
   }
@@ -143,7 +131,6 @@
   .editableTxt{
     border: 1px solid blue;
   }
-
   .editBtn {
     position: absolute;
     top: 0;
