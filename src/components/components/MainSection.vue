@@ -2,6 +2,7 @@
   <section>
     <toolbar
       class="toolbar"
+      :class="{ panelVisible: panelVisible }"
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
@@ -9,7 +10,7 @@
     ></toolbar>
 
     <div class="container" :style="paramsForRender.data.style">
-      <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
+      <edit-btn class="editBtn" @click.native="togglePanel"></edit-btn>
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
@@ -36,8 +37,8 @@
     },
     methods: {
       togglePanel: function () {
-        if (!this.panelVisible) this.panelVisible = true;
-        console.log('clicked');
+//        if (!this.panelVisible) this.panelVisible = true;
+        this.panelVisible = true;
       },
       closePanel: function () {
         this.panelVisible = false;
@@ -71,6 +72,11 @@
   }
   .toolbar {
     position: absolute;
+    bottom: 0;
+    left: 60px;
+  }
+
+  .panelVisible {
     bottom: 0;
     left: 60px;
   }

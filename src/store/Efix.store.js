@@ -96,7 +96,6 @@ const actions = {
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === payload.cmp.id;
     });
-    console.log(payload.cmp);
     state.components.splice(idx, 1, payload.cmp);
 
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
@@ -130,11 +129,11 @@ const actions = {
   deleteActiveImage({commit}, id) {
     commit("deleteActiveImage", id);
   }
-}
+};
 
 export const efixStore = {
   state,
   mutations,
   getters,
   actions
-}
+};
