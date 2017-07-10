@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import EfixHeader from './EfixHeader';
   export default {
     name: 'efix-header',
   }
