@@ -46,20 +46,10 @@ const mutations = {
         this.errors.push(e)
       })
   },
-  deleteCmp(state, cmp) {
-    const idx = state.components.findIndex(currCmp => {
-      return currCmp.id === cmp.id;
-    });
-    state.components.splice(idx, 1);
-    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
-      .then(response => {
-        state._id = response.data[0]._id;
-        state.components = response.data[0].components;
-        console.log('deleted')
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+  deleteCmp(state, res) {
+    console.log('deleted',res)
+    state._id = res._id;
+    state.components = res.components;
   },
   editCmp(state, payload) {
     const idx = state.components.findIndex(currCmp => {
@@ -95,16 +85,6 @@ const mutations = {
     })[0].data;
     data.images.splice(data.activeImage, 1);
   }
-//   [TODO_UPDATE](state, { todo }) {
-//     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)
-//     state.todos.splice(idx, 1, todo);
-//   },
-//   [TODO_CREATE](state, { todo }) {
-//     state.todos.push(todo)
-//   },
-//   SET_FILTER(state, { filter }) {
-//     state.filterBy = filter;
-//   }
 }
 
 const actions = {
@@ -131,14 +111,25 @@ const actions = {
   deleteActiveImage({commit}, id) {
     commit("deleteActiveImage", id);
   },
+  deleteCmp(context , payload) {
+    console.log('payload: ',payload);
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.cmp.id;
+    });
+    console.log('idx: ', idx);
 
-//   [TODO_LOAD](context, payload) {
-//     todoService.query()
-//       .then(todos => {
-//         payload.todos = todos;
-//         context.commit(payload)
-//       });
-//   }
+    state.components.splice(idx, 1);
+    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
+      .then(response => {
+        console.log('res: ', response.data)
+        context.commit('deleteCmp',response.data);
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
+
+
 }
 
 export const efixStore = {
