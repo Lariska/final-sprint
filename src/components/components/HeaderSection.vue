@@ -9,6 +9,7 @@
       @editContent = "makeContentEditable">
     </toolbar>
     <div class="header">
+      <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
         <h2 
@@ -47,12 +48,15 @@
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
   import {HEADER_SECTION} from '../../constants/cmpName'
+  import EditBtn from '../editor/EditBtn';
+
   export default {
     name: HEADER_SECTION,
     props: ['paramsForRender'],
     components: {
       Toolbar,
-      CloseBtn
+      CloseBtn,
+      EditBtn
     },
     data: function () {
       return {
@@ -139,6 +143,19 @@
   .editableTxt{
     border: 1px solid blue;
   }
+
+  .editBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .toolbar {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+  }
+
 
 </style>
 

@@ -1,37 +1,37 @@
 <template>
-<section>
-  <section class="map">
+  <section>
+    <section class="map">
       <gmap-map
-          :center="getCenter"
-          :zoom="7"
-          map-type-id="terrain"
-          style="width: 800px; height: 450px"
-          @rightclick="addMarker">
+        :center="getCenter"
+        :zoom="7"
+        map-type-id="terrain"
+        style="width: 800px; height: 450px"
+        @rightclick="addMarker">
 
-          <gmap-info-window
-            :options="infoOptions" 
-            :position="infoWindowPos" 
-            :opened="infoWinOpen" 
-            :content="infoContent" 
-            @domready="infoOpened"
-            @content_changed="infoChanged"
-            @closeclick="infoWinOpen=false">
-          </gmap-info-window>
+        <gmap-info-window
+          :options="infoOptions"
+          :position="infoWindowPos"
+          :opened="infoWinOpen"
+          :content="infoContent"
+          @domready="infoOpened"
+          @content_changed="infoChanged"
+          @closeclick="infoWinOpen=false">
+        </gmap-info-window>
 
         <gmap-marker
-            :key="index"
-            v-for="(m, index) in getMarkers"
-            :clickable="true"
-            :position="m.position"
-            @click="toggleInfoWindow(m,index)">
+          :key="index"
+          v-for="(m, index) in getMarkers"
+          :clickable="true"
+          :position="m.position"
+          @click="toggleInfoWindow(m,index)">
         </gmap-marker>
       </gmap-map>
-  </section>
-      <div class="delete">
-        <el-button type="danger" @click="deleteMarker">Delete</el-button>
-        </div>
-        <div class="instruction"> 
-        <el-collapse>
+    </section>
+    <div class="delete">
+      <el-button type="danger" @click="deleteMarker">Delete</el-button>
+    </div>
+    <div class="instruction">
+      <el-collapse>
         <el-collapse-item title="Instruction" name="1">
             <h3>
                1) Right click on the map to mark some place. 
@@ -46,31 +46,36 @@
               4) In order to delete a marker, click on it and then on delete button.
             </h3>
         </el-collapse-item>
-    </el-collapse>
-      </div>
-</section>
+      </el-collapse>
+    </div>
+    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+  </section>
 </template>
 
 <script>
   import {PLACE_SECTION} from '../../constants/cmpName'
-export default {
-  name: PLACE_SECTION,
-  data () {
+  import CloseBtn from '../editor/CloseBtn';
+
+  export default {
+    name: PLACE_SECTION,
+    props: ['paramsForRender'],
+    data () {
       return {
         center: {lat: 10.0, lng: 10.0},
         markers: [],
         infoContent: '',
-        infoOptions: { pixelOffset: { width: 0, height: -35}},
+        infoOptions: {pixelOffset: {width: 0, height: -35}},
         infoWinOpen: false,
-        infoWindowPos: { lat: 0, lng: 0}
+        infoWindowPos: {lat: 0, lng: 0}
       }
-  },
-  
-  methods: {
-    addMarker(event) {
-      var marker = {
+    },
+    components: {CloseBtn},
+    methods: {
+      addMarker(event) {
+        var marker = {
           position: {lat: event.latLng.lat(), lng: event.latLng.lng()},
           infoText: 'Add your place name here'
+
       }
       this.markers.push(marker);
       // this.$http.post('/add_marker/', marker).then(response => {});
@@ -79,53 +84,65 @@ export default {
       this.$router.push({name: 'hello'});
     },
 
-    toggleInfoWindow (marker, index) {
-      this.center = marker.position;
-      this.infoWindowPos = marker.position;
-      this.infoContent = marker.infoText;
+      toggleInfoWindow (marker, index) {
+        this.center = marker.position;
+        this.infoWindowPos = marker.position;
+        this.infoContent = marker.infoText;
 
-      //check if its the same marker that was selected if yes toggle
-      if (this.currentMidx == index) {
-        this.infoWinOpen = !this.infoWinOpen;
-      }
-      //if different marker set infowindow to open and reset current marker index
-      else {
-        this.infoWinOpen = true;
-        this.currentMidx = index;
-      }
-    },
-
-    infoOpened (event) {
-      var that = this;
-      this.$el.querySelector(".gm-style-iw").addEventListener("click", function(ev) {
-        if (ev.target.name != "") {
-          var element = ev.target;
-          var text = element.textContent;
-          var input = document.createElement("input");
-          input.setAttribute("value", text);
-          input.addEventListener("keyup", function(event) {
-            event.preventDefault();
-            if (event.keyCode == 13) {
-              var inp = event.target
-              that.infoContent = inp.value;
-              inp.parentElement.removeChild(inp);
-            }
-          });
-          if (element.parentElement) {
-            element.parentElement.appendChild(input);
-            element.parentElement.removeChild(element);
-          }
-          ev.target.removeEventListener("click", this);
+        //check if its the same marker that was selected if yes toggle
+        if (this.currentMidx == index) {
+          this.infoWinOpen = !this.infoWinOpen;
         }
-      })
-    },
+        //if different marker set infowindow to open and reset current marker index
+        else {
+          this.infoWinOpen = true;
+          this.currentMidx = index;
+        }
+      },
 
-    infoChanged (event) {
-      var info = this.$el.querySelector(".gm-style-iw");
-      if (info) {
-        var text = info.firstChild.textContent;
+      infoOpened (event) {
+        var that = this;
+        this.$el.querySelector(".gm-style-iw").addEventListener("click", function (ev) {
+          if (ev.target.name != "") {
+            var element = ev.target;
+            var text = element.textContent;
+            var input = document.createElement("input");
+            input.setAttribute("value", text);
+            input.addEventListener("keyup", function (event) {
+              event.preventDefault();
+              if (event.keyCode == 13) {
+                var inp = event.target
+                that.infoContent = inp.value;
+                inp.parentElement.removeChild(inp);
+              }
+            });
+            if (element.parentElement) {
+              element.parentElement.appendChild(input);
+              element.parentElement.removeChild(element);
+            }
+            ev.target.removeEventListener("click", this);
+          }
+        })
+      },
+
+      infoChanged (event) {
+        var info = this.$el.querySelector(".gm-style-iw");
+        if (info) {
+          var text = info.firstChild.textContent;
+          for (var i = 0; i < this.markers.length; i++) {
+            if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
+              this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
+                this.markers[i].infoText = text;
+              });
+              break;
+            }
+          }
+        }
+      },
+      deleteMarker (event) {
         for (var i = 0; i < this.markers.length; i++) {
           if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
+
             // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {});
             this.markers[i].infoText = text;
             break;
@@ -133,6 +150,7 @@ export default {
         }
       }
     },
+
     deleteMarker (event) {
       for (var i = 0; i < this.markers.length; i++) {
         if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
@@ -141,22 +159,13 @@ export default {
           this.markers.splice(i, 1);
           break;
         }
+        return this.center;
       }
-    }
-  },
-  computed:{
-    getMarkers(){
-      return this.markers;
     },
-    getCenter() {
-      var that = this;
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          that.center = {lat: position.coords.latitude, lng: position.coords.longitude};
-          return that.center;
-        });
-      }
-      return this.center;
+    created () {
+      this.$http.get('/get_markers/').then(response => {
+        this.markers = response.body;
+      });
     }
   },
   created () {
@@ -164,18 +173,17 @@ export default {
     //   this.markers = response.body;
     // });
   }
-}
 </script>
 
 
 <style scoped>
-  .instruction, .delete{
+  .instruction, .delete {
     margin: 10px;
     margin-left: 10px;
     margin-right: 10px;
   }
 
-  .map{
+  .map {
     display: flex;
     flex-direction: column;
     align-items: center;

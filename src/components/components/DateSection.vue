@@ -1,12 +1,13 @@
-<<template>
+<template>
 <section>
-  <vue-event-calendar 
+  <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+  <vue-event-calendar
   :events="$store.state.calendar.events"
   @day-changed="dayChanged">
-      <div 
+      <div
       v-for="event in this.$store.state.calendar.events"
       v-if="event.title !== ''"
-      :key="event" 
+      :key="event"
       class="event-item"
       @click="eventClick(event)">
       <div v-if="event.title !== ''">
@@ -16,7 +17,7 @@
       </div>
   </vue-event-calendar>
   <div class = "event-crud">
-    <el-button 
+    <el-button
     type="success"
     @click="addEvent">Add Event</el-button>
     <el-input
@@ -27,13 +28,15 @@
   </div>
 </section>
 </template>
-<<script>
+<script>
 import { DATE_SECTION } from '../../constants/cmpName'
 import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store' //remove it later
-import calendarService from '../../services/calendar.service.js'
+import calendarService from '../../services/Calendar.service.js'
+import CloseBtn from '../editor/CloseBtn';
 
 export default {
   name: DATE_SECTION,
+  props: ['paramsForRender'],
   data () {
     return {
       newEventData:{
@@ -43,6 +46,7 @@ export default {
       isFirstClick:false
     }
   },
+  components: { CloseBtn },
   methods: {
     dayChanged(value){
       this.newEventData.date = value.date;
@@ -51,7 +55,7 @@ export default {
     markThisDate(event){
       calendarService.removeEvent(event,true);
       this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
-      
+
     },
     eventClick(event){
       calendarService.handleEventClick(event);
@@ -65,7 +69,11 @@ export default {
   }
 }
 </script>
-<<style>
+<style>
+
+  section {
+    position: relative;
+  }
  .date-num:hover{
   cursor:pointer;
  }
@@ -74,5 +82,13 @@ export default {
  }
  .events-wrapper{
    padding:0;
+ }
+
+ .closeBtn {
+   position: absolute;
+   font-size: 24px;
+   top: 0;
+   right: 0;
+   z-index: 100;
  }
 </style>

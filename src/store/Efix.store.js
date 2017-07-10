@@ -12,7 +12,7 @@ const url = 'http://localhost:3003/';
 
 const state = {
   chosenElement: null,
-  _id:'',
+  _id: '',
   components: []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
@@ -22,7 +22,7 @@ const getters = {
   components: state => {
     return state.components
   },
-  componentById: state => 
+  componentById: state =>
     id => state.components.find( component => component.id === id )
 }
 
@@ -42,7 +42,7 @@ const mutations = {
         console.log('added')
       })
       .catch(e => {
-        console.log('err',e)
+        console.log('err',e);
         this.errors.push(e)
       })
   },
@@ -50,7 +50,6 @@ const mutations = {
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === cmp.id;
     });
-    const id = cmp.id;
     state.components.splice(idx, 1);
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {
@@ -114,7 +113,7 @@ const actions = {
     return axios.get(url + 'data/website')
       .then(response => {
         console.log('response: ',response)
-        state._id = response.data[0]._id
+        state._id = response.data[0]._id;
         state.components = response.data[0].components
       })
       .catch(e => {
