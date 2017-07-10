@@ -64,9 +64,7 @@ export default {
   },
   methods: {
     selectElement(value) {
-      this.$store.commit('ADD_COMPONENT', value)
-      // this.elements.push(value);
-      //  console.log("store components: ",);
+      this.$store.dispatch('addCmp', value);
     },
     updateCount() {
 

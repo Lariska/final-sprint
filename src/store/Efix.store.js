@@ -32,50 +32,19 @@ const mutations = {
     state.chosenElement = payload.type;
     // console.log("Store value changed: " + payload);
   },
-  [ADD_COMPONENT](state, payload) {
-    const cmpObj = efixService.buildCmpObj(payload);
-    state.components.push(cmpObj);
-    axios.put(url + 'data/website/'+ state._id, Object.assign({}, state))
-      .then(response => {
-        state._id = response.data[0]._id;
-        state.components = response.data[0].components;
-        console.log('added')
-      })
-      .catch(e => {
-        console.log('err',e);
-        this.errors.push(e)
-      })
+  editCmp(state, res) {
+    // state._id = response.data[0]._id;
+    // state.components = response.data[0].components;
+    state._id = res._id;
+    state.components = res.components;
   },
-  deleteCmp(state, cmp) {
-    const idx = state.components.findIndex(currCmp => {
-      return currCmp.id === cmp.id;
-    });
-    state.components.splice(idx, 1);
-    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
-      .then(response => {
-        state._id = response.data[0]._id;
-        state.components = response.data[0].components;
-        console.log('deleted')
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+  deleteCmp(state, res) {
+    state._id = res._id;
+    state.components = res.components;
   },
-  editCmp(state, payload) {
-    const idx = state.components.findIndex(currCmp => {
-      return currCmp.id === payload.cmp.id;
-    });
-    console.log(payload.cmp);
-    state.components.splice(idx, 1, payload.cmp);
-
-    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
-      .then(response => {
-        state._id = response.data[0]._id;
-        state.components = response.data[0].components;
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+  addCmp(state, res) {
+    state._id = res._id;
+    state.components = res.components;
   },
   // Gallery mutations
   setActiveImage (state, params) {
@@ -95,24 +64,13 @@ const mutations = {
     })[0].data;
     data.images.splice(data.activeImage, 1);
   }
-//   [TODO_UPDATE](state, { todo }) {
-//     const idx = state.todos.findIndex(currTodo => currTodo._id === todo._id)
-//     state.todos.splice(idx, 1, todo);
-//   },
-//   [TODO_CREATE](state, { todo }) {
-//     state.todos.push(todo)
-//   },
-//   SET_FILTER(state, { filter }) {
-//     state.filterBy = filter;
-//   }
-}
+};
 
 const actions = {
   getData() {
-    console.log('getting data first time')
+    console.log('getting data first time');
     return axios.get(url + 'data/website')
       .then(response => {
-        console.log('response: ',response)
         state._id = response.data[0]._id;
         state.components = response.data[0].components
       })
@@ -120,6 +78,47 @@ const actions = {
         this.errors.push(e)
       });
   },
+  deleteCmp(context , payload) {
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.cmp.id;
+    });
+    state.components.splice(idx, 1);
+    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
+      .then(response => {
+        context.commit('deleteCmp',response.data);
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
+  editCmp(context, payload) {
+    console.log(payload.cmp);
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === payload.cmp.id;
+    });
+    console.log(payload.cmp);
+    state.components.splice(idx, 1, payload.cmp);
+
+    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
+      .then(response => {
+        context.commit('editCmp', response.data);
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
+  addCmp(context, payload) {
+  const cmpObj = efixService.buildCmpObj(payload);
+  state.components.push(cmpObj);
+  axios.put(url + 'data/website/'+ state._id, Object.assign({}, state))
+    .then(response => {
+      context.commit('addCmp', response.data);
+    })
+    .catch(e => {
+      console.log('err',e);
+      this.errors.push(e)
+    })
+},
 
   // Gallery actions
   setActiveImage({commit}, params) {
@@ -130,15 +129,7 @@ const actions = {
   },
   deleteActiveImage({commit}, id) {
     commit("deleteActiveImage", id);
-  },
-
-//   [TODO_LOAD](context, payload) {
-//     todoService.query()
-//       .then(todos => {
-//         payload.todos = todos;
-//         context.commit(payload)
-//       });
-//   }
+  }
 }
 
 export const efixStore = {

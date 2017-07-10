@@ -1,7 +1,7 @@
 <template>
     <section>
         <nav class="about">
-            <div class="img">
+            <div class="title">
                 <h2>eFix</h2>
             </div>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 

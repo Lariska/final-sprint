@@ -87,10 +87,7 @@
       updateContent(context,ref){
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data[context].text = this.$refs[ref].innerText;
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        });
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
         console.log('updating content!' , this.$refs.elHeader.innerText);
       },
     },
