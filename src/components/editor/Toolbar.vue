@@ -105,6 +105,12 @@
 </script>
 
 <style scoped>
+  .el-button-group{
+    padding: 10px;
+    background: rgba(111, 111, 197, 0.58);
+    border-radius: 5px;
+  }
+
   section {
     position: absolute;
   }

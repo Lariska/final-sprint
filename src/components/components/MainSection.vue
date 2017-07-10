@@ -7,11 +7,20 @@
       :panelVisible="panelVisible"
       @closePanel="closePanel"
       :paramsForRender="paramsForRender"
+       @editContent = "makeContentEditable"
     ></toolbar>
 
     <div class="container" :style="paramsForRender.data.style">
       <edit-btn class="editBtn" @click.native="togglePanel"></edit-btn>
-      <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
+      <h2 
+        v-if="isEditable"
+        :style="paramsForRender.data.title.style"
+        contenteditable ="true"
+        @keyup="updateContent('title', 'elHeader')"
+        ref="elHeader"
+        class="editableTxt">{{title}}</h2>
+      <h2 v-else 
+      :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
@@ -32,7 +41,10 @@
     },
     data: function () {
       return {
-        panelVisible: false
+        panelVisible: false,
+        isEditable:false,
+        content:null,
+        title:null
       }
     },
     methods: {
@@ -42,7 +54,17 @@
       },
       closePanel: function () {
         this.panelVisible = false;
-      }
+      },
+      makeContentEditable: function(){
+        this.isEditable = !this.isEditable;
+        this.content = this.paramsForRender.data.content.text;
+        this.title = this.paramsForRender.data.title.text;
+      },
+      updateContent: function(context,ref){
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data[context].text = this.$refs[ref].innerText;
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
+      },
     }
   }
 </script>

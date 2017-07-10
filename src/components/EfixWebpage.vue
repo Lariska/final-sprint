@@ -1,5 +1,7 @@
 <template>
   <section>
+    <efix-header></efix-header>
+    
       <div class="buttons">
         <status-buttons></status-buttons>
       </div>
@@ -15,6 +17,8 @@
         ></component>
       </el-card>
     </div>
+    
+      <efix-footer></efix-footer>
   </section>
 </template>
 
@@ -27,6 +31,9 @@ import GallerySection from './components/GallerySection'
 import DateSection from './components/DateSection'
 import TableSection from './components/TableSection'
 import PlaceSection from './components/PlaceSection'
+
+import EfixHeader from './EfixHeader';
+import EfixFooter from './EfixFooter';
 
 import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT, ADD_COMPONENT } from '../store/Efix.store'
@@ -46,6 +53,8 @@ export default {
     DateSection,
     TableSection,
     PlaceSection,
+    'efix-header': EfixHeader,
+    'efix-footer': EfixFooter,
 
   },
   data() {
@@ -91,4 +100,5 @@ export default {
   .buttons{
       margin: 10px;
   }
+  
 </style>

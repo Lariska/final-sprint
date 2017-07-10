@@ -5,7 +5,7 @@
         :center="getCenter"
         :zoom="7"
         map-type-id="terrain"
-        style="width: 800px; height: 450px"
+        style="width: 800px; height: 300px"
         @rightclick="addMarker">
 
         <gmap-info-window

@@ -109,8 +109,7 @@ function buildCmpObj(cmpName) {
             backgroundColor: '#CED3DC',
             color: '#2C3E50',
             'text-align': 'center',
-            fontSize: '16px',
-            contenteditable: true
+            fontSize: '16px'
           }
         }
       };

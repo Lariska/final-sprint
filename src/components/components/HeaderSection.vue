@@ -62,7 +62,6 @@
       return {
         panelVisible: false,
         isEditable:false,
-        editablesTimer:null,
         content:null,
         title:null
       }
@@ -88,25 +87,10 @@
       updateContent(context,ref){
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data[context].text = this.$refs[ref].innerText;
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        });
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
         console.log('updating content!' , this.$refs.elHeader.innerText);
-      },
-      // saveEditables(){
-      //   console.log('save editables');
-      //   let editables = [{context:'title',ref:'elHeader'},{context:'content', ref:'elContent'}]
-      //   let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-      //   editables.forEach(editable=> cmpEdited.data[editable.context].text = this.$refs[editable.ref].innerText);
-      //   this.$store.commit({
-      //     type: 'editCmp',
-      //     cmp: cmpEdited
-      //   });
-
-      // },
-    },
-
+      }
+    }
   }
 </script>
 
@@ -153,7 +137,6 @@
   .editableTxt{
     border: 1px solid blue;
   }
-
   .editBtn {
     position: absolute;
     top: 0;

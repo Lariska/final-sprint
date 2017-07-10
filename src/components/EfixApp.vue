@@ -15,6 +15,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.editableTxt{
+    border: 1px solid blue;
+  }
 </style>

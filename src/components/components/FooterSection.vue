@@ -8,11 +8,24 @@
       :panelVisible="panelVisible"
       @closePanel="closePanel"
       :paramsForRender="paramsForRender"
+      @editContent = "makeContentEditable"
     >
     </toolbar>
     <div class="container">
       <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
-      <p :style="paramsForRender.data.style">{{ paramsForRender.data.content.text }}</p>
+      <p
+        v-if="isEditable"
+        contenteditable ="true"
+        @keyup="updateContent('content', 'elParagraph')"
+        ref="elParagraph"
+        class="editableTxt" 
+        :style="paramsForRender.data.style"
+      >{{content}}</p>
+      <p 
+        v-else
+        contenteditable ="false"
+        :style="paramsForRender.data.style"
+        >{{ paramsForRender.data.content.text }}</p>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
@@ -34,7 +47,9 @@
     },
     data: function () {
       return {
-        panelVisible: false
+        panelVisible: false,
+        isEditable:false,
+        content:null,
       }
     },
     // mounted() {
@@ -42,18 +57,22 @@
     //   console.log("mounted");
     // },
     methods: {
-//      getFooter: function () {
-//        return this.footerSection
-//      },
-//      makeVisible: function () {
-//        this.isVisible = true
-//      }
+      makeContentEditable(){
+        this.isEditable = !this.isEditable;
+        this.content = this.paramsForRender.data.content.text;
+      },
       togglePanel: function () {
         if (!this.panelVisible) this.panelVisible = true;
       },
       closePanel() {
         this.panelVisible = false;
-      }
+      },
+      updateContent(context,ref){
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data[context].text = this.$refs[ref].innerText;
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
+        // console.log('updating content!' , this.$refs.elHeader.innerText);
+      },
     }
   }
 </script>
@@ -76,7 +95,9 @@
     top: 0;
     right: 0;
   }
-
+  .editableTxt{
+    border: 1px solid blue;
+  }
   .editBtn {
     position: absolute;
     top: 0;
