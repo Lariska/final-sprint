@@ -173,11 +173,11 @@
         return this.center;
       }
     },
-    created () {
-      // this.$http.get('/get_markers/').then(response => {
-        // this.markers = response.body;
-      // });
-    }
+    // created () {
+    //   this.$http.get('/get_markers/').then(response => {
+    //     this.markers = response.body;
+    //   });
+    // }
   }
 
 </script>
