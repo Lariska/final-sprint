@@ -2,8 +2,8 @@
   <section v-if="myPanelVisible">
     <vue-draggable-resizable
       class="editor"
-      minw="300"
-      h="50"
+      :minw="300"
+      :h="50"
       :resizable="false"
       :parent="false">
 
