@@ -30,7 +30,7 @@
 <<script>
 import { DATE_SECTION } from '../../constants/cmpName'
 import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store' //remove it later
-import calendarService from '../../services/Calendar.service.js'
+import calendarService from '../../services/calendar.service.js'
 
 export default {
   name: DATE_SECTION,

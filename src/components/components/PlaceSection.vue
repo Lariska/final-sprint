@@ -34,16 +34,16 @@
         <el-collapse>
         <el-collapse-item title="Instruction" name="1">
             <h3>
-               1) Rightclick on map to marker some place. 
+               1) Right click on the map to mark some place. 
             </h3>
             <h3>
-               2) Click on input write something. 
+               2) Click on the tooltip to add your name. 
             </h3>
             <h3>
-               3) Click Enter to save text in input.
+               3) Click Enter to save the name.
             </h3>
             <h3>
-              4) Delete marker on map need to click on marker and after click on button botom - delete.
+              4) In order to delete a marker, click on it and then on delete button.
             </h3>
         </el-collapse-item>
     </el-collapse>
@@ -73,7 +73,7 @@ export default {
           infoText: 'Add your place name here'
       }
       this.markers.push(marker);
-      this.$http.post('/add_marker/', marker).then(response => {});
+      // this.$http.post('/add_marker/', marker).then(response => {});
     },
     hello(){
       this.$router.push({name: 'hello'});
@@ -126,9 +126,8 @@ export default {
         var text = info.firstChild.textContent;
         for (var i = 0; i < this.markers.length; i++) {
           if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-            this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
-              this.markers[i].infoText = text;
-            });
+            // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {});
+            this.markers[i].infoText = text;
             break;
           }
         }
@@ -137,10 +136,9 @@ export default {
     deleteMarker (event) {
       for (var i = 0; i < this.markers.length; i++) {
         if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
-          this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {
-            this.infoWinOpen = false;
-            this.markers.splice(i, 1);
-          });
+          // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {});
+          this.infoWinOpen = false;
+          this.markers.splice(i, 1);
           break;
         }
       }
@@ -162,9 +160,9 @@ export default {
     }
   },
   created () {
-    this.$http.get('/get_markers/').then(response => {
-      this.markers = response.body;
-    });
+    // this.$http.get('/get_markers/').then(response => {
+    //   this.markers = response.body;
+    // });
   }
 }
 </script>
