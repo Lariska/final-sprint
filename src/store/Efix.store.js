@@ -22,7 +22,7 @@ const getters = {
   components: state => {
     return state.components
   },
-  componentById: state => 
+  componentById: state =>
     id => state.components.find( component => component.id === id )
 }
 
@@ -50,7 +50,6 @@ const mutations = {
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === cmp.id;
     });
-    const id = cmp.id;
     state.components.splice(idx, 1);
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {

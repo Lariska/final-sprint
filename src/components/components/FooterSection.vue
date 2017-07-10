@@ -12,8 +12,9 @@
     >
     </toolbar>
     <div class="container">
-    <p :style="paramsForRender.data.style">{{ paramsForRender.data.content.text }}</p>
-    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+      <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
+      <p :style="paramsForRender.data.style">{{ paramsForRender.data.content.text }}</p>
+      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
 
@@ -22,13 +23,15 @@
   import {FOOTER_SECTION} from '../../constants/cmpName';
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
+  import EditBtn from '../editor/EditBtn';
 
   export default {
     name: FOOTER_SECTION,
     props: ['paramsForRender'],
     components: {
       Toolbar,
-      CloseBtn
+      CloseBtn,
+      EditBtn
     },
     data: function () {
       return {
@@ -57,7 +60,7 @@
 </script>
 
 <style scoped>
-  .container {
+  section {
     position: relative;
   }
 
@@ -71,7 +74,19 @@
   .closeBtn {
     position: absolute;
     font-size: 24px;
-    top: -16px;
+    top: 0;
     right: 0;
+  }
+
+  .editBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .toolbar {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
   }
 </style>

@@ -7,9 +7,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 
+
 import '../node_modules/font-awesome/css/font-awesome.css';
 
-import 'vue-event-calendar/dist/style.css' 
+import 'vue-event-calendar/dist/style.css'
 import vueEventCalendar from 'vue-event-calendar'
 
 import lang from 'element-ui/lib/locale/lang/en'
@@ -31,7 +32,7 @@ Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyCc_X_TBp3vs4y4oWiEcRrHpwilGYJWNEY',
     // v: 'OPTIONAL VERSION NUMBER',
-    // libraries: 'places', //// If you need to use place input 
+    // libraries: 'places', //// If you need to use place input
   }
 });
 

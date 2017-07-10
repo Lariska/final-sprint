@@ -1,14 +1,15 @@
 <template>
-  <section @click="togglePanel">
+  <section>
     <toolbar
       class="toolbar"
       v-if="panelVisible"
       :panelVisible="panelVisible"
       @closePanel="closePanel"
       :paramsForRender="paramsForRender"
-    >
-    </toolbar>
+    ></toolbar>
+
     <div class="container" :style="paramsForRender.data.style">
+      <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
       <h2 :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
       <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
@@ -18,13 +19,15 @@
 <script>
   import Toolbar from '../editor/Toolbar';
   import CloseBtn from '../editor/CloseBtn';
+  import EditBtn from '../editor/EditBtn';
   import {MAIN_SECTION} from '../../constants/cmpName'
   export default {
     name: MAIN_SECTION,
     props: ['paramsForRender'],
     components: {
       Toolbar,
-      CloseBtn
+      CloseBtn,
+      EditBtn
     },
     data: function () {
       return {
@@ -34,14 +37,20 @@
     methods: {
       togglePanel: function () {
         if (!this.panelVisible) this.panelVisible = true;
+        console.log('clicked');
       },
-      closePanel() {
+      closePanel: function () {
         this.panelVisible = false;
       }
     }
   }
 </script>
 <style scoped>
+
+  section {
+    position: relative;
+  }
+
   .container {
     position: relative;
     border: 1px solid #c1e2b3;
@@ -53,6 +62,17 @@
     font-size: 24px;
     top: 0;
     right: 0;
+  }
+
+  .editBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .toolbar {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
   }
 </style>
 

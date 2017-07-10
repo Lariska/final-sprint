@@ -9,7 +9,7 @@
     },
     methods: {
       deleteElem(){
-        this.$store.commit('deleteCmp', this.cmp)
+        this.$store.commit('deleteCmp', this.cmp);
       }
     }
   }
