@@ -88,16 +88,16 @@
   .el-icon-edit {
     position: absolute;
     color: white;
-    font-size: 35px;
-    top: 12px;
-    right: 50px;
+    font-size: 20px;
+    top: 15px;
+    right: 40px;
     cursor: pointer;
   }
 
   .el-icon-delete {
     position: absolute;
     color: white;
-    font-size: 40px;
+    font-size: 25px;
     top: 10px;
     right: 10px;
     cursor: pointer;

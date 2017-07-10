@@ -1,7 +1,7 @@
 <template>
   <section>
     <nav class="main-nav">
-      <img src="../assets/efix.png" alt="Company name">
+    <router-link to ="/"><img src="../assets/efix.png" class="image"></router-link>
       <h3>Welcome</h3>
     </nav>
   </section>

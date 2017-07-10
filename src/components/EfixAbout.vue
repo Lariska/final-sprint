@@ -10,8 +10,8 @@
                 </li>
                 <li class="text_">
                     <h5>Contacts:</h5>
-                    <p>0526773854</p>
-                    <p>0369930074</p>
+                    <p class="number">0526773854</p>
+                    <p class="number">036993074</p>
 
                     <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                     <a><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
@@ -21,7 +21,7 @@
                 </li>
                 <li class="text">
                     <h5>Address:</h5>
-                    <p>Tel-Aviv st. Azrieli 14/1</p>
+                    <p>Netanya st. Salomon 14/1</p>
                     <iframe class="map" 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.210371493814!2d34.85770968513921!3d32.33306151379665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d6aaeeb1ff429%3A0xeaed525c1ac056b2!2z15nXldeQ15wg16HXnNeV157XldefLCDXoNeq16DXmdeU!5e0!3m2!1siw!2sil!4v1487368018084">
                     </iframe>
@@ -41,15 +41,12 @@ export default {
     a{
         padding: 10px;
     }
-    .map{
+    .number{
         display: flex;
         align-content: center;
         justify-content: center; 
     }
     .text, .text_{
-        /*display: flex;
-        align-content: center;
-        justify-content: center;*/
         margin-right: 10px;
         list-style-type: none;
         padding-right: 5%;
@@ -59,8 +56,6 @@ export default {
     .text_{
         border-left: 1px solid lightgray;
         border-right: 1px solid lightgray;
-        /*padding-right: 20px;
-        padding-left: 20px;*/
     }
     .about{
         display: flex;
