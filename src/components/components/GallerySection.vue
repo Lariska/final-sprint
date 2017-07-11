@@ -67,9 +67,14 @@
 </script>
 
 <style scoped>
+  section {
+    position: relative;
+    margin-bottom: 15px;
+  }
   .gallery {
     display: flex;
     /*overflow-x: auto;*/
+
   }
 
   .gallery div {
@@ -101,5 +106,10 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+  }
+
+  .close-btn {
+    position: absolute;
+    bottom: 0;
   }
 </style>

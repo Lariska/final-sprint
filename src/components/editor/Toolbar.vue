@@ -30,7 +30,8 @@
           <el-button type="primary" icon="edit" size="small" @click.stop="toggleContentEditable"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Change image" placement="top">
-          <el-button type="primary" icon="picture" size="small" @click.stop="changeImg"></el-button>
+          <el-button type="primary" icon="picture" size="small"
+                     @click.stop="imagePopupVisible = !imagePopupVisible"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Align left" placement="top">
           <el-button type="primary" size="small" @click.stop="alignChange('left')">
@@ -126,7 +127,6 @@
         this.$emit('editContent');
       },
       changeImg(value) {
-        this.imagePopupVisible = true;
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.content.img = this.images[value].url;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );

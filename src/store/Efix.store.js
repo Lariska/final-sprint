@@ -38,7 +38,7 @@ const getters = {
   },
   componentById: state =>
     id => state.components.find( component => component.id === id )
-}
+};
 
 
 const mutations = {
@@ -64,11 +64,9 @@ const mutations = {
       return data.id === params[1]
     })[0].data.activeImage = params[0];
   },
-  setImage (state, params) {
-    let data = state.components.filter(function (data) {
-      return data.id === params[1]
-    })[0].data;
-    data.images[data.activeImage] = params[0];
+  setImage (state, res) {
+    state._id = res._id;
+    state.components = res.components
   },
   deleteActiveImage(state, res) {
     state._id = res._id;
@@ -89,6 +87,7 @@ const actions = {
     console.log('getting data first time');
     return axios.get(url + 'data/website')
       .then(response => {
+        console.log("res: " , response);
         state._id = response.data[0]._id;
         state.components = response.data[0].components
       })
@@ -110,7 +109,6 @@ const actions = {
       })
   },
   editCmp(context, payload) {
-    console.log(payload.cmp);
     const idx = state.components.findIndex(currCmp => {
       return currCmp.id === payload.cmp.id;
     });
@@ -141,8 +139,20 @@ const actions = {
   setActiveImage({commit}, params) {
     commit("setActiveImage", params);
   },
-  setImage({commit}, params) {
-    commit("setImage", params);
+  setImage(context, params) {
+    const idx = state.components.findIndex(currCmp => {
+      return currCmp.id === params[1];
+    });
+    let activeImage = state.components[idx].data.activeImage;
+    state.components[idx].data.images[activeImage] = params[0];
+
+    axios.put(url + 'data/website/' + state._id,Object.assign({},state))
+      .then(response => {
+        context.commit('setImage', response.data);
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   },
   deleteActiveImage(context , payload) {
     const idx = state.components.findIndex(currCmp => {
@@ -158,12 +168,6 @@ const actions = {
         this.errors.push(e)
       })
   }
-    // setActiveImage({ commit }, active_image) {
-    //     commit("setActiveImage", active_image);
-    // },
-    // deleteActiveImage({ commit }) {
-    //     commit("deleteActiveImage");
-    // },
 };
 
 export const efixStore = {
