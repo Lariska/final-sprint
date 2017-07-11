@@ -1,8 +1,10 @@
 <template>
   <section>
     <nav class="main-nav">
-      <img src="../assets/efix.png" alt="Company name">
-      <h3>Welcome</h3>
+    <router-link to ="/"><img src="../assets/efix.png" class="image"></router-link>
+      <slot>
+        <h3>Welcome</h3>
+      </slot>
     </nav>
   </section>
 </template>

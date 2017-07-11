@@ -3,12 +3,7 @@
   <efix-header></efix-header>
 
   <div class="button">
-    <ul class="button">
     <router-link to ="/web-page"><el-button :plain="true" type="info">Create Your Website</el-button></router-link>
-    </ul>
-    <!--<ul class="button">-->
-      <!--<el-button :plain="true" type="info">Info</el-button>-->
-    <!--</ul>-->
   </div>
 
   <efix-carusella></efix-carusella>
@@ -54,10 +49,7 @@ import EfixHeader from './EfixHeader';
 </script>
 
 <style scoped>
-  div {
-    display: flex;
-    justify-content: flex-end;
-  }
+
   #modal {
     background-color: red;
     height: 50px;
@@ -75,6 +67,7 @@ import EfixHeader from './EfixHeader';
     display: flex;
     align-content: center;
     justify-content: center;
+    margin: 10px;
   }
 
     .el-carousel__item h3 {

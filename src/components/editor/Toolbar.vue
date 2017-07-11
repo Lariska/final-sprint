@@ -45,8 +45,11 @@
             <i class="fa fa-font" aria-hidden="true"></i>
           </el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Color" placement="top">
+        <el-tooltip class="item" effect="dark" content="Text Color" placement="top">
           <el-color-picker v-model="color" @change="colorChange" class="clrPic"></el-color-picker>
+        </el-tooltip>
+        <el-tooltip class="item" effect="dark" content="Background Color" placement="top">
+          <el-color-picker v-model="bgcolor" @change="bgColorChange" class="clrPic"></el-color-picker>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Close panel" placement="top">
           <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
@@ -68,6 +71,7 @@
     data() {
       return {
         color: '#ddd',
+        bgcolor: 'rgb(44, 62, 80)',
         defaultFontSize: +(this.paramsForRender.data.style.fontSize).slice(0, -2),
         myPanelVisible: this.panelVisible,
         fontPanelVisible: false
@@ -89,6 +93,11 @@
       colorChange(value) {
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data.style.color = value;
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
+      },
+      bgColorChange(value) {
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data.style["background-color"] = value;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       },
       alignChange(value) {

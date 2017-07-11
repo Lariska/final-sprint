@@ -1,6 +1,8 @@
 <template>
   <section>
-    <efix-header></efix-header>
+    <efix-header>
+      <h3>Edit Mode</h3>
+    </efix-header>
     
       <div class="buttons">
         <status-buttons></status-buttons>

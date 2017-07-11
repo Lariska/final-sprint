@@ -9,7 +9,7 @@
       :paramsForRender="paramsForRender"
       @editContent = "makeContentEditable">
     </toolbar>
-    <div class="header">
+    <div class="head">
       <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
       <div class="text">
         <h2
@@ -101,15 +101,16 @@
   }
 
   .header {
-    display: flex;
-    align-content: center;
+    /*display: flex;*/
+    /*align-content: center;*/
     /*justify-content: center;*/
     background-color: #CED3DC;
     padding: 15px 0;
   }
 
-  .header img {
-    vertical-align: middle;
+  img {
+    /*vertical-align: middle;*/
+    margin-right: 10%;
   }
 
   .header h2, p {
@@ -122,7 +123,7 @@
     height: 60px;
   }
 
-  .text {
+  .head {
     display: flex;
     align-content: center;
     justify-content: center;
