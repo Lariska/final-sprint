@@ -52,10 +52,6 @@
         content:null,
       }
     },
-    // mounted() {
-    //   this.$store.commit(ADD_COMPONENT, this.getFooter());
-    //   console.log("mounted");
-    // },
     methods: {
       makeContentEditable(){
         this.isEditable = !this.isEditable;
@@ -71,7 +67,6 @@
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data[context].text = this.$refs[ref].innerText;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
-        // console.log('updating content!' , this.$refs.elHeader.innerText);
       },
     }
   }

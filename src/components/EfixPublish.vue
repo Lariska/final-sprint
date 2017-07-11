@@ -14,12 +14,12 @@
 </template>
 <<script>
 import NavBarSection from './components/NavBarSection'
-import MainSection from './components/MainSection'
-import FooterSection from './components/FooterSection'
-import HeaderSection from './components/HeaderSection'
-import GallerySection from './components/GallerySection'
+import MainSection from './publishTemplates/MainSection'
+import FooterSection from './publishTemplates/FooterSection'
+import HeaderSection from './publishTemplates/HeaderSection'
+import GallerySection from './publishTemplates/GallerySection'
 import DateSection from './components/DateSection'
-import TableSection from './components/TableSection'
+import TableSection from './publishTemplates/TableSection'
 import PlaceSection from './components/PlaceSection'
 export default {
     name:'publish',
