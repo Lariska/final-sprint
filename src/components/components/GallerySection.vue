@@ -68,7 +68,7 @@
 
 <style scoped>
   section {
-    position: relative;
+    /*position: relative;*/
     margin-bottom: 15px;
   }
   .gallery {

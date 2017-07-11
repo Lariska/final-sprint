@@ -133,13 +133,9 @@ function buildCmpObj(cmpName) {
           events: [
             {
               date: '2017/7/8',
-              title: 'Foo',
+              title: 'Double click me to remove!',
               desc: 'longlonglong description'
             },
-            {
-              date: '2016/11/12',
-              title: 'Bar'
-            }
           ],
         }
       }

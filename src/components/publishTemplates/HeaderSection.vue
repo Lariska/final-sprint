@@ -1,7 +1,7 @@
 <template>
   <section class="header" :style="paramsForRender.data.style">
     <div class="head">
-      <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
+      <img class="logo" :src="'../../../' + paramsForRender.data.content.img" alt="">
       <div class="text">
         <h2
         :style="paramsForRender.data.title.style">

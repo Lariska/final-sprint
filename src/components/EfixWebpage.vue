@@ -108,10 +108,12 @@ export default {
     display: flex;
     align-content: center;*/
     margin: 10px;
-    position: sticky; top: 0px;
+    position: sticky;
+    top:0;
+    z-index:2;
   }
-  .publish-buttons{
-    /*margin-left: auto;*/
-  }
+  /*.publish-buttons{
+    z-index:2;
+  }*/
 
 </style>

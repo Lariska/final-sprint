@@ -18,7 +18,7 @@ import MainSection from './publishTemplates/MainSection'
 import FooterSection from './publishTemplates/FooterSection'
 import HeaderSection from './publishTemplates/HeaderSection'
 import GallerySection from './publishTemplates/GallerySection'
-import DateSection from './components/DateSection'
+import DateSection from './publishTemplates/DateSection'
 import TableSection from './publishTemplates/TableSection'
 import PlaceSection from './components/PlaceSection'
 export default {
