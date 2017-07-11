@@ -109,7 +109,7 @@ export default {
   }
 }
   .box-card {
-    margin-left: 100px;
+    margin: 20px 30px 0 100px;
     display: flex;
     align-content: center;
     justify-content: center;

@@ -83,7 +83,7 @@
 
   .container {
     /*position: relative;*/
-    border: 1px solid #c1e2b3;
+    border: 1px solid #d0e2cc;
     height: 250px;
   }
 

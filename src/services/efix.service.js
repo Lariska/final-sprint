@@ -27,7 +27,7 @@ function buildCmpObj(cmpName) {
             img: 'static/logo.png'
           },
           style: {
-            backgroundColor: '#CED3DC',
+            backgroundColor: '#9A9FB6',
             color: '#2C3E50',
             fontSize: '16px'
           },
@@ -89,8 +89,8 @@ function buildCmpObj(cmpName) {
             img: 'wixer-logo.png'
           },
           style: {
-            backgroundColor: 'white',
-            color: '#2C3E50',
+            backgroundColor: '#DADCDB',
+            color: '2C3E50',
             fontSize: '16px',
             'text-align': 'center'
           }
@@ -106,7 +106,7 @@ function buildCmpObj(cmpName) {
             text: 'Copyrights 2017'
           },
           style: {
-            backgroundColor: '#CED3DC',
+            backgroundColor: '#9A9FB6',
             color: '#2C3E50',
             'text-align': 'center',
             fontSize: '16px'
