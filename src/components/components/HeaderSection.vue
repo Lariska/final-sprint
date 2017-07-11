@@ -10,7 +10,7 @@
       @editContent = "makeContentEditable">
     </toolbar>
     <div class="head">
-      <img class="logo" :src="'../../../static/' + paramsForRender.data.content.img" alt="">
+      <img class="logo" :src="'../../../' + paramsForRender.data.content.img" alt="">
       <div class="text">
         <h2
         v-if="isEditable"

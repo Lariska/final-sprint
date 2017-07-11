@@ -3,7 +3,7 @@
     <efix-header>
       <h3>Edit Mode</h3>
     </efix-header>
-    
+
       <div class="buttons">
         <status-buttons></status-buttons>
       </div>
@@ -19,7 +19,7 @@
         ></component>
       </el-card>
     </div>
-    
+
       <efix-footer></efix-footer>
   </section>
 </template>
@@ -95,12 +95,12 @@ export default {
     width: 60%;
   }
   .choice{
-      margin: 10px;
+    margin: 10px;
     display: flex;
     justify-content: right;
   }
   .buttons{
       margin: 10px;
   }
-  
+
 </style>

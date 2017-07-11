@@ -13,7 +13,8 @@ const url = 'http://localhost:3003/';
 const state = {
   chosenElement: null,
   _id: '',
-  components: []
+  components: [],
+  logos: []
 //   todos: [],
 //   filterBy: { status: null, txt: null }
 };
@@ -21,6 +22,9 @@ const state = {
 const getters = {
   components: state => {
     return state.components
+  },
+  logos: state => {
+    return state.logos
   },
   componentById: state =>
     id => state.components.find( component => component.id === id )
