@@ -1,6 +1,8 @@
 <template>
   <section class="header" :style="paramsForRender.data.style">
     <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
+
+    <transition name="bounce">
     <toolbar
       class="toolbar"
       v-if="panelVisible"
@@ -9,6 +11,8 @@
       :paramsForRender="paramsForRender"
       @editContent = "makeContentEditable">
     </toolbar>
+    </transition>
+
     <div class="head">
       <img class="logo" :src="'../../../' + paramsForRender.data.content.img" alt="">
       <div class="text">
@@ -153,6 +157,24 @@
     bottom: 0;
     /*z-index: 1000;*/
     /*left: 60px;*/
+  }
+
+  .bounce-enter-active {
+    animation: bounce-in .5s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
 
