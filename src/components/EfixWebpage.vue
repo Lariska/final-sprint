@@ -5,7 +5,8 @@
     </efix-header>
     
       <div class="buttons">
-        <status-buttons></status-buttons>
+        <status-buttons
+        @publish="switchToPublishMode"></status-buttons>
       </div>
     <div class="choice">
       <element-choice @selectedElement="selectElement"></element-choice>
@@ -80,6 +81,9 @@ export default {
     updateCount() {
 
       this.sectionCount += 1;
+    },
+    switchToPublishMode(){
+      console.log('switching to publish mode!');
     }
   },
 }

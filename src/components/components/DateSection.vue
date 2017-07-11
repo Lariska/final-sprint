@@ -2,10 +2,10 @@
 <section>
   <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
   <vue-event-calendar
-  :events="$store.state.calendar.events"
+  :events="$store.state.efix.events"
   @day-changed="dayChanged">
       <div
-      v-for="event in this.$store.state.calendar.events"
+      v-for="event in paramsForRender.data.events"
       v-if="event.title !== ''"
       :key="event"
       class="event-item"
@@ -30,7 +30,7 @@
 </template>
 <script>
 import { DATE_SECTION } from '../../constants/cmpName'
-import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Calendar.store' //remove it later
+import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../../store/Efix.store'
 import calendarService from '../../services/calendar.service.js'
 import CloseBtn from '../editor/CloseBtn';
 

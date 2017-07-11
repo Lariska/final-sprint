@@ -1,7 +1,7 @@
 <template>
   <section>
     <!--<el-button type="info"> Edit Mode</el-button>-->
-    <el-button type="success">Publish Mode</el-button>
+    <router-link to ="/publish"><el-button type="success" @click="switchToPublish">Publish Mode</el-button></router-link>
     <!--<el-button type="success" @click="getData">Get data</el-button>-->
   </section>
 </template>
@@ -9,9 +9,9 @@
   export default {
     name: 'status-buttons',
     methods: {
-//        getData() {
-//          this.$store.dispatch('getData');
-//        }
+      switchToPublish(){
+        this.$emit('publish');
+      }
     },
   }
 </script>
