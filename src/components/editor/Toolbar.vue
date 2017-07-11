@@ -130,6 +130,9 @@
   .fontPanel {
     position: absolute;
     top: -50px;
+    /*padding: 5px;*/
+    /*border-radius: 5px;*/
+    /*background: rgba(111, 111, 197, 0.58);*/
   }
 
 </style>
