@@ -16,12 +16,14 @@
 
         <!--<span style="line-height: 36px;">Card name</span>-->
 
+
           <component v-for="component in cmpToRender"
           :id="component.id"
           :key="component.type"
           :is="component.type"
           :paramsForRender="component"
           ></component>
+
         </el-card>
       </div>
     </div>

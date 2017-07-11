@@ -2,6 +2,8 @@
   <section class="footer"
            :style="paramsForRender.data.style"
   >
+
+    <transition name="bounce">
     <toolbar
       class="toolbar"
       v-if="panelVisible"
@@ -9,8 +11,8 @@
       @closePanel="closePanel"
       :paramsForRender="paramsForRender"
       @editContent = "makeContentEditable"
-    >
-    </toolbar>
+    ></toolbar>
+    </transition>
     <div class="container">
       <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
       <!--<div>
@@ -24,10 +26,10 @@
           contenteditable ="true"
           @keyup="updateContent('content', 'elParagraph')"
           ref="elParagraph"
-          class="editableTxt" 
+          class="editableTxt"
           :style="paramsForRender.data.style"
         >{{content}}</p>
-        <p 
+        <p
           v-else
           contenteditable ="false"
           :style="paramsForRender.data.style"
@@ -117,5 +119,23 @@
     position: absolute;
     bottom: 0;
     left: 60px;
+  }
+
+  .bounce-enter-active {
+    animation: bounce-in .5s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 </style>
