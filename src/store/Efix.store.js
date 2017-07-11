@@ -89,7 +89,8 @@ const actions = {
       .then(response => {
         console.log("res: " , response);
         state._id = response.data[0]._id;
-        state.components = response.data[0].components
+        state.components = response.data[0].components;
+        state.logos = response.data[0].logos
       })
       .catch(e => {
         this.errors.push(e)

@@ -86,13 +86,11 @@
         myPanelVisible: this.panelVisible,
         fontPanelVisible: false,
         imagePopupVisible: false,
-        images: [
-          {url: 'static/balance.png'},
-          {url: 'static/nike.png'},
-          {url: 'static/puma.png'},
-          {url: 'static/logo.png'}
-        ]
+        logos: []
       }
+    },
+    created: function () {
+      this.logos = this.$store.getters.logos;
     },
     methods: {
       closePanel: function () {
@@ -128,7 +126,7 @@
       },
       changeImg(value) {
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-        cmpEdited.data.content.img = this.images[value].url;
+        cmpEdited.data.content.img = this.logos[value].url;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       }
     }
