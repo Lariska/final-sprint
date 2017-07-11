@@ -5,17 +5,14 @@
     </efix-header>
 
     <div class="body">
-      <div class="buttons">
+      <div v-if="cmpToRender.length > 0" class="buttons">
         <status-buttons class="publish-buttons"
         @publish="switchToPublishMode"></status-buttons>
       </div>
       <div class="choice">
         <element-choice @selectedElement="selectElement"></element-choice>
-        <el-card class="box-card"
-        body-style="width:100%">
 
-        <!--<span style="line-height: 36px;">Card name</span>-->
-
+        <el-card v-if="cmpToRender.length > 0" class="box-card" body-style="width:100%">
 
           <component v-for="component in cmpToRender"
           :id="component.id"
@@ -100,7 +97,7 @@ export default {
 .body{
   height: 100%;
   min-height: 650px;
-  background-image: url("http://www.paulmunday.co.uk/images/parallax-banner-2.jpg");
+  background-image: url("http://meticul.com/blog/assets/Responsive-website.jpg");
   background-size: cover;
   margin: 0;
 }
@@ -135,5 +132,6 @@ export default {
   /*.publish-buttons{
     z-index:2;
   }*/
+
 
 </style>
