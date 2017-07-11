@@ -3,42 +3,44 @@
     <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
 
     <transition name="bounce">
-    <toolbar
-      class="toolbar"
-      v-if="panelVisible"
-      :panelVisible="panelVisible"
-      @closePanel="closePanel"
-      :paramsForRender="paramsForRender"
-      @editContent = "makeContentEditable">
-    </toolbar>
+      <toolbar
+        class="toolbar"
+        v-if="panelVisible"
+        :panelVisible="panelVisible"
+        @closePanel="closePanel"
+        :paramsForRender="paramsForRender"
+        @editContent="makeContentEditable">
+      </toolbar>
     </transition>
 
     <div class="head">
-      <img class="logo" :src="'../../../' + paramsForRender.data.content.img" alt="">
+      <div class="logo">
+        <img :src="'../../../' + paramsForRender.data.content.img" alt="">
+      </div>
       <div class="text">
         <h2
-        v-if="isEditable"
-        :style="paramsForRender.data.title.style"
-        contenteditable ="true"
-        @keyup="updateContent('title', 'elHeader')"
-        ref="elHeader"
-        class="editableTxt">{{title}}</h2>
+          v-if="isEditable"
+          :style="paramsForRender.data.title.style"
+          contenteditable="true"
+          @keyup="updateContent('title', 'elHeader')"
+          ref="elHeader"
+          class="editableTxt">{{title}}</h2>
         <h2 v-else
-        :style="paramsForRender.data.title.style">
+            :style="paramsForRender.data.title.style">
           {{ paramsForRender.data.title.text }}
         </h2>
         <p
-        v-if="isEditable"
-        contenteditable ="true"
-        @keyup="updateContent('content', 'elContent')"
-        ref="elContent"
-        class="editableTxt" >{{content}}</p>
+          v-if="isEditable"
+          contenteditable="true"
+          @keyup="updateContent('content', 'elContent')"
+          ref="elContent"
+          class="editableTxt">{{content}}</p>
         <p
-        v-else
-        :style="paramsForRender.data.style">
-        <!-- :contenteditable="isEditable"
-        :class="{ editableTxt }"
-        @keyup="updateContent('content', 'elContent')"-->
+          v-else
+          :style="paramsForRender.data.style">
+          <!-- :contenteditable="isEditable"
+          :class="{ editableTxt }"
+          @keyup="updateContent('content', 'elContent')"-->
           {{ paramsForRender.data.content.text }}
         </p>
       </div>
@@ -65,9 +67,9 @@
     data: function () {
       return {
         panelVisible: false,
-        isEditable:false,
-        content:null,
-        title:null
+        isEditable: false,
+        content: null,
+        title: null
       }
     },
     created(){
@@ -88,11 +90,11 @@
         this.content = this.paramsForRender.data.content.text;
         this.title = this.paramsForRender.data.title.text;
       },//
-      updateContent(context,ref){
+      updateContent(context, ref){
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data[context].text = this.$refs[ref].innerText;
-        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
-        console.log('updating content!' , this.$refs.elHeader.innerText);
+        this.$store.dispatch('editCmp', {cmp: cmpEdited});
+        console.log('updating content!', this.$refs.elHeader.innerText);
       }
     }
   }
@@ -108,7 +110,7 @@
     /*display: flex;*/
     /*align-content: center;*/
     /*justify-content: center;*/
-    background-color: #CED3DC;
+    /*background-color: #CED3DC;*/
     padding: 15px 0;
   }
 
@@ -117,7 +119,8 @@
     margin-right: 10%;
     margin-top: 2%;
   }
-  .text{
+
+  .text {
     margin-right: 20%;
   }
 
@@ -129,12 +132,13 @@
   .logo {
     width: 80px;
     height: 60px;
+    margin: 0 150px 0 30px;
   }
 
   .head {
     display: flex;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .closeBtn {
@@ -143,9 +147,11 @@
     top: 0;
     right: 0;
   }
-  .editableTxt{
+
+  .editableTxt {
     border: 1px solid blue;
   }
+
   .editBtn {
     position: absolute;
     top: 0;
@@ -162,9 +168,11 @@
   .bounce-enter-active {
     animation: bounce-in .5s;
   }
+
   .bounce-leave-active {
     animation: bounce-in .5s reverse;
   }
+
   @keyframes bounce-in {
     0% {
       transform: scale(0);

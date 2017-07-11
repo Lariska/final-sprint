@@ -30,7 +30,7 @@
           <el-button type="primary" icon="edit" size="small" @click.stop="toggleContentEditable"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Change image" placement="top">
-          <el-button type="primary" icon="picture" size="small"
+          <el-button type="primary" icon="picture" size="small" v-if="isHeader"
                      @click.stop="imagePopupVisible = !imagePopupVisible"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Align left" placement="top">
@@ -86,11 +86,14 @@
         myPanelVisible: this.panelVisible,
         fontPanelVisible: false,
         imagePopupVisible: false,
-        logos: []
+        logos: [],
+        isHeader : false
       }
     },
     created: function () {
       this.logos = this.$store.getters.logos;
+      this.isHeader = (this.paramsForRender.type === 'header-section')
+
     },
     methods: {
       closePanel: function () {
