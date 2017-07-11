@@ -4,6 +4,7 @@
             <!--<ul>-->
                 <li class="text">
                     <p>
+                        <h5>About us:</h5>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                     </p>
@@ -40,6 +41,7 @@ export default {
 <style scoped>
     a{
         padding: 10px;
+        margin-bottom: 10px;
     }
     .number{
         display: flex;

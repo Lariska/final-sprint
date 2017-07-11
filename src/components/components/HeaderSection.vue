@@ -111,6 +111,10 @@
   img {
     /*vertical-align: middle;*/
     margin-right: 10%;
+    margin-top: 2%;
+  }
+  .text{
+    margin-right: 20%;
   }
 
   .header h2, p {

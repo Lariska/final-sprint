@@ -169,6 +169,9 @@ const actions = {
         this.errors.push(e)
       })
   }
+
+
+  //Map actions
 };
 
 export const efixStore = {
