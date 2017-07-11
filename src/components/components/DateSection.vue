@@ -47,6 +47,9 @@ export default {
     }
   },
   components: { CloseBtn },
+  created(){
+    calendarService.removeEvent(this.paramsForRender,'empty event(for markup prpouse)',true);
+  },
   methods: {
     dayChanged(value){
       this.newEventData.date = value.date;

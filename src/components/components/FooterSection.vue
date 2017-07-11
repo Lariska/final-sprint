@@ -13,19 +13,26 @@
     </toolbar>
     <div class="container">
       <edit-btn class="editBtn" @click.native="togglePanel" v-if="!panelVisible"></edit-btn>
-      <p
-        v-if="isEditable"
-        contenteditable ="true"
-        @keyup="updateContent('content', 'elParagraph')"
-        ref="elParagraph"
-        class="editableTxt" 
-        :style="paramsForRender.data.style"
-      >{{content}}</p>
-      <p 
-        v-else
-        contenteditable ="false"
-        :style="paramsForRender.data.style"
-        >{{ paramsForRender.data.content.text }}</p>
+      <!--<div>
+        <p>Test</p>
+        <p>Test</p>
+        <p>Test</p>
+      </div>-->
+      <div class="copyright">
+        <p
+          v-if="isEditable"
+          contenteditable ="true"
+          @keyup="updateContent('content', 'elParagraph')"
+          ref="elParagraph"
+          class="editableTxt" 
+          :style="paramsForRender.data.style"
+        >{{content}}</p>
+        <p 
+          v-else
+          contenteditable ="false"
+          :style="paramsForRender.data.style"
+          >{{ paramsForRender.data.content.text }}</p>
+      </div>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
@@ -80,10 +87,17 @@
   .footer {
     background-color: #ccc;
     border: 1px solid #c1e2b3;
-    height: 60px;
+    min-height: 60px;
 
   }
-
+  /*.container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .copyright{
+    display: flex;
+    flex-direction: column-reverse;
+  }*/
   .closeBtn {
     position: absolute;
     font-size: 24px;
