@@ -5,28 +5,37 @@ new Vue({
     store
 });
 var isFirstClicked = false;
-function removeEvent(eventToRemove, isEmpty = false){
+function removeEvent(cmp,eventToRemove, isEmpty = false){
     var index=null;
     var foundEmptyEvent;
     if(isEmpty){
-    foundEmptyEvent = store.state.efix.events.find((event,idx) =>{ 
+        // console.log('got this far!',store.getters.componentById(cmp.id).data.events);
+    foundEmptyEvent = store.getters.componentById(cmp.id).data.events.find((event,idx) =>{ 
         index = idx;
         return event.title === '';
     })
     } else {
-        foundEmptyEvent = store.state.efix.events.find((event,idx) =>{ 
+        foundEmptyEvent = store.getters.componentById(cmp.id).data.events.find((event,idx) =>{ 
         index = idx;
         return event === eventToRemove;
         });
     }
+    
     if(foundEmptyEvent){
-        store.commit(CALENDAR_REMOVE_EVENT, index );
+        let cmpEdited = JSON.parse(JSON.stringify(cmp));
+        console.log('got this far')
+        cmpEdited.data.events.splice(index,1);
+        console.log("spliced:",cmpEdited)
+        store.dispatch('editCmp', { 'cmp': cmpEdited} );
+        return cmpEdited;
+        // store.commit(CALENDAR_REMOVE_EVENT, index );
     }
+    return cmp;
 }
-function handleEventClick(event){
+function handleEventClick(cmp, event){
     if(isFirstClicked){
         console.log("event picked: "+ event);
-        removeEvent(event);
+        removeEvent(cmp,event);
       } else{
           isFirstClicked = true;
           setTimeout( _=> isFirstClicked = false, 200);

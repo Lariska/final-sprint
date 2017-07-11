@@ -2,7 +2,7 @@
 <section>
   <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
   <vue-event-calendar
-  :events="$store.state.efix.events"
+  :events="paramsForRender.data.events"
   @day-changed="dayChanged">
       <div
       v-for="event in paramsForRender.data.events"
@@ -53,16 +53,22 @@ export default {
       this.markThisDate(value);
     },
     markThisDate(event){
-      calendarService.removeEvent(event,true);
-      this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
+      var cleanCmp = calendarService.removeEvent(this.paramsForRender,event,true);
+      let cmpEdited = JSON.parse(JSON.stringify(cleanCmp));
+      cmpEdited.data.events.push({title:'', date:event.date});
+      this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+      // this.$store.commit(CALENDAR_ADD_EVENT, {title:'', date:event.date});
 
     },
     eventClick(event){
-      calendarService.handleEventClick(event);
+      calendarService.handleEventClick(this.paramsForRender,event);
     },
     addEvent(){
       if(this.newEventData.title && this.newEventData.date){
-        this.$store.commit(CALENDAR_ADD_EVENT, {title:this.newEventData.title, date:this.newEventData.date});
+        let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data.events.push({title:this.newEventData.title, date:this.newEventData.date});
+        this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+        // this.$store.commit(CALENDAR_ADD_EVENT, );
         title:this.newEventData.title = '';
       }
     }

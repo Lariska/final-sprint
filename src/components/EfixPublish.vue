@@ -13,7 +13,7 @@
       
 </template>
 <<script>
-import NavBarSection from './components/NavBarSection'
+// import NavBarSection from './components/NavBarSection'
 import MainSection from './publishTemplates/MainSection'
 import FooterSection from './publishTemplates/FooterSection'
 import HeaderSection from './publishTemplates/HeaderSection'
@@ -25,7 +25,7 @@ export default {
     name:'publish',
     components: {
         FooterSection,
-        NavBarSection,
+        // NavBarSection,
         MainSection,
         HeaderSection,
         GallerySection,

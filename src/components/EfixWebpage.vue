@@ -5,7 +5,7 @@
     </efix-header>
 
       <div class="buttons">
-        <status-buttons
+        <status-buttons class="publish-buttons"
         @publish="switchToPublishMode"></status-buttons>
       </div>
     <div class="choice">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import NavBarSection from './components/NavBarSection'
+// import NavBarSection from './components/NavBarSection'
 import MainSection from './components/MainSection'
 import FooterSection from './components/FooterSection'
 import HeaderSection from './components/HeaderSection'
@@ -47,7 +47,7 @@ export default {
   components: {
     ElementChoice,
     FooterSection,
-    NavBarSection,
+    // NavBarSection,
     MainSection,
     HeaderSection,
     EditorPanel,
@@ -104,7 +104,14 @@ export default {
     justify-content: right;
   }
   .buttons{
-      margin: 10px;
+    /*width: 100%;
+    display: flex;
+    align-content: center;*/
+    margin: 10px;
+    position: sticky; top: 0px;
+  }
+  .publish-buttons{
+    /*margin-left: auto;*/
   }
 
 </style>

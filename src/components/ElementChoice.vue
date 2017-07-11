@@ -15,7 +15,7 @@
 <script>
 
 
-import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION, 
+import { HEADER_SECTION, MAIN_SECTION, 
   FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, TABLE_SECTION, PLACE_SECTION } from '../constants/cmpName'
 
   export default {
@@ -26,10 +26,10 @@ import { HEADER_SECTION, NAV_BAR_SECTION, MAIN_SECTION,
           value: HEADER_SECTION,
           label: 'Header Section'
         },
-        {
-          value: NAV_BAR_SECTION,
-          label: 'Nav Bar Section'
-        },
+        // {
+        //   value: NAV_BAR_SECTION,
+        //   label: 'Nav Bar Section'
+        // },
         {
           value: MAIN_SECTION,
           label: 'Main Section',
