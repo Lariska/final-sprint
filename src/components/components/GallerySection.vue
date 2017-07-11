@@ -69,12 +69,10 @@
 <style scoped>
   section {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
   .gallery {
     display: flex;
-    /*overflow-x: auto;*/
-
   }
 
   .gallery div {
@@ -82,12 +80,8 @@
   }
 
   img {
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
     width: 100%;
-    height: 100%;
-    /*padding: 5px;*/
+    height: auto;
   }
 
   .el-icon-edit {
@@ -108,8 +102,9 @@
     cursor: pointer;
   }
 
-  .close-btn {
+  .closeBtn {
     position: absolute;
     bottom: 0;
+    right: 45%;
   }
 </style>
