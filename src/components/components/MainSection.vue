@@ -12,17 +12,17 @@
 
     <div class="container" :style="paramsForRender.data.style">
       <edit-btn class="editBtn" @click.native="togglePanel"></edit-btn>
-      <h2 
+      <h2
         v-if="isEditable"
         :style="paramsForRender.data.title.style"
         contenteditable ="true"
         @keyup="updateContent('title', 'elHeader')"
         ref="elHeader"
         class="editableTxt">{{title}}</h2>
-      <h2 v-else 
+      <h2 v-else
       :style="paramsForRender.data.title.style">
         {{ paramsForRender.data.title.text }}</h2>
-      <p 
+      <p
         v-if="isEditable"
         contenteditable ="true"
         @keyup="updateContent('content', 'elContent')"
@@ -82,7 +82,7 @@
   }
 
   .container {
-    position: relative;
+    /*position: relative;*/
     border: 1px solid #c1e2b3;
     height: 300px;
   }
@@ -101,16 +101,13 @@
   }
   .toolbar {
     position: absolute;
-    bottom: 0;
-    left: 60px;
+    /*bottom: 0;*/
+    /*left: 60px;*/
   }
   .editableTxt{
     border: 1px solid blue;
   }
-  .panelVisible {
-    bottom: 0;
-    left: 60px;
-  }
+
 </style>
 
 

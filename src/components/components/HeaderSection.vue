@@ -151,6 +151,7 @@
   .toolbar {
     position: absolute;
     bottom: 0;
+    /*z-index: 1000;*/
     /*left: 60px;*/
   }
 

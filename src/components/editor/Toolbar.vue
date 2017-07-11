@@ -135,21 +135,17 @@
 
 <style scoped>
   .el-button-group{
-    padding: 10px;
+    padding: 8px;
     background: rgba(111, 111, 197, 0.58);
     border-radius: 5px;
   }
 
   section {
-    position: absolute;
+    position: relative;
   }
 
   .el-button-group {
     display: flex;
-  }
-
-  .el-button {
-    /*min-width: 15px;*/
   }
 
   .el-color-picker {
@@ -159,9 +155,9 @@
   .fontPanel {
     position: absolute;
     top: -50px;
-    padding: 5px;
-    border-radius: 5px;
-    background: rgba(111, 111, 197, 0.58);
+    /*padding: 5px;*/
+    /*border-radius: 5px;*/
+    /*background: rgba(111, 111, 197, 0.58);*/
   }
 
 </style>

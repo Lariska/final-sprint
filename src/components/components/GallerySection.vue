@@ -104,7 +104,7 @@
 
   .closeBtn {
     position: absolute;
-    bottom: 0;
-    right: 45%;
+    bottom: -20px;
+    right: 48%;
   }
 </style>
