@@ -69,7 +69,7 @@
 <style scoped>
   .gallery {
     display: flex;
-    overflow-x: auto;
+    /*overflow-x: auto;*/
   }
 
   .gallery div {
@@ -82,7 +82,7 @@
     flex-shrink: 0;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    /*padding: 5px;*/
   }
 
   .el-icon-edit {

@@ -2,7 +2,7 @@
   <section v-if="myPanelVisible">
     <vue-draggable-resizable
       class="editor"
-      :minw="300"
+      :minw="380"
       :h="50"
       :resizable="false"
       :parent="false">
@@ -17,13 +17,20 @@
         </el-input-number>
       </div>
 
+      <image-popup
+        v-if="imagePopupVisible"
+        @selectImg="changeImg"
+      >
+
+      </image-popup>
+
       <el-button-group>
         <!--<el-button type="primary" icon="delete" size="small"></el-button>-->
         <el-tooltip class="item" effect="dark" content="Edit" placement="top">
           <el-button type="primary" icon="edit" size="small" @click.stop="toggleContentEditable"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Change image" placement="top">
-          <el-button type="primary" icon="picture" size="small"></el-button>
+          <el-button type="primary" icon="picture" size="small" @click.stop="changeImg"></el-button>
         </el-tooltip>
         <el-tooltip class="item" effect="dark" content="Align left" placement="top">
           <el-button type="primary" size="small" @click.stop="alignChange('left')">
@@ -64,17 +71,26 @@
 
 <script>
   import VueDraggableResizable from 'vue-draggable-resizable'
+  import ImagePopup from './ImagePopup'
 
   export default {
     name: 'tool-bar',
     props: ['panelVisible', 'paramsForRender'],
+    components: { ImagePopup },
     data() {
       return {
         color: '#ddd',
         bgcolor: 'rgb(44, 62, 80)',
         defaultFontSize: +(this.paramsForRender.data.style.fontSize).slice(0, -2),
         myPanelVisible: this.panelVisible,
-        fontPanelVisible: false
+        fontPanelVisible: false,
+        imagePopupVisible: false,
+        images: [
+          {url: 'static/balance.png'},
+          {url: 'static/nike.png'},
+          {url: 'static/puma.png'},
+          {url: 'static/logo.png'}
+        ]
       }
     },
     methods: {
@@ -108,6 +124,12 @@
       toggleContentEditable(){
         console.log('toggling content editable for the component.');
         this.$emit('editContent');
+      },
+      changeImg(value) {
+        this.imagePopupVisible = true;
+        const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data.content.img = this.images[value].url;
+        this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       }
     }
   }
@@ -129,7 +151,7 @@
   }
 
   .el-button {
-    min-width: 15px;
+    /*min-width: 15px;*/
   }
 
   .el-color-picker {
@@ -139,9 +161,9 @@
   .fontPanel {
     position: absolute;
     top: -50px;
-    /*padding: 5px;*/
-    /*border-radius: 5px;*/
-    /*background: rgba(111, 111, 197, 0.58);*/
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(111, 111, 197, 0.58);
   }
 
 </style>

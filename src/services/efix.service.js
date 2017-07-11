@@ -24,7 +24,7 @@ function buildCmpObj(cmpName) {
           },
           content: {
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            img: 'logo2.png'
+            img: 'static/logo.png'
           },
           style: {
             backgroundColor: '#CED3DC',

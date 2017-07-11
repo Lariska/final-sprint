@@ -18,6 +18,7 @@ const state = {
   chosenElement: null,
   _id: '',
   components: [],
+  logos: [],
   events: [{
         date: '2017/7/8',
         title: 'Foo',
@@ -25,12 +26,15 @@ const state = {
       },{
         date: '2016/11/12',
         title: 'Bar'
-      }],
+      }]
 };
 
 const getters = {
   components: state => {
     return state.components
+  },
+  logos: state => {
+    return state.logos
   },
   componentById: state =>
     id => state.components.find( component => component.id === id )
