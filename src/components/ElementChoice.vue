@@ -15,7 +15,7 @@
 <script>
 
 
-import { HEADER_SECTION, MAIN_SECTION, 
+import { HEADER_SECTION, MAIN_SECTION,
   FOOTER_SECTION, GALLERY_SECTION, DATE_SECTION, TABLE_SECTION, PLACE_SECTION } from '../constants/cmpName'
 
   export default {
@@ -71,4 +71,7 @@ import { HEADER_SECTION, MAIN_SECTION,
   margin-top: 10px;
   width: 20%;
 }
+  .el-cascader {
+    margin: 10px 0 0 20px;
+  }
 </style>

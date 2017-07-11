@@ -83,8 +83,8 @@
 
   .container {
     /*position: relative;*/
-    border: 1px solid #c1e2b3;
-    height: 300px;
+    border: 1px solid #d0e2cc;
+    height: 250px;
   }
 
   .closeBtn {

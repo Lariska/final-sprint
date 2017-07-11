@@ -14,11 +14,13 @@
                     <p class="number">0526773854</p>
                     <p class="number">036993074</p>
 
-                    <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    <a><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                    <div class="links">
+                        <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
+                        <a><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                    </div>
                 </li>
                 <li class="text">
                     <h5>Address:</h5>
@@ -44,6 +46,7 @@ export default {
         margin-bottom: 10px;
     }
     .number{
+        /*margin: 50px;*/
         display: flex;
         align-content: center;
         justify-content: center; 
@@ -72,5 +75,8 @@ export default {
         display: flex;
         justify-content: center;
         align-content: center;
+    }
+    .links{
+        margin-top: 70px;
     }
 </style>
