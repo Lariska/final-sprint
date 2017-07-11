@@ -20,8 +20,15 @@
         ref="elHeader"
         class="editableTxt">{{title}}</h2>
       <h2 v-else 
-      :style="paramsForRender.data.title.style">{{ paramsForRender.data.title.text }}</h2>
-      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+      :style="paramsForRender.data.title.style">
+        {{ paramsForRender.data.title.text }}</h2>
+      <p 
+        v-if="isEditable"
+        contenteditable ="true"
+        @keyup="updateContent('content', 'elContent')"
+        ref="elContent"
+        class="editableTxt" >{{content}}</p>
+      <p v-else :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
   </section>
@@ -97,7 +104,9 @@
     bottom: 0;
     left: 60px;
   }
-
+  .editableTxt{
+    border: 1px solid blue;
+  }
   .panelVisible {
     bottom: 0;
     left: 60px;
