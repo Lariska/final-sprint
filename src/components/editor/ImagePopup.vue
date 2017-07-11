@@ -1,7 +1,7 @@
 <template>
   <section>
     <el-card class="box-card">
-      <div v-for="(item,idx) in images" :key="item" class="text item">
+      <div v-for="(item,idx) in logos" :key="item" class="text item">
         <a href="" @click.prevent="selectImg(idx)"><img :src="item.url" alt=""></a>
       </div>
     </el-card>
@@ -13,13 +13,11 @@
     name: 'image-popup',
     data() {
       return {
-          images: [
-            {url: 'static/balance.png'},
-            {url: 'static/nike.png'},
-            {url: 'static/puma.png'},
-            {url: 'static/logo.png'}
-          ]
+          logos: []
       }
+    },
+    created: function () {
+      this.logos = this.$store.getters.logos;
     },
     methods: {
         selectImg(imgId) {
