@@ -19,7 +19,7 @@ function buildCmpObj(cmpName) {
         type: cmpName,
         data: {
           title: {
-            text: 'Hello!',
+            text: 'Welcome!',
             style: {color: '#2C3E50'}
           },
           content: {
