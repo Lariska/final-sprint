@@ -66,7 +66,7 @@
     justify-content: center;
   }
   .text{
-    width: 90%;
+    width: 70%;
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -77,9 +77,6 @@
   }
   img{
     margin-right: 0;
-  }
-  p{
-    max-width: 100%;
   }
   .head{
     display:flex;

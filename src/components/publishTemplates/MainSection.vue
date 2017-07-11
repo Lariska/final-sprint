@@ -1,10 +1,14 @@
 <template>
   <section>
     <div class="container" :style="paramsForRender.data.style">
-      <h2
-      :style="paramsForRender.data.title.style">
-        {{ paramsForRender.data.title.text }}</h2>
-      <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+      <div class="text-container">
+        <div class="smaller-scope-text">
+          <h2
+          :style="paramsForRender.data.title.style">
+            {{ paramsForRender.data.title.text }}</h2>
+          <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -25,6 +29,22 @@
     position: relative;
     border: 1px solid #c1e2b3;
     height: 300px;
+  }
+  @media (max-width: 450px) {
+    .container{
+      display: flex;
+      justify-content: center;
+    }
+    .text-container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .smaller-scope-text{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
 </style>
