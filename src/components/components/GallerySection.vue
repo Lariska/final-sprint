@@ -8,7 +8,7 @@
       </div>
     </div>
     <el-dialog
-      title="Upload new picture"
+      title="Upload new picture" 
       :visible.sync="dialogVisible"
       size="tiny">
             <span>

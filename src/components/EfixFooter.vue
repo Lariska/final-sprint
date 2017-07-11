@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
     .main-footer{
+        list-style-type: none;
         display: flex;
         justify-content: center;
         align-content: center;
