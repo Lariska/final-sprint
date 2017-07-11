@@ -4,21 +4,26 @@
       <h3>Edit Mode</h3>
     </efix-header>
 
+    <div class="body">
       <div class="buttons">
         <status-buttons class="publish-buttons"
         @publish="switchToPublishMode"></status-buttons>
       </div>
-    <div class="choice">
-      <element-choice @selectedElement="selectElement"></element-choice>
-      <el-card class="box-card"
-      body-style="width:100%">
-        <component v-for="component in cmpToRender"
-        :id="component.id"
-        :key="component.type"
-        :is="component.type"
-        :paramsForRender="component"
-        ></component>
-      </el-card>
+      <div class="choice">
+        <element-choice @selectedElement="selectElement"></element-choice>
+        <el-card class="box-card"
+        body-style="width:100%">
+
+        <!--<span style="line-height: 36px;">Card name</span>-->
+
+          <component v-for="component in cmpToRender"
+          :id="component.id"
+          :key="component.type"
+          :is="component.type"
+          :paramsForRender="component"
+          ></component>
+        </el-card>
+      </div>
     </div>
 
       <efix-footer></efix-footer>
@@ -90,6 +95,18 @@ export default {
 </script>
 
 <style scoped>
+.body{
+  height: 650px;
+  background-image: url("http://www.paulmunday.co.uk/images/parallax-banner-2.jpg");
+  background-size: cover;
+  margin: 0;
+}
+@media (max-width: 750px) {
+  .body{
+    height: 100%;
+    margin: 0;
+  }
+}
   .box-card {
     margin-left: 100px;
     display: flex;
