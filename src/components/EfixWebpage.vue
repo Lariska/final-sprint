@@ -96,7 +96,8 @@ export default {
 
 <style scoped>
 .body{
-  height: 650px;
+  height: 100%;
+  min-height: 650px;
   background-image: url("http://www.paulmunday.co.uk/images/parallax-banner-2.jpg");
   background-size: cover;
   margin: 0;
@@ -113,7 +114,7 @@ export default {
     align-content: center;
     justify-content: center;
     max-width: 100%;
-    width: 60%;
+    width: 80%;
   }
   .choice{
     margin: 10px;
