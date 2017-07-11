@@ -20,7 +20,7 @@ import HeaderSection from './publishTemplates/HeaderSection'
 import GallerySection from './publishTemplates/GallerySection'
 import DateSection from './publishTemplates/DateSection'
 import TableSection from './publishTemplates/TableSection'
-import PlaceSection from './components/PlaceSection'
+import PlaceSection from './publishTemplates/PlaceSection'
 export default {
     name:'publish',
     components: {
