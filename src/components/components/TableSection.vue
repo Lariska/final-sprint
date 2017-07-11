@@ -65,7 +65,7 @@
           <div v-else>{{ scope.row.city }}</div>
         </template>
       </el-table-column>
-      <el-table-column
+      <!--<el-table-column
         prop="address"
         label="Address"
         width="300">
@@ -94,7 +94,7 @@
           </el-popover>
           <div v-else>{{ scope.row.zip }}</div>
         </template>
-      </el-table-column>
+      </el-table-column>-->
     </el-table>
     <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
 
