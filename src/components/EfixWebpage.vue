@@ -109,7 +109,7 @@ export default {
   }
 }
   .box-card {
-    margin: 20px 30px 0 100px;
+    margin: 20px 30px 0 80px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -125,7 +125,7 @@ export default {
     /*width: 100%;
     display: flex;
     align-content: center;*/
-    margin: 10px;
+    /*margin: 100px;*/
     position: sticky;
     top:0;
     z-index:2;
