@@ -3,6 +3,10 @@ import axios from 'axios';
 
 export const EFIX_CHOSE_ELEMENT = 'EFIX_CHOSE_ELEMENT'
 export const ADD_COMPONENT = 'ADD_COMPONENT'
+
+ export const CALENDAR_REMOVE_EVENT       = 'CALENDAR_REMOVE_EVENT'
+ export const CALENDAR_ADD_EVENT       = 'CALENDAR_ADD_EVENT'
+
 const url = 'http://localhost:3003/';
 // export const DELETE_COMPONENT = 'ADD_COMPONENT'
 // export const TODO_UPDATE      = 'TODO_UPDATE';
@@ -13,9 +17,15 @@ const url = 'http://localhost:3003/';
 const state = {
   chosenElement: null,
   _id: '',
-  components: []
-//   todos: [],
-//   filterBy: { status: null, txt: null }
+  components: [],
+  events: [{
+        date: '2017/7/8',
+        title: 'Foo',
+        desc: 'longlonglong description'
+      },{
+        date: '2016/11/12',
+        title: 'Bar'
+      }],
 };
 
 const getters = {
@@ -59,7 +69,15 @@ const mutations = {
   deleteActiveImage(state, res) {
     state._id = res._id;
     state.components = res.components
-  }
+  },
+  [CALENDAR_REMOVE_EVENT](state, payload) {
+      console.log("removing item from the calendar store with the payload:" + payload);
+    state.events.splice(payload,1);
+  },
+  [CALENDAR_ADD_EVENT](state, payload) {
+    console.log('adding new event to Calendar store, with the payload: ' + payload);
+    state.events.push(payload);
+  },
 };
 
 const actions = {
@@ -136,6 +154,12 @@ const actions = {
         this.errors.push(e)
       })
   }
+    // setActiveImage({ commit }, active_image) {
+    //     commit("setActiveImage", active_image);
+    // },
+    // deleteActiveImage({ commit }) {
+    //     commit("deleteActiveImage");
+    // },
 };
 
 export const efixStore = {
