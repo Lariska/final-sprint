@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import store from '../store'
-import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../store/Calendar.store'
+import { CALENDAR_REMOVE_EVENT, CALENDAR_ADD_EVENT } from '../store/Efix.store'
 new Vue({
     store
 });
@@ -9,12 +9,12 @@ function removeEvent(eventToRemove, isEmpty = false){
     var index=null;
     var foundEmptyEvent;
     if(isEmpty){
-    foundEmptyEvent = store.state.calendar.events.find((event,idx) =>{ 
+    foundEmptyEvent = store.state.efix.events.find((event,idx) =>{ 
         index = idx;
         return event.title === '';
     })
     } else {
-        foundEmptyEvent = store.state.calendar.events.find((event,idx) =>{ 
+        foundEmptyEvent = store.state.efix.events.find((event,idx) =>{ 
         index = idx;
         return event === eventToRemove;
         });

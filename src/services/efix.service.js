@@ -128,7 +128,20 @@ function buildCmpObj(cmpName) {
     case(DATE_SECTION):
       var cmpObj = {
         id: generateId(),
-        type: cmpName
+        type: cmpName,
+        data:{
+          events: [
+            {
+              date: '2017/7/8',
+              title: 'Foo',
+              desc: 'longlonglong description'
+            },
+            {
+              date: '2016/11/12',
+              title: 'Bar'
+            }
+          ],
+        }
       }
       break;
     case(PLACE_SECTION):

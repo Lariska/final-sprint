@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="gallery" id="gallery">
-      <div v-for="(i, index) in getImages" @mouseover="showDelete" :id="index">
+      <div v-for="(i, index) in getImages" :key="i" @mouseover="showDelete" :id="index">
         <img v-img:group :src="i">
         <i @click="dialogVisible = true" v-if="getActiveImage==index" class="el-icon-edit"></i>
         <i @click="deleteActiveImage" v-if="getActiveImage==index" class="el-icon-delete"></i>
