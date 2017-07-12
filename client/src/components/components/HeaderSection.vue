@@ -43,6 +43,7 @@
           @keyup="updateContent('content', 'elContent')"-->
           {{ paramsForRender.data.content.text }}
         </p>
+        <p>dfgdgdfgdfg</p>
       </div>
     </div>
     <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
