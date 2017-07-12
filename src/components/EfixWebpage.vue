@@ -100,7 +100,8 @@ export default {
 .body{
   height: 100%;
   min-height: 650px;
-  background-image: url("http://meticul.com/blog/assets/Responsive-website.jpg");
+  /*background-image: url("http://meticul.com/blog/assets/Responsive-website.jpg");*/
+  background-image: url('../assets/Website.jpg');
   background-size: cover;
   margin: 0;
 }
