@@ -55,8 +55,7 @@
   
   .head {
     display: flex;
-    align-content: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   
 @media (max-width: 450px) {
