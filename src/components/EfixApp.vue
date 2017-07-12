@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style>
+  body {
+
+  }
 .editableTxt{
     border: 1px solid blue;
   }
