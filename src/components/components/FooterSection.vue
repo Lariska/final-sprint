@@ -20,6 +20,20 @@
         <p>Test</p>
         <p>Test</p>
       </div>-->
+      <div class="contacts">
+        <span class="email">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          email@gmail.com
+        </span>
+        <br><br>
+        <span class="tel">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          +54-8054585
+        </span>
+      </div>
+      <div class="logo">
+        <img :src="'../../../' + paramsForRender.data.content.img" alt="">
+      </div>
       <div class="copyright">
         <p
           v-if="isEditable"
@@ -33,7 +47,7 @@
           v-else
           contenteditable ="false"
           :style="paramsForRender.data.style"
-          >{{ paramsForRender.data.content.text }}</p>
+          ><i class="fa fa-copyright" aria-hidden="true"></i>{{ paramsForRender.data.content.text }}</p>
       </div>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
@@ -84,6 +98,7 @@
 <style scoped>
   section {
     position: relative;
+    padding: 20px;
   }
 
   .footer {
@@ -92,14 +107,28 @@
     min-height: 60px;
 
   }
-  /*.container{
+  .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   }
-  .copyright{
-    display: flex;
-    flex-direction: column-reverse;
-  }*/
+
+  .copyright, .logo, .contacts{
+    width: 33%;
+  }
+
+  i {
+    margin-right: 3px;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  .email {
+    margin-bottom: 10px;
+  }
+
   .closeBtn {
     position: absolute;
     font-size: 24px;

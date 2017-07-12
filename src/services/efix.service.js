@@ -11,7 +11,7 @@ import {
 } from '../constants/cmpName'
 
 function buildCmpObj(cmpName) {
-  var cmpObj = null;
+  let cmpObj = null;
   switch (cmpName) {
     case(HEADER_SECTION):
       cmpObj = {
@@ -103,7 +103,8 @@ function buildCmpObj(cmpName) {
         type: cmpName,
         data: {
           content: {
-            text: 'Copyrights 2017'
+            text: 'Copyrights 2017',
+            img: 'static/logo.png'
           },
           style: {
             backgroundColor: '#9A9FB6',
@@ -115,7 +116,7 @@ function buildCmpObj(cmpName) {
       };
       break;
     case(GALLERY_SECTION):
-      var cmpObj = {
+      cmpObj = {
         id: generateId(),
         type: cmpName,
         data: {
@@ -126,7 +127,7 @@ function buildCmpObj(cmpName) {
       };
       break;
     case(DATE_SECTION):
-      var cmpObj = {
+      cmpObj = {
         id: generateId(),
         type: cmpName,
         data:{
@@ -141,7 +142,7 @@ function buildCmpObj(cmpName) {
       }
       break;
     case(PLACE_SECTION):
-      var cmpObj = {
+      cmpObj = {
         id: generateId(),
         type: cmpName,
         data: {
@@ -155,7 +156,7 @@ function buildCmpObj(cmpName) {
       };
       break;
     case(TABLE_SECTION):
-      var cmpObj = {
+      cmpObj = {
         id: generateId(),
         type: cmpName,
         data: [
