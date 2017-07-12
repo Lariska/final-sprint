@@ -1,7 +1,8 @@
 <template>
 <section>
   <vue-event-calendar
-  :events="paramsForRender.data.events">
+  :events="paramsForRender.data.events"
+  style="height=500px">
       <div
       v-for="event in paramsForRender.data.events"
       v-if="event.title !== ''"

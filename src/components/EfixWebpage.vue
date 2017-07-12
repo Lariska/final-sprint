@@ -14,7 +14,7 @@
 
         <el-card v-if="cmpToRender.length > 0" class="box-card" body-style="width:100%">
 
-          <component v-for="component in cmpToRender"
+          <component v-for="component in this.$store.state.efix.components"
           :id="component.id"
           :key="component.type"
           :is="component.type"
@@ -70,11 +70,11 @@ export default {
       userComponent: []
     }
   },
-  computed: {
-    cmpToRender() {
-      return this.$store.state.efix.components
-    }
-  },
+  // computed: {
+  //   cmpToRender() {
+  //     return this.$store.state.efix.components
+  //   }
+  // },
   created () {
        this.$store.dispatch('getData')
   },

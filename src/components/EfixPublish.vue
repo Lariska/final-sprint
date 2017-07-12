@@ -3,7 +3,7 @@
     <!--<efix-header>
         <h3>Publish Mode</h3>
     </efix-header>-->
-    <component v-for="component in cmpToRender"
+    <component v-for="component in $store.state.efix.components"
     :id="component.id"
     :key="component.type"
     :is="component.type"
@@ -36,10 +36,15 @@ export default {
     created() {
         this.$store.dispatch('getData')
     },
+    // methods: {
+    //      cmpToRender() {
+    //         return this.$store.state.efix.components
+    //     }
+    // },
     computed: {
-        cmpToRender() {
-            return this.$store.state.efix.components
-        }
+        // cmpToRender() {
+        //     return this.$store.state.efix.components
+        // }
     }
 }
 </script>
