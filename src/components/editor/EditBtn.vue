@@ -1,5 +1,8 @@
 <template>
-  <el-button type="primary" icon="edit" size="small"></el-button>
+  <el-tooltip class="item" effect="light" content="Edit section" placement="top">
+    <el-button type="primary" icon="edit" size="small"></el-button>
+  </el-tooltip>
+
 
 </template>
 
@@ -7,9 +10,7 @@
   export default {
     name: 'edit-btn',
     data () {
-      return {
-
-      }
+      return {}
     }
   }
 </script>

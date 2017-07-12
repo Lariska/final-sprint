@@ -88,7 +88,7 @@
   .container {
     /*position: relative;*/
     border: 1px solid #d0e2cc;
-    height: 250px;
+    height: 350px;
   }
 
   .closeBtn {

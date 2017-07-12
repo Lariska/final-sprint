@@ -55,7 +55,7 @@
   
   .head {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   
 @media (max-width: 450px) {

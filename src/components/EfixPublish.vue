@@ -10,7 +10,7 @@
     :paramsForRender="component"
     ></component>
 </section>
-      
+
 </template>
 <<script>
 // import NavBarSection from './components/NavBarSection'
@@ -45,7 +45,8 @@ export default {
 }
 </script>
 <<style scoped>
-    section{
-        min-height:100%;
-    }
+   body{
+    padding: 0;
+    margin: 0;
+  }
 </style>

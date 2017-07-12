@@ -1,5 +1,7 @@
 <template>
-  <div @click.stop="deleteElem"><i class="el-icon-circle-cross"></i></div>
+  <el-tooltip class="item" effect="light" content="Delete section" placement="top">
+    <div @click.stop="deleteElem"><i class="el-icon-circle-cross"></i></div>
+  </el-tooltip>
 </template>
 <script>
   export default {

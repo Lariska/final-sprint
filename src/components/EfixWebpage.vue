@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style scoped>
+  body {
+    padding: 0;
+  }
 .body{
   height: 100%;
   min-height: 650px;

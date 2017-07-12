@@ -75,29 +75,33 @@
         var marker = {
           position: {lat: event.latLng.lat(), lng: event.latLng.lng()},
           infoText: 'Add your place name here'
+        }
+        let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        cmpEdited.data.markers.push(marker);
+        this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+        // this.$http.post('/add_marker/', marker).then(response => {});
+      },
 
-      }
-      this.markers.push(marker);
-      // this.$http.post('/add_marker/', marker).then(response => {});
-    },
-    hello(){
-      this.$router.push({name: 'hello'});
-    },
+      hello(){
+        this.$router.push({name: 'hello'});
+      },
 
       toggleInfoWindow (marker, index) {
-        this.center = marker.position;
-        this.infoWindowPos = marker.position;
-        this.infoContent = marker.infoText;
+        let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        this.center = cmpEdited.data.center = marker.position;
+        this.infoWindowPos = cmpEdited.data.infoWindowPos = marker.position;
+        this.infoContent = cmpEdited.data.infoContent = marker.infoText;
 
         //check if its the same marker that was selected if yes toggle
-        if (this.currentMidx == index) {
-          this.infoWinOpen = !this.infoWinOpen;
+        if (cmpEdited.data.currentMidx == index) {
+          this.infoWinOpen = cmpEdited.data.infoWinOpen = !cmpEdited.data.infoWinOpen;
         }
         //if different marker set infowindow to open and reset current marker index
         else {
-          this.infoWinOpen = true;
-          this.currentMidx = index;
+          this.infoWinOpen = cmpEdited.data.infoWinOpen = true;
+          this.currentMidx = cmpEdited.data.currentMidx = index;
         }
+        this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
       },
 
       infoOpened (event) {
@@ -129,11 +133,14 @@
         var info = this.$el.querySelector(".gm-style-iw");
         if (info) {
           var text = info.firstChild.textContent;
-          for (var i = 0; i < this.markers.length; i++) {
-            if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
+          let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+          
+          for (var i = 0; i < cmpEdited.data.markers.length; i++) {
+            if (cmpEdited.data.markers[i].position.lat == cmpEdited.data.center.lat && cmpEdited.data.markers[i].position.lng == cmpEdited.data.center.lng) {
               // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
-                this.markers[i].infoText = text;
-            // });
+              cmpEdited.data.markers[i].infoText = text;
+              this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+              // });
               break;
             }
           }
@@ -142,44 +149,37 @@
   
 
       deleteMarker (event) {
-        for (var i = 0; i < this.markers.length; i++) {
-          if (this.markers[i].position.lat == this.center.lat && this.markers[i].position.lng == this.center.lng) {
+        let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
+        for (var i = 0; i < cmpEdited.data.markers.length; i++) {
+          if (cmpEdited.data.markers[i].position.lat == cmpEdited.data.center.lat && cmpEdited.data.markers[i].position.lng == cmpEdited.data.center.lng) {
             // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {
-              this.infoWinOpen = false;
-              this.markers.splice(i, 1);
+              cmpEdited.data.infoWinOpen = false;
+              cmpEdited.data.markers.splice(i, 1);
+              this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
             // });
             break;
           }
         }
       }
     },
-
-
-
-
-
     computed: {
-      getMarkers(){
-        return this.markers;
+      getMarkers() {
+        return this.paramsForRender.data.markers;
       },
       getCenter() {
         var that = this;
+        let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         if ("geolocation" in navigator) {
           navigator.geolocation.getCurrentPosition(function (position) {
-            that.center = {lat: position.coords.latitude, lng: position.coords.longitude};
-            return that.center;
+            cmpEdited.data.center = {lat: position.coords.latitude, lng: position.coords.longitude};
+            that.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+            return cmpEdited.data.center;
           });
         }
-        return this.center;
+        return cmpEdited.data.center;
       }
     },
-    // created () {
-    //   this.$http.get('/get_markers/').then(response => {
-    //     this.markers = response.body;
-    //   });
-    // }
   }
-
 </script>
 
 
