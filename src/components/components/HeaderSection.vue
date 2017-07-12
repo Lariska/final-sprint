@@ -115,6 +115,7 @@
   }
 
   img {
+    /*vertical-align: middle;*/
     margin-right: 10%;
     margin-top: 2%;
   }
@@ -160,6 +161,8 @@
   .toolbar {
     position: absolute;
     bottom: 0;
+    /*z-index: 1000;*/
+    /*left: 60px;*/
   }
 
   .bounce-enter-active {
