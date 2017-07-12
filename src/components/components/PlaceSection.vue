@@ -5,7 +5,7 @@
         :center="getCenter"
         :zoom="7"
         map-type-id="terrain"
-        style="width: 800px; height: 300px"
+        style="width: 100%; height: 300px"
         @rightclick="addMarker">
 
         <gmap-info-window
@@ -191,6 +191,7 @@
   }
 
   .map {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
