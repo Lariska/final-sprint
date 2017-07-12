@@ -1,8 +1,7 @@
 <template>
-<section>
+<section style="height=100px">
   <vue-event-calendar
-  :events="paramsForRender.data.events"
-  style="height=500px">
+  :events="paramsForRender.data.events">
       <div
       v-for="event in paramsForRender.data.events"
       v-if="event.title !== ''"
@@ -44,6 +43,20 @@ export default {
 
   section {
     position: relative;
+    /*background-color: black;*/
+  }
+  @media (min-width: 770px){
+    .__vev_calendar-wrapper{
+      max-height: 400px;
+      width: auto;
+    }
+    .cal-wrapper{
+      position: relative;
+      top: -111px;
+    }
+  }
+  .cal-wrapper{
+    background-color: black;
   }
  /*.date-num:hover{
   cursor:pointer;

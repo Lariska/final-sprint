@@ -19,14 +19,14 @@ const state = {
   _id: '',
   components: [],
   logos: [],
-  events: [{
-        date: '2017/7/8',
-        title: 'Foo',
-        desc: 'longlonglong description'
-      },{
-        date: '2016/11/12',
-        title: 'Bar'
-      }]
+  // events: [{
+  //       date: '2017/7/8',
+  //       title: 'Foo',
+  //       desc: 'longlonglong description'
+  //     },{
+  //       date: '2016/11/12',
+  //       title: 'Bar'
+  //     }]
 };
 
 const getters = {
@@ -93,6 +93,7 @@ const actions = {
         state.logos = response.data[0].logos
       })
       .catch(e => {
+        console.log('catched an error in getData');
         this.errors.push(e)
       });
   },
@@ -101,6 +102,7 @@ const actions = {
       return currCmp.id === payload.cmp.id;
     });
     state.components.splice(idx, 1);
+    console.log('deleting a cmp axios');
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {
         context.commit('deleteCmp',response.data);
@@ -114,7 +116,7 @@ const actions = {
       return currCmp.id === payload.cmp.id;
     });
     state.components.splice(idx, 1, payload.cmp);
-
+    console.log('editing a cmp axios'); // if there is a data overload bug. its here
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {
         context.commit('editCmp', response.data);
@@ -126,6 +128,7 @@ const actions = {
   addCmp(context, payload) {
   const cmpObj = efixService.buildCmpObj(payload);
   state.components.push(cmpObj);
+  console.log('adding a cmp axios');
   axios.put(url + 'data/website/'+ state._id, Object.assign({}, state))
     .then(response => {
       context.commit('addCmp', response.data);
@@ -146,7 +149,7 @@ const actions = {
     });
     let activeImage = state.components[idx].data.activeImage;
     state.components[idx].data.images[activeImage] = params[0];
-
+    console.log('setting img axios');
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {
         context.commit('setImage', response.data);
@@ -161,6 +164,7 @@ const actions = {
     });
     let activeImage = state.components[idx].data.activeImage;
     state.components[idx].data.images.splice(activeImage, 1);
+    console.log('deleting active img axios');
     axios.put(url + 'data/website/' + state._id,Object.assign({},state))
       .then(response => {
         context.commit('deleteActiveImage',response.data);
