@@ -44,8 +44,8 @@
       display: flex;
       flex-direction: column;
     }
-    .smaller-scope-text {
-      margin-top: 0;
+    h2 {
+     padding-top: 20px;
     }
   }
 

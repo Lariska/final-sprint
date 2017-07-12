@@ -107,6 +107,7 @@
     position: absolute;
     bottom: 0;
     left: 50px;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .editableTxt{
     border: 1px solid blue;

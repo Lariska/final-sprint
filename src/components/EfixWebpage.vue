@@ -4,7 +4,7 @@
       <h3>Edit Mode</h3>
     </efix-header>
 
-    <div class="body">
+    <div class="container">
       <div v-if="this.$store.state.efix.components.length > 0" class="buttons">
         <status-buttons class="publish-buttons"
         @publish="switchToPublishMode"></status-buttons>
@@ -96,8 +96,9 @@ export default {
 <style scoped>
   body {
     padding: 0;
+    margin: 0;
   }
-.body{
+.container{
   height: 100%;
   min-height: 650px;
   /*background-image: url("http://meticul.com/blog/assets/Responsive-website.jpg");*/
@@ -106,7 +107,7 @@ export default {
   margin: 0;
 }
 @media (max-width: 750px) {
-  .body{
+  .container{
     height: 100%;
     margin: 0;
   }

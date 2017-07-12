@@ -89,7 +89,7 @@ function buildCmpObj(cmpName) {
             img: 'wixer-logo.png'
           },
           style: {
-            backgroundColor: '#DADCDB',
+            backgroundColor: '#e6e8e7',
             color: '2C3E50',
             fontSize: '16px',
             'text-align': 'center'
