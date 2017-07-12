@@ -144,6 +144,7 @@
 
   section {
     position: relative;
+    height: 100%;
   }
 
   .el-button-group {
