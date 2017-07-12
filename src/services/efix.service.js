@@ -144,7 +144,14 @@ function buildCmpObj(cmpName) {
       var cmpObj = {
         id: generateId(),
         type: cmpName,
-        data: {}
+        data: {
+          center: {lat: 10.0, lng: 10.0},
+          markers: [],
+          infoContent: '',
+          infoOptions: {pixelOffset: {width: 0, height: -35}},
+          infoWinOpen: false,
+          infoWindowPos: {lat: 0, lng: 0}
+        }
       };
       break;
     case(TABLE_SECTION):
