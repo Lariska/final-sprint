@@ -5,14 +5,14 @@
     </efix-header>
 
     <div class="body">
-      <div v-if="cmpToRender.length > 0" class="buttons">
+      <div v-if="this.$store.state.efix.components.length > 0" class="buttons">
         <status-buttons class="publish-buttons"
         @publish="switchToPublishMode"></status-buttons>
       </div>
       <div class="choice">
         <element-choice @selectedElement="selectElement"></element-choice>
 
-        <el-card v-if="cmpToRender.length > 0" class="box-card" body-style="width:100%">
+        <el-card v-if="this.$store.state.efix.components.length > 0" class="box-card" body-style="width:100%">
 
           <component v-for="component in this.$store.state.efix.components"
           :id="component.id"
