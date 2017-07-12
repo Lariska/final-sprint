@@ -38,7 +38,6 @@ export default {
     },
     computed: {
         cmpToRender() {
-            console.log('getting components for cmpToRender');
             return this.$store.state.efix.components
         }
     }
