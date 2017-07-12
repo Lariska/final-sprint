@@ -121,7 +121,7 @@ export default {
     width: 80%;
   }
   .choice{
-    margin: 10px;
+    /*margin: 10px;*/
     display: flex;
     justify-content: right;
   }
