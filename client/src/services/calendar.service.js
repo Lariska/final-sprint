@@ -6,6 +6,7 @@ new Vue({
 });
 var isFirstClicked = false;
 function removeEvent(cmp,eventToRemove, isEmpty = false){
+    console.log('removing an calendar event');
     var index=null;
     var foundEmptyEvent;
     if(isEmpty){

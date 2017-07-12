@@ -103,7 +103,8 @@ function buildCmpObj(cmpName) {
         type: cmpName,
         data: {
           content: {
-            text: 'Copyrights 2017',
+
+            text:{ copyright:'Copyrights 2017', email:'email@gmail.com', phone:'+54-8054585'},
             img: 'static/logo.png'
           },
           style: {

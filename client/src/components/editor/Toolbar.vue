@@ -3,7 +3,7 @@
     <vue-draggable-resizable
       class="editor"
       :minw="380"
-      :maxh="50"
+      :h="50"
       :resizable="false"
       :parent="false">
 

@@ -143,10 +143,7 @@
         //let cmp = this.$store.getters.componentById(this.paramsForRender.id)
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         cmpEdited.data[index][key] = this.editTableInput;
-        this.$store.commit({
-          type: 'editCmp',
-          cmp: cmpEdited
-        })
+        this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
         // console.log(`editinf the table cell with value =${this.editTableInput} at index:${index} of cmp`, cmpEdited.data[index]);
         this.editTableInput = '';
       }

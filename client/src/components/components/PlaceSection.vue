@@ -20,7 +20,7 @@
 
         <gmap-marker
           :key="index"
-          v-for="(m, index) in getMarkers"
+          v-for="(m, index) in this.paramsForRender.data.markers"
           :clickable="true"
           :position="m.position"
           @click="toggleInfoWindow(m,index)">
@@ -131,6 +131,7 @@
 
       infoChanged (event) {
         var info = this.$el.querySelector(".gm-style-iw");
+        
         if (info) {
           var text = info.firstChild.textContent;
           let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
@@ -139,39 +140,43 @@
             if (cmpEdited.data.markers[i].position.lat == cmpEdited.data.center.lat && cmpEdited.data.markers[i].position.lng == cmpEdited.data.center.lng) {
               // this.$http.put('/edit_marker/', {marker: this.markers[i], new_text: text}).then(response => {
               cmpEdited.data.markers[i].infoText = text;
-              this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
               // });
               break;
             }
           }
+          this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
         }
       },
   
 
       deleteMarker (event) {
+        
         let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         for (var i = 0; i < cmpEdited.data.markers.length; i++) {
           if (cmpEdited.data.markers[i].position.lat == cmpEdited.data.center.lat && cmpEdited.data.markers[i].position.lng == cmpEdited.data.center.lng) {
             // this.$http.delete('/delete_marker/', {body: this.markers[i]}).then(response => {
               cmpEdited.data.infoWinOpen = false;
               cmpEdited.data.markers.splice(i, 1);
-              this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
             // });
             break;
           }
         }
-      }
+        this.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
+      },
+
+      // getMarkers() {
+      //   return this.paramsForRender.data.markers;
+      // },
+      
     },
     computed: {
-      getMarkers() {
-        return this.paramsForRender.data.markers;
-      },
       getCenter() {
         var that = this;
         let cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
         if ("geolocation" in navigator) {
           navigator.geolocation.getCurrentPosition(function (position) {
             cmpEdited.data.center = {lat: position.coords.latitude, lng: position.coords.longitude};
+            // console.log('Map get Center editCMP');
             that.$store.dispatch('editCmp', { 'cmp': cmpEdited} );
             return cmpEdited.data.center;
           });

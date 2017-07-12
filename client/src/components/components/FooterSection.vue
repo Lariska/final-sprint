@@ -23,12 +23,36 @@
       <div class="contacts">
         <span class="email">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          email@gmail.com
+          <p
+          v-if="isEditable"
+          contenteditable ="true"
+          @keyup="updateContent('email', 'elEmail')"
+          ref="elEmail"
+          class="editableTxt"
+          :style="paramsForRender.data.style"
+        >{{email}}</p>
+        <p
+          v-else
+          contenteditable ="false"
+          :style="paramsForRender.data.style"
+          >{{ paramsForRender.data.content.text.email }}</p>
         </span>
         <br><br>
         <span class="tel">
           <i class="fa fa-phone" aria-hidden="true"></i>
-          +54-8054585
+          <p
+          v-if="isEditable"
+          contenteditable ="true"
+          @keyup="updateContent('phone', 'elPhone')"
+          ref="elPhone"
+          class="editableTxt"
+          :style="paramsForRender.data.style"
+        >{{phone}}</p>
+        <p
+          v-else
+          contenteditable ="false"
+          :style="paramsForRender.data.style"
+          >{{ paramsForRender.data.content.text.phone }}</p>
         </span>
       </div>
       <div class="logo">
@@ -38,16 +62,16 @@
         <p
           v-if="isEditable"
           contenteditable ="true"
-          @keyup="updateContent('content', 'elParagraph')"
-          ref="elParagraph"
+          @keyup="updateContent('copyright', 'elCopyright')"
+          ref="elCopyright"
           class="editableTxt"
           :style="paramsForRender.data.style"
-        >{{content}}</p>
+        >{{copyright}}</p>
         <p
           v-else
           contenteditable ="false"
           :style="paramsForRender.data.style"
-          ><i class="fa fa-copyright" aria-hidden="true"></i>{{ paramsForRender.data.content.text }}</p>
+          ><i class="fa fa-copyright" aria-hidden="true"></i>{{ paramsForRender.data.content.text.copyright }}</p>
       </div>
       <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
     </div>
@@ -72,13 +96,17 @@
       return {
         panelVisible: false,
         isEditable:false,
-        content:null,
+        copyright:null,
+        email:null,
+        phone:null
       }
     },
     methods: {
       makeContentEditable(){
         this.isEditable = !this.isEditable;
-        this.content = this.paramsForRender.data.content.text;
+        this.copyright = this.paramsForRender.data.content.text.copyright;
+         this.email = this.paramsForRender.data.content.text.email;
+          this.phone = this.paramsForRender.data.content.text.phone;
       },
       togglePanel: function () {
         if (!this.panelVisible) this.panelVisible = true;
@@ -88,7 +116,8 @@
       },
       updateContent(context,ref){
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-        cmpEdited.data[context].text = this.$refs[ref].innerText;
+        console.log(cmpEdited.data.text);
+        cmpEdited.data.content.text[context] = this.$refs[ref].innerText;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       },
     }

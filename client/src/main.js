@@ -19,7 +19,7 @@ import locale from 'element-ui/lib/locale'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 Vue.component('vue-draggable-resizable', VueDraggableResizable);
-Vue.use(vueEventCalendar, {locale: 'en'})
+Vue.use(vueEventCalendar, {locale: 'en', color: '#4fc08d'})
 
 
 import Carousel3d from 'vue-carousel-3d';
