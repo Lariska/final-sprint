@@ -88,7 +88,8 @@
       },
       updateContent(context,ref){
         const cmpEdited = JSON.parse(JSON.stringify(this.paramsForRender));
-        cmpEdited.data[context].text = this.$refs[ref].innerText;
+        console.log("got here update content",cmpEdited.data.content.text);
+        cmpEdited.data.content.text[context] = this.$refs[ref].innerText;
         this.$store.dispatch('editCmp', { cmp: cmpEdited} );
       },
     }
@@ -148,6 +149,7 @@
     position: absolute;
     bottom: 0;
     left: 60px;
+    /*z-index: 1; */
   }
 
   .bounce-enter-active {

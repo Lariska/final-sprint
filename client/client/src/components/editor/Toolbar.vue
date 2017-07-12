@@ -1,5 +1,5 @@
 <template>
-  <section v-if="myPanelVisible">
+  <!--<section v-if="myPanelVisible">-->
     <vue-draggable-resizable
       class="editor"
       :minw="380"
@@ -66,7 +66,7 @@
       </el-button-group>
 
     </vue-draggable-resizable>
-  </section>
+  <!--</section>-->
 </template>
 
 <script>
