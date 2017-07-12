@@ -25,41 +25,40 @@
       </image-popup>
 
       <el-button-group>
-        <!--<el-button type="primary" icon="delete" size="small"></el-button>-->
-        <el-tooltip class="item" effect="dark" content="Edit" placement="top">
+        <el-tooltip class="item" effect="light" content="Edit" placement="top">
           <el-button type="primary" icon="edit" size="small" @click.stop="toggleContentEditable"></el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Change image" placement="top">
+        <el-tooltip class="item" effect="light" content="Change image" placement="top">
           <el-button type="primary" icon="picture" size="small" v-if="isHeader"
                      @click.stop="imagePopupVisible = !imagePopupVisible"></el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Align left" placement="top">
+        <el-tooltip class="item" effect="light" content="Align left" placement="top">
           <el-button type="primary" size="small" @click.stop="alignChange('left')">
             <i class="fa fa-align-left" aria-hidden="true"></i>
           </el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Align center" placement="top">
+        <el-tooltip class="item" effect="light" content="Align center" placement="top">
           <el-button type="primary" size="small" @click.stop="alignChange('center')">
             <i class="fa fa-align-center" aria-hidden="true"></i>
           </el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Align right" placement="top">
+        <el-tooltip class="item" effect="light" content="Align right" placement="top">
           <el-button type="primary" size="small" @click.stop="alignChange('right')">
             <i class="fa fa-align-right" aria-hidden="true"></i>
           </el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Font size" placement="top">
+        <el-tooltip class="item" effect="light" content="Font size" placement="top">
           <el-button type="primary" size="small" @click.stop="toggleFontPanel">
             <i class="fa fa-font" aria-hidden="true"></i>
           </el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Text Color" placement="top">
+        <el-tooltip class="item" effect="light" content="Text Color" placement="top">
           <el-color-picker v-model="color" @change="colorChange" class="clrPic"></el-color-picker>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Background Color" placement="top">
+        <el-tooltip class="item" effect="light" content="Background Color" placement="top">
           <el-color-picker v-model="bgcolor" @change="bgColorChange" class="clrPic"></el-color-picker>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Close panel" placement="top">
+        <el-tooltip class="item" effect="light" content="Close panel" placement="top">
           <el-button type="success" icon="circle-cross" @click.stop="closePanel" size="small"></el-button>
         </el-tooltip>
         <el-button type="gray" icon="more" size="small"></el-button>
