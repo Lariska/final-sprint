@@ -27,7 +27,6 @@
 
   .container {
     position: relative;
-    border: 1px solid #c1e2b3;
     height: 300px;
   }
   @media (max-width: 450px) {
@@ -44,6 +43,9 @@
       width: 70%;
       display: flex;
       flex-direction: column;
+    }
+    .smaller-scope-text {
+      margin-top: 0;
     }
   }
 
