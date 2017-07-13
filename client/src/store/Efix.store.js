@@ -19,6 +19,7 @@ const state = {
   _id: '',
   components: [],
   logos: [],
+  images: []
   // events: [{
   //       date: '2017/7/8',
   //       title: 'Foo',
@@ -35,6 +36,9 @@ const getters = {
   },
   logos: state => {
     return state.logos
+  },
+  images: state => {
+    return state.images
   },
   componentById: state =>
     id => state.components.find( component => component.id === id )
@@ -173,8 +177,6 @@ const actions = {
         this.errors.push(e)
       })
   }
-
-
   //Map actions
 };
 

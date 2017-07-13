@@ -1,7 +1,5 @@
 <template>
   <section>
-
-
     <transition name="bounce">
       <toolbar
         class="toolbar"
@@ -11,30 +9,38 @@
         @closePanel="closePanel"
         :paramsForRender="paramsForRender"
         @editContent = "makeContentEditable"
+        :dataType="dataType"
       ></toolbar>
     </transition>
 
     <div class="container" :style="paramsForRender.data.style">
       <edit-btn class="editBtn" @click.native="togglePanel"></edit-btn>
-      <h2
-        v-if="isEditable"
-        :style="paramsForRender.data.title.style"
-        contenteditable ="true"
-        @keyup="updateContent('title', 'elHeader')"
-        ref="elHeader"
-        class="editableTxt">{{title}}</h2>
-      <h2 v-else
-      :style="paramsForRender.data.title.style">
-        {{ paramsForRender.data.title.text }}</h2>
-      <p
-        v-if="isEditable"
-        contenteditable ="true"
-        @keyup="updateContent('content', 'elContent')"
-        ref="elContent"
-        class="editableTxt" >{{content}}</p>
-      <p v-else :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
-      <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
+      <div class="img-content">
+        <img src="../../../static/gif.jpg" alt="">
+      </div>
+      <div class="text-content">
+        <h2
+          v-if="isEditable"
+          :style="paramsForRender.data.title.style"
+          contenteditable ="true"
+          @keyup="updateContent('title', 'elHeader')"
+          ref="elHeader"
+          class="editableTxt">{{title}}</h2>
+        <h2 v-else
+            :style="paramsForRender.data.title.style">
+          {{ paramsForRender.data.title.text }}</h2>
+        <p
+          v-if="isEditable"
+          contenteditable ="true"
+          @keyup="updateContent('content', 'elContent')"
+          ref="elContent"
+          class="editableTxt" >{{content}}</p>
+        <p v-else :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
+
+      </div>
+
     </div>
+    <close-btn class="closeBtn" :cmp="paramsForRender"></close-btn>
   </section>
 </template>
 <script>
@@ -55,7 +61,8 @@
         panelVisible: false,
         isEditable:false,
         content:null,
-        title:null
+        title:null,
+        dataType: null
       }
     },
     methods: {
@@ -89,7 +96,17 @@
     /*position: relative;*/
     border: 1px solid #d0e2cc;
     height: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
   }
+
+  /*.img-content {*/
+    /*width: 300px;*/
+    /*height: auto;*/
+  /*}*/
+
 
   .closeBtn {
     position: absolute;
