@@ -2,9 +2,9 @@
   <section>
   <efix-header></efix-header>
 
-  <div class="button">
-    <router-link to ="/web-page"><el-button :plain="true" type="info">Create Your Website</el-button></router-link>
-  </div>
+    <div class="button">
+      <router-link to ="/web-page"><el-button :plain="true" type="info">Create Your Website</el-button></router-link>
+    </div>
 
   <efix-carusella></efix-carusella>
   <efix-about></efix-about>

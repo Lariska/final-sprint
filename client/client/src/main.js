@@ -28,6 +28,11 @@ import VueImg from 'v-img';
 
 import * as VueGoogleMaps from 'vue2-google-maps';
 
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
+
+// Vue.use(VueRouter)
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyCc_X_TBp3vs4y4oWiEcRrHpwilGYJWNEY',

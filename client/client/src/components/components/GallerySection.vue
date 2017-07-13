@@ -70,6 +70,9 @@
   section {
     position: relative;
     margin-bottom: 25px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
   .gallery {
     display: flex;

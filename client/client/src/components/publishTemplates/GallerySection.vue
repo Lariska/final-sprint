@@ -36,6 +36,8 @@
 <style scoped>
   .gallery {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .gallery div {
@@ -44,7 +46,6 @@
 
   img {
     display: flex;
-    justify-content: center;
     flex-shrink: 0;
     width: 100%;
     height: 100%;
