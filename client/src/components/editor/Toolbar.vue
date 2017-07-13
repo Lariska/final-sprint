@@ -20,6 +20,7 @@
       <image-popup
         v-if="imagePopupVisible"
         @selectImg="changeImg"
+        :dataType="dataType"
       >
 
       </image-popup>
@@ -86,16 +87,14 @@
         fontPanelVisible: false,
         imagePopupVisible: false,
         logos: [],
-        imgBtnVisible : false
+        imgBtnVisible : true,
+        dataType : null
       }
     },
     created: function () {
       this.logos = this.$store.getters.logos;
-      this.imgBtnVisible = (this.paramsForRender.type === 'header-section') ||
-        (this.paramsForRender.type === 'footer-section');
-      this.imgBtnVisible
-
-    },
+      this.dataType = (this.paramsForRender.type === 'header-section' || this.paramsForRender.type === 'footer-section')? 'logos':'images'
+      },
     methods: {
       closePanel: function () {
         this.myPanelVisible = false;
@@ -146,7 +145,7 @@
 
   section {
     position: relative;
-    height: 100%;
+    /*height: 100%;*/
   }
 
   .el-button-group {

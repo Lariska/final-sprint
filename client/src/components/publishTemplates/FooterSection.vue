@@ -4,19 +4,17 @@
   >
     <div class="container">
       <div class="contacts">
-        <span class="email">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <div class="email">
          <p
           :style="paramsForRender.data.style"
-          >{{ paramsForRender.data.content.text.email }}</p>
-        </span>
-        <br><br>
-        <span class="tel">
-          <i class="fa fa-phone" aria-hidden="true"></i>
+          ><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ paramsForRender.data.content.text.email }}</p>
+        </div>
+        <div class="tel">
           <p
           :style="paramsForRender.data.style"
-          >{{ paramsForRender.data.content.text.phone }}</p>
-        </span>
+          >          <i class="fa fa-phone" aria-hidden="true"></i>
+            {{ paramsForRender.data.content.text.phone }}</p>
+        </div>
       </div>
       <div class="logo">
         <img :src="'../../../' + paramsForRender.data.content.img" alt="">
@@ -40,38 +38,7 @@
 </script>
 
 <style scoped>
-  /*section {
-    position: relative;
-    padding: 20px;
-  }*/
-
-  /*.footer {
-    background-color: #ccc;
-    height: 60px;
-  }*/
-
-  /*.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }*/
-
-  /*.copyright, .logo, .contacts{
-    width: 33%;
-  }
-
-  i {
-    margin-right: 3px;
-  }
-
-  span {
-    margin-right: 10px;
-  }
-
-  .email {
-    margin-bottom: 10px;
-  }*/
-    section {
+  section {
     position: relative;
     padding: 20px;
   }
@@ -93,14 +60,20 @@
   }
 
   i {
-    margin-right: 3px;
+    margin-right: 8px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
   }
 
   span {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
   }
 
-  .email {
-    margin-bottom: 10px;
+  .tel {
+    margin-top: 10px;
   }
+
 </style>

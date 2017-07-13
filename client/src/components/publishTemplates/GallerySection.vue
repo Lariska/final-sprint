@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="gallery" id="gallery">
-      <div v-for="(i, index) in getImages" :key="i" :id="index">
+      <div class="gal" v-for="(i, index) in getImages" :key="i" :id="index">
         <img v-img:group :src="i">
         <!--<i @click="dialogVisible = true" v-if="getActiveImage==index" class="el-icon-edit"></i>-->
         <!--<i @click="deleteActiveImage" v-if="getActiveImage==index" class="el-icon-delete"></i>-->
@@ -48,5 +48,10 @@
     flex-shrink: 0;
     width: 100%;
     height: 100%;
+  }
+  .gal{
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
 </style>

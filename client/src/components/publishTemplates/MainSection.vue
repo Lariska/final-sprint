@@ -3,7 +3,7 @@
     <div class="container" :style="paramsForRender.data.style">
       <div class="text-container">
         <div class="smaller-scope-text">
-          <h2
+          <h2 class="h2"
           :style="paramsForRender.data.title.style">
             {{ paramsForRender.data.title.text }}</h2>
           <p :style="paramsForRender.data.content.style">{{ paramsForRender.data.content.text }}</p>
@@ -20,11 +20,9 @@
   }
 </script>
 <style scoped>
-
   section {
     position: relative;
   }
-
   .container {
     position: relative;
     height: 300px;
@@ -39,16 +37,19 @@
       display: flex;
       justify-content: center;
     }
-    .smaller-scope-text{
+    .smaller-scope-text {
       width: 70%;
       display: flex;
       flex-direction: column;
     }
-    h2 {
-     padding-top: 20px;
+
+    h2.smaller-scope-text {
+     margin: 0;
     }
   }
-
+  .h2{
+    margin: 0;
+  }
 </style>
 
 

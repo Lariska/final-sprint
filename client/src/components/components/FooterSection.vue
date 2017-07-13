@@ -21,8 +21,7 @@
         <p>Test</p>
       </div>-->
       <div class="contacts">
-        <span class="email">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <div class="email">
           <p
           v-if="isEditable"
           contenteditable ="true"
@@ -35,11 +34,9 @@
           v-else
           contenteditable ="false"
           :style="paramsForRender.data.style"
-          >{{ paramsForRender.data.content.text.email }}</p>
-        </span>
-        <br><br>
-        <span class="tel">
-          <i class="fa fa-phone" aria-hidden="true"></i>
+          ><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ paramsForRender.data.content.text.email }}</p>
+        </div>
+        <div class="tel">
           <p
           v-if="isEditable"
           contenteditable ="true"
@@ -47,13 +44,14 @@
           ref="elPhone"
           class="editableTxt"
           :style="paramsForRender.data.style"
-        >{{phone}}</p>
+        >
+            {{phone}}</p>
         <p
           v-else
           contenteditable ="false"
           :style="paramsForRender.data.style"
-          >{{ paramsForRender.data.content.text.phone }}</p>
-        </span>
+          ><i class="fa fa-phone" aria-hidden="true"></i>{{ paramsForRender.data.content.text.phone }}</p>
+        </div>
       </div>
       <div class="logo">
         <img :src="'../../../' + paramsForRender.data.content.img" alt="">
@@ -147,15 +145,20 @@
   }
 
   i {
-    margin-right: 3px;
+    margin-right: 8px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
   }
 
   span {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
   }
 
-  .email {
-    margin-bottom: 10px;
+  .tel {
+    margin-top: 10px;
   }
 
   .closeBtn {
