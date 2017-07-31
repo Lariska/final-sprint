@@ -61,6 +61,8 @@ const mutations = {
   addCmp(state, res) {
     state._id = res._id;
     state.components = res.components;
+    // const cmpObj = efixService.buildCmpObj(res);
+    // console.log("Trying to build a local temp cmp: " + res);
   },
   // Gallery mutations
   setActiveImage (state, params) {

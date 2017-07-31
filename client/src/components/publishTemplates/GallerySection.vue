@@ -27,7 +27,8 @@
     computed: {
         getImages: function () {
             var id = this.$vnode.data.attrs.id;
-            return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.images;
+            return this.paramsForRender.data.images;
+            // return this.$store.getters.components.filter(function(data){return data.id==id})[0].data.images;
         }
     }
   }

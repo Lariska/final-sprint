@@ -7,10 +7,23 @@
     <div class="container">
       <div v-if="this.$store.state.efix.components.length > 0" class="buttons">
         <status-buttons class="publish-buttons"
-        @publish="switchToPublishMode"></status-buttons>
+        @publish="switchToPublishMode"
+        @displayModal="showModal=true"></status-buttons>
       </div>
       <div class="choice">
-        <element-choice @selectedElement="selectElement"></element-choice>
+         <!-- <element-choice @selectedElement="selectElement"></element-choice>  -->
+    <!-- use the modal component, pass in the prop -->
+        <efix-component-modal 
+        v-if="showModal" 
+        @close="showModal = false"
+        @addCmp="selectElement"
+
+        >
+          <!--
+            you can use custom content here to overwrite
+            default content
+          -->
+        </efix-component-modal>
 
         <el-card v-if="this.$store.state.efix.components.length > 0" class="box-card" body-style="width:100%">
 
@@ -39,17 +52,20 @@ import DateSection from './components/DateSection'
 import TableSection from './components/TableSection'
 import PlaceSection from './components/PlaceSection'
 
+
+
 import EfixHeader from './EfixHeader';
 import EfixFooter from './EfixFooter';
 
-import ElementChoice from './ElementChoice'
 import { EFIX_CHOSE_ELEMENT, ADD_COMPONENT } from '../store/Efix.store'
 import EditorPanel from './EditorPanel'
-import StatusButtons from './StatusButtons';
+import StatusButtons from './StatusButtons'
+
+import EfixComponentModal from './EfixComponentModal'
+
 export default {
   name: 'web-page',
   components: {
-    ElementChoice,
     FooterSection,
     // NavBarSection,
     MainSection,
@@ -62,12 +78,13 @@ export default {
     PlaceSection,
     'efix-header': EfixHeader,
     'efix-footer': EfixFooter,
-
+    EfixComponentModal,
   },
   data() {
     return {
       sectionCount: 0,
-      userComponent: []
+      userComponent: [],
+      showModal: false,
     }
   },
   // computed: {

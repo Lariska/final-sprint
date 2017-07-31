@@ -31,8 +31,8 @@ html{
   }
   .main-nav {
     display: flex;
-    justify-content: right;
-    align-content: right;
+    justify-content: left;
+    /* align-content: right; */
     background-color: white;
     padding: 0;
     margin: 0;

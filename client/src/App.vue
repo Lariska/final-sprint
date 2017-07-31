@@ -5,9 +5,16 @@
 </template>
 
 <script>
-
 export default {
-  name: 'app'
+  name: 'app',
+  // components: {
+    
+  //   },
+  // data() {
+  //   return{
+      
+  //   }
+  // }
 }
 </script>
 
