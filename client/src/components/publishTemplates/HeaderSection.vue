@@ -13,7 +13,8 @@
             {{ paramsForRender.data.content.text }}
           </p>
         </div>
-      </div> 
+      </div>
+       <div></div>
     </div>
   </section>
 </template>
@@ -55,7 +56,7 @@
   
   .head {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   
 @media (max-width: 450px) {
