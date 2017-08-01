@@ -20,8 +20,8 @@ export default {
 
 <style>
 #app {
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  font-family: fantasy;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+   font-family: fantasy; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
