@@ -73,6 +73,7 @@
   }
   .gallery {
     display: flex;
+    justify-content: center;
   }
 
   .gallery div {
