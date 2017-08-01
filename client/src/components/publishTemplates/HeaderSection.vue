@@ -14,7 +14,7 @@
           </p>
         </div>
       </div>
-       <div></div>
+       <!-- <div></div> -->
     </div>
   </section>
 </template>
@@ -52,11 +52,13 @@
   .logo {
     width: 80px;
     height: 60px;
+    margin: 0 150px 0 30px;
   }
   
   .head {
     display: flex;
-    justify-content: space-between;
+    align-content: center;
+    justify-content: flex-start;
   }
   
 @media (max-width: 450px) {

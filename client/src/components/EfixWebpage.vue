@@ -5,9 +5,12 @@
     </efix-header>
 
     <div class="container">
-      <status-buttons class="publish-buttons"
-      @publish="switchToPublishMode"
-      @displayModal="showModal=true"></status-buttons>
+      <!--v-if="this.$store.state.efix.components.length > 0"  -->
+      <div  class="buttons">
+        <status-buttons class="publish-buttons"
+        @publish="switchToPublishMode"
+        @displayModal="showModal=true"></status-buttons>
+      </div>
       <div class="choice">
          <!-- <element-choice @selectedElement="selectElement"></element-choice>  -->
     <!-- use the modal component, pass in the prop -->

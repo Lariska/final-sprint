@@ -56,7 +56,7 @@ export default {
     }
   }
   .cal-wrapper{
-    background-color: black;
+    /* background-color: #FFFFFF; */
   }
  /*.date-num:hover{
   cursor:pointer;
