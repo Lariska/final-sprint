@@ -15,9 +15,9 @@
 
     <div class="container" :style="paramsForRender.data.style">
       <edit-btn class="editBtn" @click.native="togglePanel"></edit-btn>
-      <div class="img-content">
+      <!-- <div class="img-content">
         <img src="../../../static/gif.jpg" alt="">
-      </div>
+      </div> -->
       <div class="text-content">
         <h2
           v-if="isEditable"
