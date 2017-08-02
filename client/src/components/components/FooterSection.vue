@@ -188,6 +188,12 @@
   .bounce-leave-active {
     animation: bounce-in .5s reverse;
   }
+   @media (max-width: 355px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
   @keyframes bounce-in {
     0% {
       transform: scale(0);

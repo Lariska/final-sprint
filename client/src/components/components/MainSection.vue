@@ -94,12 +94,14 @@
 
   .container {
     /*position: relative;*/
-    border: 1px solid #d0e2cc;
+    /* border: 1px solid #d0e2cc;
     height: 350px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 50px; */
+    position: relative;
+    height: 300px;
   }
 
   /*.img-content {*/

@@ -75,5 +75,11 @@
   .tel {
     margin-top: 10px;
   }
+  @media (max-width: 355px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
 </style>

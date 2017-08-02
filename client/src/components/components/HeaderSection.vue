@@ -130,8 +130,8 @@
   }
 
   .logo {
-    width: 80px;
-    height: 60px;
+    /* width: 80px;
+    height: 60px; */
     margin: 0 150px 0 30px;
   }
 

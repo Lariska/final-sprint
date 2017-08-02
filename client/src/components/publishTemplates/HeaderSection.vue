@@ -34,6 +34,9 @@
   section {
     position: relative;
   }
+  h2{
+    text-align: left;
+  }
 
   .header {
     background-color: #CED3DC;
@@ -50,8 +53,8 @@
   }
 
   .logo {
-    width: 80px;
-    height: 60px;
+    /* width: 80px;
+    height: 60px; */
     margin: 0 150px 0 30px;
   }
   
@@ -77,12 +80,15 @@
     display: flex;
     justify-content: center;
   }
+  .logo{
+    margin:0;
+  }
   img{
     margin-right: 0;
   }
   .head{
     display:flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 

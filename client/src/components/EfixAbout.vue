@@ -71,7 +71,7 @@ export default {
     }
     .map{
         /*height: 70%;*/
-        width: 120%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -79,4 +79,19 @@ export default {
     .links{
         margin-top: 70px;
     }
+    @media (max-width: 570px) {
+        section{
+            display: flex;
+            justify-content: center;
+        }
+        .about{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        li{
+            min-width:100%;
+            border:none;
+        }   
+       }
 </style>
